@@ -3,37 +3,14 @@
 #
 
 source ~/.git-prompt.sh
-
-####------------ EXPORTS ------------####
-export NNN_OPTS="H" 
-export EDITOR='lvim' 
-export VISUAL='lvim'
-
+source ~/.bashrc_v
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 [[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
 
-####------------ PROMPT ------------####o
-#colors:
-BLACK="\e[00;30m"
-DARY_GRAY="\e[01;30m"
-RED="\e[00;31m"
-BRIGHT_RED="\e[01;31m"
-GREEN="\e[00;32m"
-BRIGHT_GREEN="\e[01;32m"
-BROWN="\e[00;33m"
-YELLOW="\e[01;33m"
-BLUE="\e[00;34m"
-BRIGHT_BLUE="\e[01;34m"
-PURPLE="\e[00;35m"
-LIGHT_PURPLE="\e[01;35m"
-CYAN="\e[00;36m"
-BRIGHT_CYAN="\e[01;36m"
-LIGHT_GRAY="\e[00;37m"
-WHITE="\e[01;37m"
-ENDCOLOR="\e[m"
+####------------ PROMPT ------------####
 
 function parse_git_status {
   STATUS="$(git status 2> /dev/null)"
@@ -59,10 +36,12 @@ parse_git_branch() {
   fi
 }
 
-# PS1="${WHITE}[${PURPLE}\u${WHITE} ${CYAN} \w${YELLOW}\`__git_ps1 ' ( %s)'\`${WHITE}]${ENDCOLOR}  "
-PS1="${WHITE}〚${PURPLE} \u${WHITE} ${CYAN} \w${WHITE}〛\`(parse_git_branch)\`${ENDCOLOR} "
+PS1="${WHITE}〚${PURPLE}:\u${WHITE} ${CYAN} :\w${WHITE}〛\`(parse_git_branch)\`${ENDCOLOR} "
 PROMPT_DIRTRIM=2
 
+#--------------------------------------------------------#
+
+####------------ ENDEVAOUROS DEFAULT ------------####
 ShowInstallerIsoInfo() {
     local file=/usr/lib/endeavouros-release
     if [ -r $file ] ; then
@@ -112,7 +91,7 @@ _open_files_for_editing() {
     echo "$FUNCNAME: package 'xdg-utils' or 'exo' is required." >&2
 }
 
-#------------------------------------------------------------
+#--------------------------------------------------------#
 
 ## Aliases for the functions above.
 ## Uncomment an alias if you want to use it.
@@ -129,11 +108,11 @@ alias rr='reboot'
 alias upd='sudo pacman -Syu'
 # alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 # alias pacdiff=eos-pacdiff
-################################################################################
+#--------------------------------------------------------#
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
+####------------ CONDA SETUP ------------####
+## Contents within this block are managed by 'conda init'
 __conda_setup="$('/home/tuki/Soft/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -145,14 +124,11 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
+#--------------------------------------------------------#
 
-##
-## Powerline setup
-##
-# powerline-daemon -q
-# POWERLINE_BASH_CONTINUATION=1
-# POWERLINE_BASH_SELECT=1
-# . /usr/share/powerline/bindings/bash/powerline.sh
-
+####------------ EXPORTS ------------####
 export PATH="/home/tuki/.local/bin:$PATH"
+export NNN_OPTS="H" 
+export EDITOR='lvim' 
+export VISUAL='lvim'
+#--------------------------------------------------------#
