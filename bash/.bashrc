@@ -30,13 +30,13 @@ parse_git_branch() {
   if [ ! "$BRANCH" == "" ] 
   then
       STAT=`parse_git_status`
-      printf "${GREEN}( ${BRANCH}${RED}${STAT}${GREEN}) "
+      printf "${GREEN}( ${BRANCH}${RED}${STAT}${GREEN}) "
     else
       echo ""
   fi
 }
 
-PS1="${WHITE}〚${PURPLE}:\u${WHITE} ${CYAN} :\w${WHITE}〛\`(parse_git_branch)\`${ENDCOLOR} "
+PS1="${WHITE}[${PURPLE} :\u${WHITE} ${CYAN} :\w${WHITE}] \`(parse_git_branch)\`${ENDCOLOR} "
 PROMPT_DIRTRIM=2
 
 #--------------------------------------------------------#
