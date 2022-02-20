@@ -1,0 +1,19 @@
+set $darkgreenmoss_lighter       #81a984
+set $darkgreenmoss_light         #68946c
+set $darkgreenmoss               #4c7450
+set $darkgreenmoss_dark          #416044
+set $darkgreenmoss_darker        #355438
+set $forestgreen                 #006b38ff
+
+set $bg_greenblue_d              #101820
+set $bg                          #0c0c0c
+set $bg_authumn_d                #2f3e46
+set $bd0                         #394f6b
+set $bd1                         #6dffe7
+set $bd_authumn_l                #cad2c5
+
+set $cl_high $bd_authumn_l
+set $cl_indi $darkgreenmoss_dark
+set $cl_back $bg_greenblue_d
+set $cl_fore #00ff00
+set $cl_urge #00ff00

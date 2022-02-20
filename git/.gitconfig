@@ -1,0 +1,5 @@
+[credential]
+	helper = /usr/bin/pass-git-helper
+[user]
+	email = tuky.chyvekshyno@gmail.com
+	name = tukidev
