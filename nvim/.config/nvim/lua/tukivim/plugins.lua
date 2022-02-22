@@ -1,4 +1,4 @@
-
+-- --
 local fn = vim.fn
 
 -- Automatically install packer
@@ -38,6 +38,8 @@ packer.init {
     end,
   },
 }
+
+-- local packer = require("packer")
 
 local plugins = {
     -- Packer can manage itself
@@ -97,11 +99,14 @@ local plugins = {
         requires = 'kyazdani42/nvim-web-devicons'
     },
 
+    -- Indent Line
+    { 'lukas-reineke/indent-blankline.nvim' },
+
     -- Color Schemes
-    { 'EdenEast/nightfox.nvim' },
-    { 'fxn/vim-monochrome' },
-    { 'LunarVim/onedarker.nvim' },
     { 'marko-cerovac/material.nvim' },
+    -- { 'EdenEast/nightfox.nvim' },
+    -- { 'fxn/vim-monochrome' },
+    -- { 'LunarVim/onedarker.nvim' },
     { 'folke/tokyonight.nvim' },
     -- { 'gosukiwi/vim-atom-dark' },
     -- { 'matveyt/vim-modest' },
@@ -117,8 +122,14 @@ local plugins = {
     -- { 'nikolvs/vim-sunbather' },
 }
 
-return packer.startup(function (use)
+return require("packer").startup(function (use)
   for _, plugin in ipairs(plugins) do
     use(plugin)
   end
 end)
+
+
+-- return require('packer').startup(function (use)
+--     use 'wbthomason/packer.nvim'
+--     -- code
+-- end)

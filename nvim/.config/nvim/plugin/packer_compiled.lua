@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -133,11 +138,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
-  },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -184,11 +184,6 @@ _G.packer_plugins = {
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onedarker.nvim"] = {
-    loaded = true,
-    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/onedarker.nvim",
-    url = "https://github.com/LunarVim/onedarker.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -213,11 +208,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["vim-monochrome"] = {
-    loaded = true,
-    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/vim-monochrome",
-    url = "https://github.com/fxn/vim-monochrome"
   },
   ["which-key.nvim"] = {
     loaded = true,
