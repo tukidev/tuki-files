@@ -10,7 +10,9 @@ source ~/.bashrc_v
 
 [[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
 
-####------------ PROMPT ------------####
+##
+####---------------- PROMPT ----------------####
+##
 
 function parse_git_status {
   STATUS="$(git status 2> /dev/null)"
@@ -41,7 +43,10 @@ PROMPT_DIRTRIM=2
 
 #--------------------------------------------------------#
 
-####------------ ENDEVAOUROS DEFAULT ------------####
+
+##
+####---------------- ENDEVAOUROS DEFAULT ----------------####
+##
 ShowInstallerIsoInfo() {
     local file=/usr/lib/endeavouros-release
     if [ -r $file ] ; then
@@ -93,16 +98,19 @@ _open_files_for_editing() {
 
 #--------------------------------------------------------#
 
-## Aliases for the functions above.
-## Uncomment an alias if you want to use it.
-##
 
+##
+####---------------- ALIASES ----------------####
+##
 alias ls='ls --color=auto'
 alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
 alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
 
-alias v='lvim'                   # exec lunarvim with v coomand
+alias v='lvim'                   # exec lunarvim with v command
 alias cl='clear'
+
+alias bconf='v $HOME/.dotty/bash/.bashrc'
+
 alias gg='shutdown now'
 alias rr='reboot'
 alias upd='sudo pacman -Syu'
@@ -111,7 +119,9 @@ alias upd='sudo pacman -Syu'
 #--------------------------------------------------------#
 
 
-####------------ CONDA SETUP ------------####
+##
+####---------------- CONDA SETUP ----------------####
+##
 ## Contents within this block are managed by 'conda init'
 __conda_setup="$('/home/tuki/Soft/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -126,7 +136,9 @@ fi
 unset __conda_setup
 #--------------------------------------------------------#
 
-####------------ EXPORTS ------------####
+##
+####---------------- EXPORTS ----------------####
+##
 export PATH="/home/tuki/.local/bin:$PATH"
 export NNN_OPTS="H" 
 export EDITOR='lvim' 

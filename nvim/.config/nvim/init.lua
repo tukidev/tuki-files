@@ -17,6 +17,8 @@ local configurations = {
     'tukivim.plugin-config.treesitter',
     'tukivim.plugin-config.whichkey',
 
+    -- 'tukivim.lsp'
+
 }
 
 local function require_configs(configs)
