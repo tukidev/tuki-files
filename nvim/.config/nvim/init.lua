@@ -1,4 +1,6 @@
 local configurations = {
+    'tukivim.plugins',
+
     'tukivim.plugin-config.options',
 
     'tukivim.plugin-config.mappings',
@@ -11,6 +13,7 @@ local configurations = {
     'tukivim.plugin-config.comment',
     'tukivim.plugin-config.gitsigns',
     'tukivim.plugin-config.lualine',
+    -- 'tukivim.plugin-config.project',
     'tukivim.plugin-config.mtelescope',
     'tukivim.plugin-config.nvim-tree',
     'tukivim.plugin-config.toggleterm',

@@ -181,10 +181,7 @@ local mappings = {
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
-        p = {
-          "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
-          "Colorscheme with Preview",
-        },
+        p = { "<cmd>Telescope find_project_files<cr>", "Project Files" },
       },
       T = {
         name = "Treesitter",

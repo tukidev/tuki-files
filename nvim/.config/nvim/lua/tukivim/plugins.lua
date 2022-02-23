@@ -53,6 +53,7 @@ local plugins = {
     { 'numToStr/Comment.nvim' },         -- Easily comment stuff
     { 'JoosepAlviste/nvim-ts-context-commentstring' },
     { 'norcalli/nvim-colorizer.lua' },   -- Color view inside Neovim
+    { 'ahmedkhalf/project.nvim' },
 
     -- cmp
     { 'hrsh7th/nvim-cmp' },
@@ -103,11 +104,11 @@ local plugins = {
     { 'lukas-reineke/indent-blankline.nvim' },
 
     -- Color Schemes
-    { 'marko-cerovac/material.nvim' },
+    { 'folke/tokyonight.nvim' },
+    -- { 'marko-cerovac/material.nvim' },
     -- { 'EdenEast/nightfox.nvim' },
     -- { 'fxn/vim-monochrome' },
     -- { 'LunarVim/onedarker.nvim' },
-    { 'folke/tokyonight.nvim' },
     -- { 'gosukiwi/vim-atom-dark' },
     -- { 'matveyt/vim-modest' },
     -- { 'ahmedabdulrahman/aylin.vim' },
@@ -123,9 +124,9 @@ local plugins = {
 }
 
 return require("packer").startup(function (use)
-  for _, plugin in ipairs(plugins) do
-    use(plugin)
-  end
+    for _, plugin in ipairs(plugins) do
+        use(plugin)
+    end
 end)
 
 

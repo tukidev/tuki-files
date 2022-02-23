@@ -134,11 +134,6 @@ _G.packer_plugins = {
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["material.nvim"] = {
-    loaded = true,
-    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/material.nvim",
-    url = "https://github.com/marko-cerovac/material.nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -194,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -222,5 +222,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
