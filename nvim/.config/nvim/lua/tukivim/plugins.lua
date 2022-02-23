@@ -53,7 +53,7 @@ local plugins = {
     { 'numToStr/Comment.nvim' },         -- Easily comment stuff
     { 'JoosepAlviste/nvim-ts-context-commentstring' },
     { 'norcalli/nvim-colorizer.lua' },   -- Color view inside Neovim
-    { 'ahmedkhalf/project.nvim' },
+    { 'ahmedkhalf/project.nvim' },       --
 
     -- cmp
     { 'hrsh7th/nvim-cmp' },
@@ -105,22 +105,12 @@ local plugins = {
 
     -- Color Schemes
     { 'folke/tokyonight.nvim' },
-    -- { 'marko-cerovac/material.nvim' },
-    -- { 'EdenEast/nightfox.nvim' },
-    -- { 'fxn/vim-monochrome' },
-    -- { 'LunarVim/onedarker.nvim' },
-    -- { 'gosukiwi/vim-atom-dark' },
-    -- { 'matveyt/vim-modest' },
-    -- { 'ahmedabdulrahman/aylin.vim' },
-    -- { 'rockerBoo/boo-colorscheme-nvim' },
-    -- { 'rafamadriz/neon' },
-    -- { 'Yagua/nebulous.nvim' },
-    -- { 'catppuccin/nvim' },
-    -- { 'shaeinst/roshnivim' },
-    -- { 'bluz71/vim-moonfly-colors' },
-    -- { 'ackyshake/Spacegray.vim'
-    -- { 'arzg/vim-substrata' },
-    -- { 'nikolvs/vim-sunbather' },
+    { 'EdenEast/nightfox.nvim' },
+    { 'projekt0n/github-nvim-theme' },
+    { 'navarasu/onedark.nvim' },
+    { 'olimorris/onedarkpro.nvim' },
+    { 'rebelot/kanagawa.nvim' },
+    { 'catppuccin/nvim', as = "catppuccin" },
 }
 
 return require("packer").startup(function (use)

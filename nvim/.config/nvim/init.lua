@@ -2,9 +2,10 @@ local configurations = {
     'tukivim.plugins',
 
     'tukivim.plugin-config.options',
-
     'tukivim.plugin-config.mappings',
-    'tukivim.colorschemes.tokyonight',
+
+    -- colorscheme
+    'tukivim.colorschemes.nightfox',
 
     'tukivim.plugin-config.autopairs',
     'tukivim.plugin-config.bufferline',
@@ -19,6 +20,7 @@ local configurations = {
     'tukivim.plugin-config.toggleterm',
     'tukivim.plugin-config.treesitter',
     'tukivim.plugin-config.whichkey',
+    'tukivim.plugin-config.indent-blankline',
 
     -- 'tukivim.lsp'
 
