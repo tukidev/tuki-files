@@ -54,24 +54,27 @@ local plugins = {
     { 'JoosepAlviste/nvim-ts-context-commentstring' },
     { 'norcalli/nvim-colorizer.lua' },   -- Color view inside Neovim
     { 'ahmedkhalf/project.nvim' },       --
+    { 'lukas-reineke/indent-blankline.nvim' },   -- Indent Line
+    { 'folke/trouble.nvim', requires="kyazdani42/nvim-web-devicons" },
+    -- { '' },
 
     -- cmp
     { 'hrsh7th/nvim-cmp' },
-    { 'hrsh7th/cmp-buffer' },            -- buffer completions
-    { 'hrsh7th/cmp-path' },              -- path completions
-    { 'hrsh7th/cmp-cmdline' },           -- cmdline completions
-    { 'saadparwaiz1/cmp_luasnip' },      -- snippet completions
+    { 'hrsh7th/cmp-buffer' },                    -- buffer completions
+    { 'hrsh7th/cmp-path' },                      -- path completions
+    { 'hrsh7th/cmp-cmdline' },                   -- cmdline completions
+    { 'saadparwaiz1/cmp_luasnip' },              -- snippet completions
     { 'hrsh7th/cmp-nvim-lsp' },
-    { 'akinsho/toggleterm.nvim' },       -- built-in terminal
-    { 'folke/which-key.nvim' },          -- keymaps helper
+    { 'akinsho/toggleterm.nvim' },               -- built-in terminal
+    { 'folke/which-key.nvim' },                  -- keymaps helper
 
       -- snippets
-    { 'L3MON4D3/LuaSnip' },              --snippet engine
-    { 'rafamadriz/friendly-snippets' },  -- a bunch of snippets to {
+    { 'L3MON4D3/LuaSnip' },                      -- snippet engine
+    { 'rafamadriz/friendly-snippets' },          -- a bunch of snippets
 
     -- LSP
-    { 'neovim/nvim-lspconfig' },         -- enable LSP
-    { 'williamboman/nvim-lsp-installer' },    -- simple to { language server installer
+    { 'neovim/nvim-lspconfig' },                 -- enable LSP
+    { 'williamboman/nvim-lsp-installer' },       -- simple way to manage language server installer
 
     -- Git
     { 'lewis6991/gitsigns.nvim' },
@@ -99,9 +102,6 @@ local plugins = {
         'akinsho/bufferline.nvim',
         requires = 'kyazdani42/nvim-web-devicons'
     },
-
-    -- Indent Line
-    { 'lukas-reineke/indent-blankline.nvim' },
 
     -- Color Schemes
     { 'folke/tokyonight.nvim' },

@@ -3,6 +3,6 @@ if not status_ok then
   return
 end
 
-require "tukivim.lsp.lsp-installer"
+require("tukivim.lsp.lsp-installer")
 require("tukivim.lsp.handlers").setup()
---require "user.lsp.null-ls"
+-- require("tukivim.lsp.null-ls")

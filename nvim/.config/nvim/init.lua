@@ -5,7 +5,7 @@ local configurations = {
     'tukivim.plugin-config.mappings',
 
     -- colorscheme
-    'tukivim.colorschemes.nightfox',
+    'tukivim.colorschemes.catpuccin',
 
     'tukivim.plugin-config.autopairs',
     'tukivim.plugin-config.bufferline',
@@ -20,13 +20,14 @@ local configurations = {
     'tukivim.plugin-config.toggleterm',
     'tukivim.plugin-config.treesitter',
     'tukivim.plugin-config.whichkey',
+    'tukivim.plugin-config.trouble',
     'tukivim.plugin-config.indent-blankline',
 
-    -- 'tukivim.lsp'
+    'tukivim.lsp'
 
 }
 
-local function require_configs(configs)
+local function require_configs(configs
   for _, config in ipairs(configs) do
     require(config)
   end
