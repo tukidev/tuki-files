@@ -15,27 +15,27 @@ source ~/.bashrc_v
 ##
 
 function parse_git_status {
-  STATUS="$(git status 2> /dev/null)"
+    STATUS="$(git status 2> /dev/null)"
 
-  if [[ $? -ne 0 ]]; then printf ""; return; fi
-  
-  if echo $STATUS | grep -c "renamed:"          &> /dev/null; then printf "[↻]"; else printf ""; fi
-  if echo $STATUS | grep -c "branch is ahead:"  &> /dev/null; then printf "[↥]"; else printf ""; fi
-  if echo $STATUS | grep -c "new file:"         &> /dev/null; then printf "[+]"; else printf ""; fi
-  if echo $STATUS | grep -c "Untracked files:"  &> /dev/null; then printf "[✗]"; else printf ""; fi
-  if echo $STATUS | grep -c "modified:"         &> /dev/null; then printf "[•]"; else printf ""; fi
-  if echo $STATUS | grep -c "deleted"           &> /dev/null; then printf "[-]"; else printf ""; fi
+    if [[ $? -ne 0 ]]; then printf ""; return; fi
+
+    if echo $STATUS | grep -c "renamed:"          &> /dev/null; then printf "[↻]"; else printf ""; fi
+    if echo $STATUS | grep -c "branch is ahead:"  &> /dev/null; then printf "[↥]"; else printf ""; fi
+    if echo $STATUS | grep -c "new file:"         &> /dev/null; then printf "[+]"; else printf ""; fi
+    if echo $STATUS | grep -c "Untracked files:"  &> /dev/null; then printf "[✗]"; else printf ""; fi
+    if echo $STATUS | grep -c "modified:"         &> /dev/null; then printf "[•]"; else printf ""; fi
+    if echo $STATUS | grep -c "deleted"           &> /dev/null; then printf "[-]"; else printf ""; fi
 }
 
 parse_git_branch() {
-  BRANCH=`__git_ps1 "%s"`
-  if [ ! "$BRANCH" == "" ] 
-  then
-      STAT=`parse_git_status`
-      printf "${GREEN}( ${BRANCH}${RED}${STAT}${GREEN}) "
+    BRANCH=`__git_ps1 "%s"`
+    if [ ! "$BRANCH" == "" ] 
+    then
+        STAT=`parse_git_status`
+        printf "${GREEN}( ${BRANCH}${RED}${STAT}${GREEN}) "
     else
-      echo ""
-  fi
+        echo ""
+    fi
 }
 
 PS1="${WHITE}[${PURPLE} :\u${WHITE} ${CYAN} :\w${WHITE}] \`(parse_git_branch)\`${ENDCOLOR} "
@@ -65,12 +65,9 @@ ShowInstallerIsoInfo() {
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-################################################################################
-## Some generally useful functions.
-## Consider uncommenting aliases below to start using these functions.
-##
-## October 2021: removed many obsolete functions. If you still need them, please look at
-## https://github.com/EndeavourOS-archive/EndeavourOS-archiso/raw/master/airootfs/etc/skel/.bashrc
+#######################################
+## Some generally useful functions.  ##
+#######################################
 
 _open_files_for_editing() {
     # Open any given document file(s) for editing (or just viewing).
@@ -109,9 +106,9 @@ alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles exce
 alias ..='cd ..'
 alias v='lvim'                   # exec lunarvim with v command
 alias cl='clear'
-alias cpv='rsync -ah --info=progress2'
+alias cpp='rsync -ah --info=progress2'
 alias tr='mv --force -t ~/.local/share/Trash '
-alias tr='mv --force -t ~/.local/share/Trash '
+alias trcl='rm -rf ~/.local/share/Trash/* '
 
 alias gg='shutdown now'
 alias re='reboot'

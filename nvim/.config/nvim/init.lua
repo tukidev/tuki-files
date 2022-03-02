@@ -27,10 +27,10 @@ local configurations = {
 
 }
 
-local function require_configs(configs
-  for _, config in ipairs(configs) do
-    require(config)
-  end
+local function require_configs(configs)
+    for _, config in ipairs(configs) do
+        require(config)
+    end
 end
 
 require_configs(configurations)
