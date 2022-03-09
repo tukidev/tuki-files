@@ -23,7 +23,8 @@ local configurations = {
     'tukivim.plugin-config.trouble',
     'tukivim.plugin-config.indent-blankline',
 
-    'tukivim.lsp'
+    'tukivim.lsp',
+    'tukivim.plugin-config.null-ls',
 
 }
 

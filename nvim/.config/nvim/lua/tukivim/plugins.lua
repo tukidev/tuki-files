@@ -68,13 +68,16 @@ local plugins = {
     { 'akinsho/toggleterm.nvim' },               -- built-in terminal
     { 'folke/which-key.nvim' },                  -- keymaps helper
 
-      -- snippets
+    -- snippets
     { 'L3MON4D3/LuaSnip' },                      -- snippet engine
     { 'rafamadriz/friendly-snippets' },          -- a bunch of snippets
 
     -- LSP
     { 'neovim/nvim-lspconfig' },                 -- enable LSP
     { 'williamboman/nvim-lsp-installer' },       -- simple way to manage language server installer
+
+    -- NULL-LS
+    { 'jose-elias-alvarez/null-ls.nvim' },       -- null-ls server
 
     -- Git
     { 'lewis6991/gitsigns.nvim' },

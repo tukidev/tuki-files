@@ -22,9 +22,9 @@ function parse_git_status {
     if echo $STATUS | grep -c "renamed:"          &> /dev/null; then printf "[↻]"; else printf ""; fi
     if echo $STATUS | grep -c "branch is ahead:"  &> /dev/null; then printf "[↥]"; else printf ""; fi
     if echo $STATUS | grep -c "new file:"         &> /dev/null; then printf "[+]"; else printf ""; fi
-    if echo $STATUS | grep -c "Untracked files:"  &> /dev/null; then printf "[✗]"; else printf ""; fi
+    if echo $STATUS | grep -c "Untracked files:"  &> /dev/null; then printf "[?]"; else printf ""; fi
     if echo $STATUS | grep -c "modified:"         &> /dev/null; then printf "[•]"; else printf ""; fi
-    if echo $STATUS | grep -c "deleted"           &> /dev/null; then printf "[-]"; else printf ""; fi
+    if echo $STATUS | grep -c "deleted"           &> /dev/null; then printf "[✗]"; else printf ""; fi
 }
 
 parse_git_branch() {
