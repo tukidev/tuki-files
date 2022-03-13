@@ -13,7 +13,7 @@ alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles exce
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias v='lvim'                   # exec lunarvim with v command
+alias v='nvim'                   # exec lunarvim with v command
 alias cl='clear'
 alias cpp='rsync -ah --info=progress2'
 alias tr='mv --force -t ~/.local/share/Trash '
