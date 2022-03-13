@@ -22,10 +22,10 @@ local configurations = {
     'tukivim.plugin-config.whichkey',
     'tukivim.plugin-config.trouble',
     'tukivim.plugin-config.indent-blankline',
+    -- 'tukivim.plugin-config.dim',             -- requires neovim >= 0.7.0
 
-    'tukivim.lsp',
+    'tukivim.plugin-config.lsp',
     'tukivim.plugin-config.null-ls',
-
 }
 
 local function require_configs(configs)

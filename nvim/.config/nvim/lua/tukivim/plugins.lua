@@ -1,4 +1,3 @@
--- --
 local fn = vim.fn
 
 -- Automatically install packer
@@ -106,14 +105,20 @@ local plugins = {
         requires = 'kyazdani42/nvim-web-devicons'
     },
 
+
     -- Color Schemes
     { 'folke/tokyonight.nvim' },
-    { 'EdenEast/nightfox.nvim' },
     { 'projekt0n/github-nvim-theme' },
     { 'navarasu/onedark.nvim' },
     { 'olimorris/onedarkpro.nvim' },
     { 'rebelot/kanagawa.nvim' },
     { 'catppuccin/nvim', as = "catppuccin" },
+    -- { 'EdenEast/nightfox.nvim' },
+
+    -- {
+    --     'NarutoXY/dim.lua',
+    --     requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" }
+    -- },
 }
 
 return require("packer").startup(function (use)

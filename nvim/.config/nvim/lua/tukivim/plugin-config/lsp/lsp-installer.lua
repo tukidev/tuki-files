@@ -7,8 +7,8 @@ end
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require("tukivim.lsp.handlers").on_attach,
-		capabilities = require("tukivim.lsp.handlers").capabilities,
+		on_attach = require("tukivim.plugin-config.lsp.handlers").on_attach,
+		capabilities = require("tukivim.plugin-config.lsp.handlers").capabilities,
 	}
 
 --	 if server.name == "jsonls" then
@@ -17,7 +17,7 @@ lsp_installer.on_server_ready(function(server)
 --	 end
 
 	 if server.name == "sumneko_lua" then
-	 	local sumneko_opts = require("tukivim.lsp.settings.sumneko_lua")
+	 	local sumneko_opts = require("tukivim.plugin-config.lsp.settings.sumneko_lua")
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	 end
 
