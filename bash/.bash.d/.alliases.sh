@@ -17,7 +17,8 @@ alias v='nvim'                   # exec lunarvim with v command
 alias cl='clear'
 alias cpp='rsync -ah --info=progress2'
 alias tr='mv --force -t ~/.local/share/Trash '
-alias trcl='rm -rf ~/.local/share/Trash/* '
+alias trl='ll ~/.local/share/Trash '
+alias trcl='rm -rfv ~/.local/share/Trash/{*,.*} '
 
 alias gg='shutdown now'
 alias re='reboot'
