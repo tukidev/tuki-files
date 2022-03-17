@@ -2,22 +2,11 @@
 -- USER INTERFACE   --
 ---- ---- ---- ---- --
 
----- ---- ---- ---- ----
--- Collect list of UI plugin's
--- AND
--- return that list WITH path
----- ---- ---- ---- ----
-
--- local L = require("tukivim.master.source.loader")
+local U = require("tukivim.master.source.utils")
 local R = require("tukivim.master.res")
 local PATH = R.path.config.ui
 
--- set colorscheme
-require(PATH.colorschemes.p .. ".catpuccin")
+require(PATH.colorschemes.p).set("catpuccin")       -- set colorscheme
 
 -- setup modules
-local view = require(PATH.view.p)
-local tools = require(PATH.tools.p)
-
-view.load()
-tools.load()
+U.req_list(U.path_to_list(PATH.view.p, require(PATH.view.p)))

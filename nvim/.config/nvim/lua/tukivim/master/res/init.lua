@@ -26,16 +26,16 @@ R.path = {
                     p = nil
                 },
             },
+            tools = {
+                n = "tools",
+                p = nil
+            },
         },
         ui = {
             n = "ui",
             p = nil,
             colorschemes = {
                 n = "colorschemes",
-                p = nil
-            },
-            tools = {
-                n = "tools",
                 p = nil
             },
             view = {
@@ -52,13 +52,13 @@ R.path.config.p = R.path.p .. '.' .. R.path.config.n
 
 R.path.config.ide.p = R.path.config.p .. '.' .. R.path.config.ide.n
 R.path.config.ide.cmp.p = R.path.config.ide.p .. '.' .. R.path.config.ide.cmp.n
+R.path.config.ide.tools.p = R.path.config.ide.p .. '.' .. R.path.config.ide.tools.n
 R.path.config.ide.diagnostic.p = R.path.config.ide.p .. '.' .. R.path.config.ide.diagnostic.n
 R.path.config.ide.diagnostic.lsp.p = R.path.config.ide.diagnostic.p .. '.' .. R.path.config.ide.diagnostic.lsp.n
 R.path.config.ide.diagnostic.null_ls.p = R.path.config.ide.diagnostic.p .. '.' .. R.path.config.ide.diagnostic.null_ls.n
 
 R.path.config.ui.p = R.path.config.p .. '.' .. R.path.config.ui.n
 R.path.config.ui.colorschemes.p = R.path.config.ui.p .. '.' .. R.path.config.ui.colorschemes.n
-R.path.config.ui.tools.p = R.path.config.ui.p .. '.' .. R.path.config.ui.tools.n
 R.path.config.ui.view.p = R.path.config.ui.p .. '.' .. R.path.config.ui.view.n
 --#endregion
 

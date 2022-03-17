@@ -19,4 +19,11 @@ function Utils.print_list_of_strings(list)
 end
 
 
+function Utils.req_list(plugins)
+    plugins = plugins or {}
+    for _, it in ipairs(plugins) do
+        pcall(require, it)
+    end
+end
+
 return Utils
