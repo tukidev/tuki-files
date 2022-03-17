@@ -3,12 +3,15 @@ if not status_ok then
 	return
 end
 
+local R = require("tukivim.master.res")
+local lsp_path = R.path.config.ide.diagnostic.lsp.p
+
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require("tukivim.plugin-config.lsp.handlers").on_attach,
-		capabilities = require("tukivim.plugin-config.lsp.handlers").capabilities,
+		on_attach = require(lsp_path .. ".handlers").on_attach,
+		capabilities = require(lsp_path .. ".handlers").capabilities,
 	}
 
 --	 if server.name == "jsonls" then
@@ -16,10 +19,10 @@ lsp_installer.on_server_ready(function(server)
 --	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 --	 end
 
-	 if server.name == "sumneko_lua" then
-	 	local sumneko_opts = require("tukivim.plugin-config.lsp.settings.sumneko_lua")
-	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	 end
+    if server.name == "sumneko_lua" then
+        local sumneko_opts = require(lsp_path .. ".settings.sumneko_lua")
+        opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+    end
 
 	-- This setup() function is exactly the same as lspconfig's setup function.
 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
