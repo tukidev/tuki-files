@@ -10,6 +10,7 @@ source ~/.bash.d/.methods.sh
 ## ---- ---- ---- ---- PS1 ---- ---- ---- ---- ##
 
 PS1="${WHITE}[${PURPLE} :\u${WHITE} ${CYAN} :\w${WHITE}] \`(parse_git_branch)\`${ENDCOLOR} "
+# PS1=" ${WHITE}${PURPLE} :\u${WHITE} ${CYAN} :\w${WHITE} \`(parse_git_branch)\`${ENDCOLOR}\n  "
 
 ## ---- ---- ---- ---- ---- ---- ---- ---- ---- ##
 
