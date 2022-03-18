@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  ["lsp-colors.nvim"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
+    url = "https://github.com/folke/lsp-colors.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -228,6 +233,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,

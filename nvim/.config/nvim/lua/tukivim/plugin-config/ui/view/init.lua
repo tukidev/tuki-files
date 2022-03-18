@@ -13,6 +13,9 @@ local view_plugins = {
     "gitsigns",
     "indent-blankline",
     "colorizer",
+    "lsp-colors",
+    "todo-comments",
+    -- "",
 }
 
 return view_plugins

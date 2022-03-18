@@ -55,6 +55,8 @@ local plugins = {
     { 'ahmedkhalf/project.nvim' },       --
     { 'lukas-reineke/indent-blankline.nvim' },   -- Indent Line
     { 'folke/trouble.nvim', requires="kyazdani42/nvim-web-devicons" },
+    { 'folke/lsp-colors.nvim' },
+    { 'folke/todo-comments.nvim' },
     -- { '' },
 
     -- cmp
