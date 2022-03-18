@@ -7,95 +7,95 @@ local setup = {
         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
         -- No actual key bindings are created
         presets = {
-          operators = false, -- adds help for operators like d, y, ...
-          motions = false, -- adds help for motions
-          text_objects = false, -- help for text objects triggered after entering an operator
-          windows = true, -- default bindings on <c-w>
-          nav = true, -- misc bindings to work with windows
-          z = true, -- bindings for folds, spelling and others prefixed with z
-          g = true, -- bindings for prefixed with g
+            operators = false, -- adds help for operators like d, y, ...
+            motions = false, -- adds help for motions
+            text_objects = false, -- help for text objects triggered after entering an operator
+            windows = true, -- default bindings on <c-w>
+            nav = true, -- misc bindings to work with windows
+            z = true, -- bindings for folds, spelling and others prefixed with z
+            g = true, -- bindings for prefixed with g
         },
         spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
-      },
-      icons = {
+    },
+    icons = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
         separator = "➜", -- symbol used between a key and it's label
         group = "+", -- symbol prepended to a group
-      },
-      window = {
+    },
+    window = {
         border = "rounded", -- none, single, double, shadow
         position = "bottom", -- bottom, top
         margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
         winblend = 0,
-      },
-      layout = {
+    },
+    layout = {
         height = { min = 4, max = 25 }, -- min and max height of the columns
         width = { min = 20, max = 50 }, -- min and max width of the columns
         spacing = 3, -- spacing between columns
         align = "left",
-      },
-      hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-      show_help = true, -- show help message on the command line when the popup is visible
+    },
+    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+    show_help = true, -- show help message on the command line when the popup is visible
 }
 
 local opts = {
-      mode = "n", -- NORMAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
+    mode = "n", -- NORMAL mode
+    prefix = "<leader>",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
 }
 
 local vopts = {
-      mode = "v", -- VISUAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
+    mode = "v", -- VISUAL mode
+    prefix = "<leader>",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
 }
 
     -- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
     -- see https://neovim.io/doc/user/map.html#:map-cmd
 local vmappings = {
-      ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
+    ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
 }
 
 local mappings = {
-      ["w"] = { "<cmd>w!<CR>", "Save" },
-      ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-      ["q"] = { "<cmd>q<CR>", "Quit" },
-      ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
-      ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
-      ["f"] = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find File" },
-      ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-      b = {
+    ["w"] = { "<cmd>w!<CR>", "Save" },
+    ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+    ["q"] = { "<cmd>q<CR>", "Quit" },
+    ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
+    ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
+    ["f"] = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find File" },
+    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+    b = {
         name = "Buffers",
         j = { "<cmd>BufferPick<cr>", "Jump" },
         f = { "<cmd>Telescope buffers<cr>", "Find" },
         b = { "<cmd>b#<cr>", "Previous" },
         w = { "<cmd>BufferWipeout<cr>", "Wipeout" },
         e = {
-          "<cmd>BufferCloseAllButCurrent<cr>",
-          "Close all but current",
+            "<cmd>BufferCloseAllButCurrent<cr>",
+            "Close all but current",
         },
         h = { "<cmd>BufferCloseBuffersLeft<cr>", "Close all to the left" },
         l = {
-          "<cmd>BufferCloseBuffersRight<cr>",
-          "Close all to the right",
+            "<cmd>BufferCloseBuffersRight<cr>",
+            "Close all to the right",
         },
         D = {
-          "<cmd>BufferOrderByDirectory<cr>",
-          "Sort by directory",
+            "<cmd>BufferOrderByDirectory<cr>",
+            "Sort by directory",
         },
         L = {
-          "<cmd>BufferOrderByLanguage<cr>",
-          "Sort by language",
+            "<cmd>BufferOrderByLanguage<cr>",
+            "Sort by language",
         },
-      },
-      p = {
+    },
+    p = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
         i = { "<cmd>PackerInstall<cr>", "Install" },
@@ -103,16 +103,25 @@ local mappings = {
         s = { "<cmd>PackerSync<cr>", "Sync" },
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
-      },
+    },
+    t = {
+        name = "Trouble",
+        t = { "<cmd>Trouble document_diagnostics<cr>", "Document diagnostic" },
+        r = { "<cmd>TroubleRefresh<cr>", "Refresh" },
+        f = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
+        w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace diagnostic" },
+        -- j = { "<esc><cmd>lua require('trouble').next({skip_groups = true, jump = true})<cr>", "Next" },
+        -- k = { "<esc><cmd>lua require('trouble').previous({skip_groups = true, jump = true})<cr>", "Previous" },
+    },
 
-      -- " Available Debug Adapters:
-      -- "   https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/
-      -- " Adapter configuration and installation instructions:
-      -- "   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-      -- " Debug Adapter protocol:
-      -- "   https://microsoft.github.io/debug-adapter-protocol/
-      -- " Debugging
-      g = {
+    -- " Available Debug Adapters:
+    -- "   https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/
+    -- " Adapter configuration and installation instructions:
+    -- "   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+    -- " Debug Adapter protocol:
+    -- "   https://microsoft.github.io/debug-adapter-protocol/
+    -- " Debugging
+    g = {
         name = "Git",
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
@@ -122,23 +131,23 @@ local mappings = {
         R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
         s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
         u = {
-          "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-          "Undo Stage Hunk",
+            "Undo Stage Hunk",
+            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
         },
         o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
         C = {
-          "<cmd>Telescope git_bcommits<cr>",
-          "Checkout commit(for current file)",
+            "<cmd>Telescope git_bcommits<cr>",
+            "Checkout commit(for current file)",
         },
         d = {
-          "<cmd>Gitsigns diffthis HEAD<cr>",
-          "Git Diff",
+            "<cmd>Gitsigns diffthis HEAD<cr>",
+            "Git Diff",
         },
-      },
+    },
 
-      l = {
+    l = {
         name = "LSP",
         -- a = { "<cmd>lua require('lvim.core.telescope').code_actions()<cr>", "Code Action" },
         d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
@@ -165,11 +174,11 @@ local mappings = {
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = {
-          "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-          "Workspace Symbols",
+            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+            "Workspace Symbols",
         },
-      },
-      s = {
+    },
+    s = {
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
@@ -182,11 +191,11 @@ local mappings = {
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         p = { "<cmd>Telescope find_project_files<cr>", "Project Files" },
-      },
-      T = {
+    },
+    T = {
         name = "Treesitter",
         i = { ":TSConfigInfo<cr>", "Info" },
-      },
+    },
 }
 
 keys.setup(setup)
