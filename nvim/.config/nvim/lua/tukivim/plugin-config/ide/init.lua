@@ -2,8 +2,8 @@
 -- IDE --
 ---- ----
 
-local U = require("tukivim.master.source.utils")
-local R = require("tukivim.master.res")
+local U = require("tukivim.com.source.utils")
+local R = require("tukivim.com.res")
 local PATH = R.path.config.ide
 
 -- setup modules

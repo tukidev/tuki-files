@@ -1,15 +1,15 @@
-local R = require("tukivim.master.res")
-local CONFIG_PATH = R.path.config
+local R = require("tukivim.com.res")
+local PATH = R.path
 
 local configurations = {
     'tukivim.plugins',
 
     'tukivim.plugin-config.options',
-    'tukivim.plugin-config.mappings',
+    -- 'tukivim.plugin-config.mappings',
 
-    CONFIG_PATH.ui.p,
-    CONFIG_PATH.ide.p,
-    CONFIG_PATH.opt.p,
+    PATH.config.ui.p,
+    PATH.config.ide.p,
+    PATH.config.opt.p,
 }
 
 local function require_configs(configs)
@@ -18,7 +18,11 @@ local function require_configs(configs)
     end
 end
 
+
+require(PATH.com.defaults.keymap.p).load()       -- setup keymaps
+
+
 require_configs(configurations)
 
-local commands = require("tukivim.master.commands")
+local commands = require("tukivim.com.commands")
 commands.load(commands.defaults)

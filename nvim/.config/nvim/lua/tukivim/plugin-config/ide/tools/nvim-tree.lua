@@ -1,7 +1,7 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 
-local icons = require("tukivim.master.res").icons
+local icons = require("tukivim.com.res").icons
 
 vim.g.nvim_tree_icons = {
   default = icons.objects.file,

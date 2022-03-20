@@ -29,4 +29,4 @@ local mappings = {
 }
 
 require('neoscroll').setup(config)
-require('neoscroll.config').set_mappings(mappings)
+-- require('neoscroll.config').set_mappings(mappings)

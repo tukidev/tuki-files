@@ -4,6 +4,23 @@ local R = {}
 R.path = {
     n = "tukivim",
     p = nil,
+
+    com = {
+        n = "com",
+        p = nil,
+        res = { n = "res", p = nil, },
+        src = { n = "source", p = nil, },
+        defaults = {
+            n = "defaults",
+            p = nil,
+            keymap = {
+                n = "keymaps",
+                p = nil,
+                obj = { n = "obj", p = nil, }
+            },
+        },
+    },
+
     config = {
         n = "plugin-config",
         p = nil,
@@ -52,8 +69,17 @@ R.path = {
 
 --#region set path fields
 R.path.p = R.path.n
-R.path.config.p = R.path.p .. '.' .. R.path.config.n
 
+R.path.com.p = R.path.p .. '.' .. R.path.com.n
+
+R.path.com.res.p = R.path.com.p .. '.' .. R.path.com.res.n
+R.path.com.src.p = R.path.com.p .. '.' .. R.path.com.src.n
+R.path.com.defaults.p = R.path.com.p .. '.' .. R.path.com.defaults.n
+
+R.path.com.defaults.keymap.p = R.path.com.defaults.p .. '.' .. R.path.com.defaults.keymap.n
+R.path.com.defaults.keymap.obj.p = R.path.com.defaults.keymap.p .. '.' .. R.path.com.defaults.keymap.obj.n
+
+R.path.config.p = R.path.p .. '.' .. R.path.config.n
 R.path.config.opt.p = R.path.config.p .. '.' .. R.path.config.opt.n
 
 R.path.config.ide.p = R.path.config.p .. '.' .. R.path.config.ide.n
@@ -116,10 +142,17 @@ R.icons = {
         question_circle_a = "",
         question_circle_b = "",
 
+        warning = '',
+        bug = '',
+        hint = '',
+        hint_o = '',
+        hint_b = '',
+        
         info = "",
         info_circle_a = "",
         info_circle_b = "𥉉",
         info_circle_c = "",
+        info_triangle = "",
 
         plus = "",
         plus_circle_a = "",

@@ -83,7 +83,7 @@ local plugins = {
     -- LSP
     { 'neovim/nvim-lspconfig' },                -- enable LSP
     { 'williamboman/nvim-lsp-installer' },      -- simple way to manage language server installer
-    -- { '' },
+    { 'glepnir/lspsaga.nvim' },                 -- additional LSP tools and methods
 
     { 'jose-elias-alvarez/null-ls.nvim' },      -- null-ls server
 
@@ -96,8 +96,6 @@ local plugins = {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
     },
-
-
 
 
     --- INFO: Color Schemes

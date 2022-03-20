@@ -7,5 +7,6 @@ local R = require("tukivim.master.res")
 local lsp_path = R.path.config.ide.diagnostic.lsp.p
 
 --require additional lsp plugins
-require(lsp_path .. ".lsp-installer")
 require(lsp_path .. ".handlers").setup()
+require(lsp_path .. ".lsp-installer")
+require(lsp_path .. ".saga")

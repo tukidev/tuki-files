@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 
-local icons = require("tukivim.master.res").icons.objects
+local icons = require("tukivim.com.res").icons.objects
 
 gitsigns.setup {
     signs = {
