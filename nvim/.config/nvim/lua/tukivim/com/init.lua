@@ -1,24 +1,51 @@
-local R = {}
-
-local var = {
-    "tukivim.var.wkey",
-    "tukivim.var.gitsigns",
-    "tukivim.var.cmp",
-    "tukivim.var.term",
-    "tukivim.var.telescope",
-    "tukivim.var.ts",
-    "tukivim.var.ntree",
-    "tukivim.var.bufferline",
-    "tukivim.var.autopairs",
-    "tukivim.var.comment",
-    "tukivim.var.lualine",
+local defaults = {
+    settings = nil,
+    cmd = nil,
+    keymaps = nil,
 }
 
-function R.config(config)
-    for _, builtin_path in ipairs(var) do
-        local builtin = require(builtin_path)
-        builtin.config(config)
-    end
-end
 
-return R
+function TVim()
+    local self = {}
+    self.res = require("tukivim.com.res"),              -- default value
+    self.utils = require("tukivim.com.source.utils"),   -- default value
+    self.settings = nil,
+    self.keymaps = nil,
+    self.cmd = nil
+    self.plugins = nil,
+
+
+    ---Loads keymaps of inputs or default keymaps if param is empty 
+    -- @param keymaps : instance of keymaps class with a propriate structure
+    function self.set_keymaps(keymaps)
+        self.keymaps = keymaps or defaults.keymaps      -- TODO: add exception handling
+        self.keymaps.load()
+    end
+
+
+    ---Loads settings of inputs or default settings if param is empty 
+    -- @param settings : instance of settings class with a propriate structure
+    function self.setup_settings(settings)
+        self.settings = settings or defaults.settings   -- TODO: add exception handling
+        self.settings.load()
+    end
+
+
+    ---Loads commands of inputs or default commands if param is empty 
+    -- @param commands : instance of commands class with a propriate structure
+    function self.set_commands(commands)
+        self.cmd = keymaps or defaults.cmd              -- TODO: add exception handling
+        self.cmd.load()
+    end
+
+
+    ---Adds param plugin to plugin's table with index to simplifier access
+    -- @param index : index to plugin's table
+    -- @param plugin : plugin module
+    function self.register_plugin(index, plugin)
+        self.plugins[index] = plugin
+    end
+
+
+    return self
+end

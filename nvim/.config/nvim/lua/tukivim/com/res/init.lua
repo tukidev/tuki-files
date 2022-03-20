@@ -10,14 +10,10 @@ R.path = {
         p = nil,
         res = { n = "res", p = nil, },
         src = { n = "source", p = nil, },
-        defaults = {
-            n = "defaults",
+        keymap = {
+            n = "keymaps",
             p = nil,
-            keymap = {
-                n = "keymaps",
-                p = nil,
-                obj = { n = "obj", p = nil, }
-            },
+            loader = { n = "loader", p = nil, }
         },
     },
 
@@ -74,10 +70,9 @@ R.path.com.p = R.path.p .. '.' .. R.path.com.n
 
 R.path.com.res.p = R.path.com.p .. '.' .. R.path.com.res.n
 R.path.com.src.p = R.path.com.p .. '.' .. R.path.com.src.n
-R.path.com.defaults.p = R.path.com.p .. '.' .. R.path.com.defaults.n
 
-R.path.com.defaults.keymap.p = R.path.com.defaults.p .. '.' .. R.path.com.defaults.keymap.n
-R.path.com.defaults.keymap.obj.p = R.path.com.defaults.keymap.p .. '.' .. R.path.com.defaults.keymap.obj.n
+R.path.com.keymap.p = R.path.com.p .. '.' .. R.path.com.keymap.n
+R.path.com.keymap.loader.p = R.path.com.keymap.p .. '.' .. R.path.com.keymap.loader.n
 
 R.path.config.p = R.path.p .. '.' .. R.path.config.n
 R.path.config.opt.p = R.path.config.p .. '.' .. R.path.config.opt.n

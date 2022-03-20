@@ -6,7 +6,7 @@ function K()
 
     self.leader = nil
 
-    self.defaults = require("tukivim.com.defaults.keymaps.defaults")
+    self.defaults = require("tukivim.com.keymaps.defaults")
     -- self.lsp = require("tukivim.master.defaults.keymappings.lsp")
     -- self.explorer = require("tukivim.master.defaults.keymappings.explorer")
     -- self.wk = require("tukivim.master.defaults.keymappings.wk")

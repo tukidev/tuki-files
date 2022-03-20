@@ -19,7 +19,7 @@ local mode_adapters = {
 }
 
 
-function K(init)
+function Loader(init)
     local self = {}
 
     self.keymaps = {}
@@ -104,4 +104,4 @@ function K(init)
 end
 
 
-return K()
+return Loader()
