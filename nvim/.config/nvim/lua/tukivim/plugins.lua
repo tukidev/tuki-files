@@ -45,49 +45,51 @@ local plugins = {
     { 'wbthomason/packer.nvim' },
 
     -- -- Plugins
-    { 'nvim-lua/completion-nvim' },
-    { 'kyazdani42/nvim-tree.lua' },
     { 'kyazdani42/nvim-web-devicons' },
+    { 'nvim-lua/plenary.nvim' },
+    { 'kyazdani42/nvim-tree.lua' },
+    { 'nvim-telescope/telescope.nvim' },
+    { 'nvim-lualine/lualine.nvim' },
+    { 'akinsho/bufferline.nvim' },
     { 'windwp/nvim-autopairs' },         -- Autopairs, integrates with both cmp and treesitter
     { 'numToStr/Comment.nvim' },         -- Easily comment stuff
     { 'JoosepAlviste/nvim-ts-context-commentstring' },
     { 'norcalli/nvim-colorizer.lua' },   -- Color view inside Neovim
     { 'ahmedkhalf/project.nvim' },       --
     { 'lukas-reineke/indent-blankline.nvim' },   -- Indent Line
-    { 'folke/trouble.nvim', requires="kyazdani42/nvim-web-devicons" },
+    { 'folke/trouble.nvim' },
     { 'folke/lsp-colors.nvim' },
     { 'folke/todo-comments.nvim' },
+    { 'folke/which-key.nvim' },                 -- keymaps helper
+    { 'lewis6991/impatient.nvim' },             -- startup-time optimization (cache)
+    { 'nathom/filetype.nvim' },                 -- startup-time optimization (adds commands)
+    { 'karb94/neoscroll.nvim' },                -- speed smooth scrolling
+    { 'rcarriga/nvim-notify' },                 -- pop-up window that notifies processes status
     -- { '' },
 
     -- cmp
     { 'hrsh7th/nvim-cmp' },
-    { 'hrsh7th/cmp-buffer' },                    -- buffer completions
-    { 'hrsh7th/cmp-path' },                      -- path completions
-    { 'hrsh7th/cmp-cmdline' },                   -- cmdline completions
-    { 'saadparwaiz1/cmp_luasnip' },              -- snippet completions
+    { 'hrsh7th/cmp-buffer' },                   -- buffer completions
+    { 'hrsh7th/cmp-path' },                     -- path completions
+    { 'hrsh7th/cmp-cmdline' },                  -- cmdline completions
+    { 'saadparwaiz1/cmp_luasnip' },             -- snippet completions
     { 'hrsh7th/cmp-nvim-lsp' },
-    { 'akinsho/toggleterm.nvim' },               -- built-in terminal
-    { 'folke/which-key.nvim' },                  -- keymaps helper
+    { 'akinsho/toggleterm.nvim' },              -- built-in terminal
 
     -- snippets
-    { 'L3MON4D3/LuaSnip' },                      -- snippet engine
-    { 'rafamadriz/friendly-snippets' },          -- a bunch of snippets
+    { 'L3MON4D3/LuaSnip' },                     -- snippet engine
+    { 'rafamadriz/friendly-snippets' },         -- a bunch of snippets
 
     -- LSP
-    { 'neovim/nvim-lspconfig' },                 -- enable LSP
-    { 'williamboman/nvim-lsp-installer' },       -- simple way to manage language server installer
+    { 'neovim/nvim-lspconfig' },                -- enable LSP
+    { 'williamboman/nvim-lsp-installer' },      -- simple way to manage language server installer
+    -- { '' },
 
-    -- NULL-LS
-    { 'jose-elias-alvarez/null-ls.nvim' },       -- null-ls server
+    { 'jose-elias-alvarez/null-ls.nvim' },      -- null-ls server
 
     -- Git
     { 'lewis6991/gitsigns.nvim' },
 
-    -- Telescope
-    {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    },
 
     -- Tree-sitter
     {
@@ -95,28 +97,19 @@ local plugins = {
         run = ':TSUpdate',
     },
 
-    -- Lua-line
-    {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    },
-
-    -- Buffer Line
-    {
-        'akinsho/bufferline.nvim',
-        requires = 'kyazdani42/nvim-web-devicons'
-    },
 
 
-    -- Color Schemes
+
+    --- INFO: Color Schemes
     { 'folke/tokyonight.nvim' },
     { 'projekt0n/github-nvim-theme' },
     { 'navarasu/onedark.nvim' },
     { 'olimorris/onedarkpro.nvim' },
     { 'rebelot/kanagawa.nvim' },
     { 'catppuccin/nvim', as = "catppuccin" },
-    -- { 'EdenEast/nightfox.nvim' },
+    { 'EdenEast/nightfox.nvim' },
 
+    --- INFO: plugins for neovim version 0.7.0
     -- {
     --     'NarutoXY/dim.lua',
     --     requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" }
@@ -128,9 +121,3 @@ return require("packer").startup(function (use)
         use(plugin)
     end
 end)
-
-
--- return require('packer').startup(function (use)
---     use 'wbthomason/packer.nvim'
---     -- code
--- end)

@@ -8,6 +8,8 @@ local tools_plugins = {
     "project",
     "toggleterm",
     "whichkey",
+    "neoscroll",
+    "notify",
 }
 
 return tools_plugins

@@ -71,6 +71,7 @@ local mappings = {
     ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
     ["f"] = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find File" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+    ["N"] = { "<cmd>Notifications<CR>", "Notify History" },
     b = {
         name = "Buffers",
         j = { "<cmd>BufferPick<cr>", "Jump" },

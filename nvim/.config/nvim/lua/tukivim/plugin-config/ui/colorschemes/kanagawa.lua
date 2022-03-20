@@ -2,7 +2,7 @@ require('kanagawa').setup({
     undercurl = true,           -- enable undercurls
     commentStyle = "italic",
     functionStyle = "NONE",
-    keywordStyle = "italic",
+    keywordStyle = "NONE",
     statementStyle = "bold",
     typeStyle = "NONE",
     variablebuiltinStyle = "italic",

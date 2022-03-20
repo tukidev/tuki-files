@@ -9,6 +9,7 @@ local configurations = {
 
     CONFIG_PATH.ui.p,
     CONFIG_PATH.ide.p,
+    CONFIG_PATH.opt.p,
 }
 
 local function require_configs(configs)

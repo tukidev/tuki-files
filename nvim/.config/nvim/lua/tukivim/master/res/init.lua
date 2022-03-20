@@ -43,12 +43,18 @@ R.path = {
                 p = nil
             },
         },
+        opt = {
+            n = "opt",
+            p = nil,
+        }
     },
 }
 
 --#region set path fields
 R.path.p = R.path.n
 R.path.config.p = R.path.p .. '.' .. R.path.config.n
+
+R.path.config.opt.p = R.path.config.p .. '.' .. R.path.config.opt.n
 
 R.path.config.ide.p = R.path.config.p .. '.' .. R.path.config.ide.n
 R.path.config.ide.cmp.p = R.path.config.ide.p .. '.' .. R.path.config.ide.cmp.n
