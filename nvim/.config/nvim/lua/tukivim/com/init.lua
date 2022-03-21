@@ -1,18 +1,21 @@
-local defaults = {
-    settings = nil,
-    cmd = nil,
-    keymaps = nil,
-}
+local R = require("tukivim.com.res")
 
+local defaults = {}
+
+defaults.res = R
+defaults.utils    = require(R.path.com.utils.p)
+defaults.settings = require(R.path.com.settings.p)
+defaults.cmd      = require(R.path.com.commands.p)
+defaults.keymaps  = require(R.path.com.keymaps.p)
 
 function TVim()
     local self = {}
-    self.res = require("tukivim.com.res"),              -- default value
-    self.utils = require("tukivim.com.source.utils"),   -- default value
-    self.settings = nil,
-    self.keymaps = nil,
-    self.cmd = nil
-    self.plugins = nil,
+    self.res      = defaults.res
+    self.utils    = defaults.utils
+    self.settings = nil
+    self.keymaps  = nil
+    self.cmd      = nil
+    self.plugins  = nil
 
 
     ---Loads keymaps of inputs or default keymaps if param is empty 

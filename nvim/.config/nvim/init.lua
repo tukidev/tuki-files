@@ -4,8 +4,6 @@ local PATH = R.path
 local configurations = {
     'tukivim.plugins',
 
-    'tukivim.plugin-config.options',
-
     PATH.config.ui.p,
     PATH.config.ide.p,
     PATH.config.opt.p,
@@ -18,6 +16,7 @@ local function require_configs(configs)
 end
 
 
+require(PATH.com.settings.p).load()     -- setup default settings
 require(PATH.com.keymap.p).load()       -- setup keymaps
 
 

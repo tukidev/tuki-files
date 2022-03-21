@@ -38,6 +38,8 @@ local options = {
 
 vim.opt.shortmess:append "c"
 
-for k, v in pairs(options) do
-    vim.opt[k] = v
-end
+-- local SettingsLoader = require("tukivim.com.settings.loader")
+-- SettingsLoader.setup(options)
+-- return SettingsLoader
+
+return require("tukivim.com.settings.loader").setup(options)

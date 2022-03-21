@@ -10,6 +10,11 @@ R.path = {
         p = nil,
         res = { n = "res", p = nil, },
         src = { n = "source", p = nil, },
+        settings = {
+            n = "settings",
+            p = nil,
+            loader = { n = "loader", p = nil, }
+        },
         keymap = {
             n = "keymaps",
             p = nil,
@@ -70,6 +75,9 @@ R.path.com.p = R.path.p .. '.' .. R.path.com.n
 
 R.path.com.res.p = R.path.com.p .. '.' .. R.path.com.res.n
 R.path.com.src.p = R.path.com.p .. '.' .. R.path.com.src.n
+
+R.path.com.settings.p = R.path.com.p .. '.' .. R.path.com.settings.n
+R.path.com.settings.loader.p = R.path.com.settings.p .. '.' .. R.path.com.settings.loader.n
 
 R.path.com.keymap.p = R.path.com.p .. '.' .. R.path.com.keymap.n
 R.path.com.keymap.loader.p = R.path.com.keymap.p .. '.' .. R.path.com.keymap.loader.n
