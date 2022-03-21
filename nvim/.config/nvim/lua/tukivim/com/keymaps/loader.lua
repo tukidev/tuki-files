@@ -25,6 +25,12 @@ function Loader(init)
     self.keymaps = {}
 
 
+    function self.setup(keymaps)
+        self.keymaps = keymaps or {}
+        return self
+    end
+
+
     -- Append key mappings to lunarvim's defaults for a given mode
     -- @param keymaps The table of key mappings containing a list per mode (normal_mode, insert_mode, ..)
     function self.append(keymaps)
@@ -87,6 +93,7 @@ function Loader(init)
         self.load()
     end
 
+
     -- Load key mappings for all provided modes from saved keymaps
     function self.load()
         for mode, mapping in pairs(self.keymaps) do
@@ -94,12 +101,8 @@ function Loader(init)
         end
     end
 
-    function self.setup(keymaps)    -- setter
-        self.keymaps = keymaps or {}
-        return self
-    end
-    self.setup(init)
 
+    self.setup(init)
     return self
 end
 

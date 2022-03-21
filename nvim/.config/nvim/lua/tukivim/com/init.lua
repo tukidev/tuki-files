@@ -1,14 +1,14 @@
 local R = require("tukivim.com.res")
 
 local defaults = {}
-
 defaults.res = R
-defaults.utils    = require(R.path.com.utils.p)
+defaults.utils    = require(R.path.com.src.utils.p)
 defaults.settings = require(R.path.com.settings.p)
 defaults.cmd      = require(R.path.com.commands.p)
 defaults.keymaps  = require(R.path.com.keymaps.p)
 
-function TVim()
+
+function TukiVim()
     local self = {}
     self.res      = defaults.res
     self.utils    = defaults.utils
@@ -20,7 +20,7 @@ function TVim()
 
     ---Loads keymaps of inputs or default keymaps if param is empty 
     -- @param keymaps : instance of keymaps class with a propriate structure
-    function self.set_keymaps(keymaps)
+    function self.setup_keymaps(keymaps)
         self.keymaps = keymaps or defaults.keymaps      -- TODO: add exception handling
         self.keymaps.load()
     end
@@ -36,7 +36,7 @@ function TVim()
 
     ---Loads commands of inputs or default commands if param is empty 
     -- @param commands : instance of commands class with a propriate structure
-    function self.set_commands(commands)
+    function self.setup_commands(commands)
         self.cmd = keymaps or defaults.cmd              -- TODO: add exception handling
         self.cmd.load()
     end
@@ -52,3 +52,6 @@ function TVim()
 
     return self
 end
+
+
+return TukiVim()

@@ -1,7 +1,12 @@
-local R = require("tukivim.com.res")
-local PATH = R.path
+local tukivim = require("tukivim.com")
+tukivim.setup_settings()
+tukivim.setup_keymaps()
 
-local configurations = {
+vim.tukivim = tukivim       -- HACK: builtin own module into vim
+
+
+local PATH = tukivim.res.path
+local configs = {
     'tukivim.plugins',
 
     PATH.config.ui.p,
@@ -9,18 +14,7 @@ local configurations = {
     PATH.config.opt.p,
 }
 
-local function require_configs(configs)
-    for _, config in ipairs(configs) do
-        require(config)
-    end
-end
-
-
-require(PATH.com.settings.p).load()     -- setup default settings
-require(PATH.com.keymap.p).load()       -- setup keymaps
-
-
-require_configs(configurations)
+tukivim.utils.req_list(configs)
 
 local commands = require("tukivim.com.commands")
 commands.load(commands.defaults)

@@ -9,16 +9,24 @@ R.path = {
         n = "com",
         p = nil,
         res = { n = "res", p = nil, },
-        src = { n = "source", p = nil, },
+        src = { 
+            n = "source",
+            p = nil,
+            utils = { n = "utils", p = nil, }
+        },
         settings = {
             n = "settings",
             p = nil,
             loader = { n = "loader", p = nil, }
         },
-        keymap = {
+        keymaps = {
             n = "keymaps",
             p = nil,
             loader = { n = "loader", p = nil, }
+        },
+        commands = {
+            n = "commands",
+            p = nil,
         },
     },
 
@@ -74,13 +82,15 @@ R.path.p = R.path.n
 R.path.com.p = R.path.p .. '.' .. R.path.com.n
 
 R.path.com.res.p = R.path.com.p .. '.' .. R.path.com.res.n
+R.path.com.commands.p = R.path.com.p .. '.' .. R.path.com.commands.n
 R.path.com.src.p = R.path.com.p .. '.' .. R.path.com.src.n
+R.path.com.src.utils.p = R.path.com.src.p .. '.' .. R.path.com.src.utils.n
 
 R.path.com.settings.p = R.path.com.p .. '.' .. R.path.com.settings.n
 R.path.com.settings.loader.p = R.path.com.settings.p .. '.' .. R.path.com.settings.loader.n
 
-R.path.com.keymap.p = R.path.com.p .. '.' .. R.path.com.keymap.n
-R.path.com.keymap.loader.p = R.path.com.keymap.p .. '.' .. R.path.com.keymap.loader.n
+R.path.com.keymaps.p = R.path.com.p .. '.' .. R.path.com.keymaps.n
+R.path.com.keymaps.loader.p = R.path.com.keymaps.p .. '.' .. R.path.com.keymaps.loader.n
 
 R.path.config.p = R.path.p .. '.' .. R.path.config.n
 R.path.config.opt.p = R.path.config.p .. '.' .. R.path.config.opt.n

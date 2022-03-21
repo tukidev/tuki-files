@@ -1,7 +1,7 @@
 local leader_default = ' '
 
 
-function K()
+function KeymapsLoader()
     local self = {}
 
     self.leader = nil
@@ -35,4 +35,4 @@ function K()
     return self
 end
 
-return K()
+return KeymapsLoader()

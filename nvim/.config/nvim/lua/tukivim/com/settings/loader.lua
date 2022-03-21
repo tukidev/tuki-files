@@ -1,10 +1,11 @@
-function Loader(configuration)
+function Loader(init)
     local self = {}
     self.config = {}
 
 
     function self.setup(config)
         self.config = config or {}
+        return self
     end
 
 
@@ -14,13 +15,9 @@ function Loader(configuration)
         end
     end
 
-    self.setup(configuration)
+    self.setup(init)
     return self
 end
 
-local init = {}
-init.setup = function (conf)
-    return Loader(conf)
-end
 
-return init
+return Loader()
