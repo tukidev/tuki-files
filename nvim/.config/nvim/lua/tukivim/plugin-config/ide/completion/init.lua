@@ -3,8 +3,8 @@
 ---- ---- ---- ---- ---- ---- --
 
 local cmp_plugins = {
-    "autopairs",
     "cmp",
+    "autopairs",
     "comment",
 }
 

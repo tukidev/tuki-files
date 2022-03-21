@@ -1,10 +1,5 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
-	return
-end
-
-local R = require("tukivim.master.res")
-local lsp_path = R.path.config.ide.diagnostic.lsp.p
+local lsp_installer = vim.tukivim.register("nvim-lsp-installer")
+local lsp_path = vim.tukivim.res.path.config.ide.diagnostic.lsp.p
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).

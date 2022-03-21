@@ -1,33 +1,24 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-
-local icons = require("tukivim.com.res").icons
-
+local icons = vim.tukivim.res.icons
 vim.g.nvim_tree_icons = {
-  default = icons.objects.file,
-  symlink = icons.folder.symlink,
-  git = {
-    unstaged = icons.git.unstaged,
-    staged = icons.git.staged,
-    unmerged = icons.git.unmerged,
-    renamed = icons.git.renamed,
-    deleted = icons.git.deleted_a,
-    untracked = icons.git.untracked,
-    ignored = icons.git.ignored,
-  },
-  folder = {
-    default = icons.folder.default,
-    open = icons.folder.open,
-    empty = icons.folder.empty,
-    empty_open = icons.folder.empty_open,
+    default = icons.objects.file,
     symlink = icons.folder.symlink,
-  },
+    git = {
+        unstaged = icons.git.unstaged,
+        staged = icons.git.staged,
+        unmerged = icons.git.unmerged,
+        renamed = icons.git.renamed,
+        deleted = icons.git.deleted_a,
+        untracked = icons.git.untracked,
+        ignored = icons.git.ignored,
+    },
+    folder = {
+        default = icons.folder.default,
+        open = icons.folder.open,
+        empty = icons.folder.empty,
+        empty_open = icons.folder.empty_open,
+        symlink = icons.folder.symlink,
+    },
 }
-
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-    return
-end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
@@ -35,8 +26,7 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
-
-nvim_tree.setup {
+local conf = {
     disable_netrw = true,
     hijack_netrw = true,
     open_on_setup = false,
@@ -113,3 +103,5 @@ nvim_tree.setup {
         tree_width = 30,
     },
 }
+
+vim.tukivim.register("nvim-tree", conf)

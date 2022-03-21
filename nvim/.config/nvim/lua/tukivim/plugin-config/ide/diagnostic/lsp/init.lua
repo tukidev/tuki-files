@@ -1,10 +1,6 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-  return
-end
+vim.tukivim.register("lspconfig")
 
-local R = require("tukivim.master.res")
-local lsp_path = R.path.config.ide.diagnostic.lsp.p
+local lsp_path = vim.tukivim.res.path.config.ide.diagnostic.lsp.p
 
 --require additional lsp plugins
 require(lsp_path .. ".handlers").setup()

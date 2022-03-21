@@ -1,19 +1,13 @@
-local status, saga = pcall(require, 'lspsaga')
-if not status then
-    vim.notify("Error while calling plugin: LSP-SAGA", "Error")
-    return
-end
-
-local R = require("tukivim.master.res")
-
+local saga = vim.tukivim.register("lspsaga")
+local icons = vim.tukivim.res.icons
 
 local config = {
     use_saga_diagnostic_sign = true,
-    error_sign = R.icons.indicators.times,
-    warn_sign = R.icons.indicators.warning,
-    hint_sign = R.icons.indicators.hint,
-    infor_sign = R.icons.indicators.info_circle_c,
-    dianostic_header_icon = ' ' .. R.icons.indicators.bug .. ' ',
+    error_sign = icons.indicators.times,
+    warn_sign = icons.indicators.warning,
+    hint_sign = icons.indicators.hint,
+    infor_sign = icons.indicators.info_circle_c,
+    dianostic_header_icon = ' ' .. icons.indicators.bug .. ' ',
     code_action_icon = ' ',
     finder_definition_icon = '  ',
     finder_reference_icon = '  ',
@@ -46,6 +40,5 @@ local config = {
     -- like server_filetype_map = {metals = {'sbt', 'scala'}}
     server_filetype_map = {}
 }
-
 
 saga.init_lsp_saga(config)

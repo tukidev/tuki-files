@@ -1,4 +1,4 @@
-require("todo-comments").setup {
+local conf = {
     signs = true,           -- show icons in the signs column
     sign_priority = 8,      -- sign priority
 
@@ -57,3 +57,5 @@ require("todo-comments").setup {
         -- pattern = [[\b(KEYWORDS)\b]],        -- match without the extra colon. You'll likely get false positives
     },
 }
+
+vim.tukivim.register("todo-comments", conf)

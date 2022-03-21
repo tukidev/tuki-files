@@ -1,4 +1,4 @@
-require('toggleterm').setup{
+vim.tukivim.register("toggleterm", {
     size = 10,
     open_mapping = [[<c-t>]],
     -- on_open = fun(t: Terminal), -- function to run when the terminal opens
@@ -29,4 +29,4 @@ require('toggleterm').setup{
             background = "Normal",
         }
     }
-}
+})

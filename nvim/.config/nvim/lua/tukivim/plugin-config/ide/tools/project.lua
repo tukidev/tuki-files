@@ -1,4 +1,4 @@
-local configuration = {
+local conf = {
     -- Manual mode doesn't automatically change your root directory, so you have
     -- the option to manually do so using `:ProjectRoot` command.
     manual_mode = false,
@@ -33,7 +33,6 @@ local configuration = {
     datapath = vim.fn.stdpath("data"),
 }
 
-local project = require("project_nvim")
+vim.tukivim.register("project_nvim", conf)
 
-project.setup(configuration)
-require("telescope").load_extension("projects")
+-- require("telescope").load_extension("projects")

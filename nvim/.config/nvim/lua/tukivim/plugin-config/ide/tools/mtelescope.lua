@@ -1,13 +1,7 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-    return
-end
-
 local actions = require "telescope.actions"
 
-local telescope_setup = {
+local conf = {
     defaults = {
-
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "smart" },
@@ -95,5 +89,5 @@ local telescope_setup = {
     },
 }
 
-telescope.setup(telescope_setup)
-telescope.load_extension('projects')
+vim.tukivim.register("telescope", conf)
+-- telescope.load_extension('projects')

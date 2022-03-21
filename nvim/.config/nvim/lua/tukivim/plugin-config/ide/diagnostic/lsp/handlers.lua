@@ -1,3 +1,5 @@
+-- TODO:    !!!    REDESIGN TO NEW FORMAT (AS A MODULE)     !!!!
+
 local M = {}
 
 -- TODO: backfill this to template

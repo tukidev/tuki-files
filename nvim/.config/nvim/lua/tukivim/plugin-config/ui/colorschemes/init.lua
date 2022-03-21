@@ -1,5 +1,5 @@
 local scheme_default = "catpuccin"
-local CPATH = require("tukivim.com.res").path.config.ui.colorschemes.p
+local CPATH = vim.tukivim.res.path.config.ui.colorschemes.p
 
 
 function ColorScheme()

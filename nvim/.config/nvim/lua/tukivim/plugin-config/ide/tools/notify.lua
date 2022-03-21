@@ -1,9 +1,4 @@
-local status_ok, notify = pcall(require, "notify")
-if not status_ok then
-    return
-end
-
-notify.setup({
+vim.tukivim.register("notify", {
     stages = "fade",        -- Animation style (see below for details)
     render = "default",     -- Render function for notifications. See notify-render()
     timeout = 4000,         -- Default timeout for notifications
@@ -26,4 +21,4 @@ notify.setup({
     },
 })
 
-vim.notify = notify
+vim.notify = vim.tukivim.plugins["notify"]

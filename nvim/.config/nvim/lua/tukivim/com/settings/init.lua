@@ -34,6 +34,7 @@ local options = {
     guifont = "monospace:h17",               -- the font used in graphical neovim applications
     expandtab = true,                        -- convert tabs to spaces
     smarttab = true,
+    list = true,
 }
 
 vim.opt.shortmess:append "c"

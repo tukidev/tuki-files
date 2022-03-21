@@ -1,11 +1,5 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
-    return
-end
-
-local icons = require("tukivim.com.res").icons.objects
-
-gitsigns.setup {
+local icons = vim.tukivim.res.icons
+local conf = {
     signs = {
         add = {
             hl = "GitSignsAdd",
@@ -80,4 +74,15 @@ gitsigns.setup {
     yadm = {
         enable = false,
     },
+
 }
+
+
+vim.tukivim.register("gitsigns", conf)
+
+
+-- local status_ok, gitsigns = pcall(require, "gitsigns")
+-- if not status_ok then
+--     return
+-- end
+-- gitsigns.setup(conf)

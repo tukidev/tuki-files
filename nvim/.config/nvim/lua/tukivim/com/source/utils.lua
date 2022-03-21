@@ -19,6 +19,16 @@ function Utils.print_list_of_strings(list)
 end
 
 
+function Utils.require_checked(plugin_name, config)
+    local ok, plugin = pcall(require, plugin_name)
+    if not ok then                                  -- TODO: exception handler | notify
+        return
+    end
+    if config then plugin.setup(config) end
+    return plugin
+end
+
+
 function Utils.req_list(plugins)
     plugins = plugins or {}
     for _, it in ipairs(plugins) do

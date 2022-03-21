@@ -1,4 +1,4 @@
-local config = {
+vim.tukivim.register("neoscroll", {
     hide_cursor = true,                 -- Hide cursor while scrolling
     stop_eof = true,                    -- Stop at <EOF> when scrolling downwards
     use_local_scrolloff = false,        -- Use the local scope of scrolloff instead of the global scope
@@ -8,7 +8,7 @@ local config = {
     pre_hook = nil,                     -- Function to run before the scrolling animation starts
     post_hook = nil,                    -- Function to run after the scrolling animation ends
     performance_mode = false,           -- Disable "Performance Mode" on all buffers.
-}
+})
 
 -- local mappings_defaults = {
 --     ['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}},
@@ -22,11 +22,4 @@ local config = {
 --     ['zb']    = {'zb', {'250'}},
 -- }
 
-
-local mappings = {
-    ['<C-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}},
-    ['<C-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}},
-}
-
-require('neoscroll').setup(config)
 -- require('neoscroll.config').set_mappings(mappings)

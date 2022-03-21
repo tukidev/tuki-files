@@ -1,9 +1,4 @@
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
-  return
-end
-
-bufferline.setup {
+local conf = {
     options = {
         numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
         close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -11,9 +6,8 @@ bufferline.setup {
         left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
         middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 
-        -- indicator_icon = "",
         indicator_icon = "▎",           -- NOTE: this plugin is designed with this icon in mind,
-        -- indicator_icon = "▎",
+        -- indicator_icon = "",
         buffer_close_icon = "",
         -- buffer_close_icon = '',
         modified_icon = "●",
@@ -158,3 +152,13 @@ bufferline.setup {
       },
     },
 }
+
+
+vim.tukivim.register("bufferline", conf)
+
+-- local status_ok, bufferline = pcall(require, pname)
+-- if not status_ok then
+--   return
+-- end
+--
+-- bufferline.setup(pconfig)

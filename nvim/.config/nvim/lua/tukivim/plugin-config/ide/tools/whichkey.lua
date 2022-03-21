@@ -1,6 +1,4 @@
-local keys = require("which-key")
-
-local setup = {
+local conf = {
     plugins = {
         marks = true, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -199,6 +197,6 @@ local mappings = {
     },
 }
 
-keys.setup(setup)
-keys.register(mappings, opts)
-keys.register(vmappings, vopts)
+local wk = vim.tukivim.register("which-key", conf)
+wk.register(mappings, opts)
+wk.register(vmappings, vopts)
