@@ -1,4 +1,4 @@
-local icons = vim.tukivim.res.icons
+local icons = vim.tukivim.res.icons.objects
 local conf = {
     signs = {
         add = {

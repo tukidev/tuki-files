@@ -1,35 +1,18 @@
-local generic_opts_any = { noremap = true, silent = true }
+local wk = vim.tukivim.plugins['which-key']         -- WARN: CODE W_plugin_wk : use after plugin is loaded !
 
-local generic_opts = {
-    insert_mode = generic_opts_any,
-    normal_mode = generic_opts_any,
-    visual_mode = generic_opts_any,
-    visual_block_mode = generic_opts_any,
-    command_mode = generic_opts_any,
-    term_mode = { silent = true },
-}
-
-local mode_adapters = {
-    insert_mode = "i",
-    normal_mode = "n",
-    term_mode = "t",
-    visual_mode = "v",
-    visual_block_mode = "x",
-    command_mode = "c",
-}
-
+local defaults = require("tukivim.com.keymaps.loader.defaults")
 
 function Loader(init)
     local self = {}
 
     self.keymaps = {}
+    self.wk_flag = nil      -- Boolean flag of using `which-key` plugin
 
 
     function self.setup(keymaps)
         self.keymaps = keymaps or {}
         return self
     end
-
 
     -- Append key mappings to lunarvim's defaults for a given mode
     -- @param keymaps The table of key mappings containing a list per mode (normal_mode, insert_mode, ..)
@@ -46,7 +29,7 @@ function Loader(init)
     function self.clear(keymaps)
         local default = self.get_defaults()
         for mode, mappings in pairs(keymaps) do
-            local translated_mode = mode_adapters[mode] or mode
+            local translated_mode = defaults.mode_adapters[mode] or mode
             for key, _ in pairs(mappings) do
                 -- some plugins may override default bindings that the user hasn't manually overriden
                 if default[mode][key] ~= nil
@@ -58,12 +41,20 @@ function Loader(init)
         end
     end
 
+
+    ---Set keymaps using `which-key` plugin
+    ---@param keymaps table of keymaps
+    ---@param opts table of options
+    function self.set_keymaps_wk(keymaps, opts)
+        wk.register(keymaps, opts)
+    end
+
     -- Set key mappings individually
     -- @param mode The keymap mode, can be one of the keys of mode_adapters
     -- @param key The key of keymap
     -- @param val Can be form as a mapping or tuple of mapping and user defined opt
     function self.set_keymaps(mode, key, val)
-        local opt = generic_opts[mode] or generic_opts_any
+        local opt = defaults.mode_opts[mode] or defaults.opts
         if type(val) == "table" then
             opt = val[2]
             val = val[1]
@@ -75,11 +66,16 @@ function Loader(init)
         end
     end
 
+
     -- Load key mappings for a given mode
     -- @param mode The keymap mode, can be one of the keys of mode_adapters
     -- @param keymaps The list of key mappings
     function self.load_mode(mode, keymaps)
-        mode = mode_adapters[mode] or mode
+        if self.wk_flag then
+            self.set_keymaps_wk(keymaps, defaults.opts_wk[mode] or defaults.gen_opts_wk(mode))
+        end
+
+        mode = defaults.mode_adapters[mode] or mode
         for map, cmd in pairs(keymaps) do
             self.set_keymaps(mode, map, cmd)
         end
@@ -88,8 +84,9 @@ function Loader(init)
 
     -- Load key mappings for all provided modes
     -- @param keymaps A list of key mappings for each mode
-    function self.load_keymaps(keymaps)
+    function self.load_keymaps(keymaps, wk_flag)
         self.keymaps = keymaps or {}
+        self.wk_flag = wk_flag or false
         self.load()
     end
 

@@ -1,5 +1,6 @@
-local leader_default = ' '
+-- TODO: import `almost ALL` keymaps to `which-key` plugin
 
+local leader_default = ' '
 
 function KeymapsLoader()
     local self = {}
@@ -10,7 +11,6 @@ function KeymapsLoader()
     -- self.lsp = require("tukivim.master.defaults.keymappings.lsp")
     -- self.explorer = require("tukivim.master.defaults.keymappings.explorer")
     -- self.wk = require("tukivim.master.defaults.keymappings.wk")
-
 
     local function load_modules()
         self.defaults.load()
