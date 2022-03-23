@@ -18,4 +18,4 @@ local keymaps = {
 }
 
 
-return keymaps          -- TODO: return loader module
+return require("tukivim.com.keymaps.loader").setup(keymaps)

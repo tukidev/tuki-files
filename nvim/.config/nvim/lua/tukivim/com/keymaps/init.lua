@@ -4,6 +4,8 @@ local leader_default = ' '
 
 function KeymapsLoader()
     local self = {}
+    self.keysmaps = {}
+    self.keymaps_buf = {}
 
     self.leader = nil
 

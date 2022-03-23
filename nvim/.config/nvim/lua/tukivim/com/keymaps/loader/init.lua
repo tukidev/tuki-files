@@ -4,13 +4,13 @@ function Loader(init)
     local self = {}
 
     self.keymaps = {}
-    self.wk_flag = nil      -- Boolean flag of using `which-key` plugin
-
+    self.bufnr = nil        -- A buffer nr to set keymaps
 
     function self.setup(keymaps)
         self.keymaps = keymaps or {}
         return self
     end
+
 
     -- Append key mappings to lunarvim's defaults for a given mode
     -- @param keymaps The table of key mappings containing a list per mode (normal_mode, insert_mode, ..)
@@ -21,6 +21,7 @@ function Loader(init)
             end
         end
     end
+
 
     -- Unsets all keybindings defined in keymaps
     -- @param keymaps The table of key mappings containing a list per mode (normal_mode, insert_mode, ..)
@@ -48,16 +49,26 @@ function Loader(init)
         vim.tukivim.plugins["which-key"].register(keymaps, opts)
     end
 
-    -- Set key mappings individually
-    -- @param mode The keymap mode, can be one of the keys of mode_adapters
-    -- @param key The key of keymap
-    -- @param val Can be form as a mapping or tuple of mapping and user defined opt
-    function self.set_keymaps(mode, key, val)
+
+    -- Get final params to set keymap
+    local function getparams(mode, key, val)
         local opt = defaults.mode_opts[mode] or defaults.opts
         if type(val) == "table" then
             opt = val[2]
             val = val[1]
         end
+        return key, val, opt
+    end
+
+
+    -- Set key mappings individually
+    -- @param mode The keymap mode, can be one of the keys of mode_adapters
+    -- @param key The key of keymap
+    -- @param val Can be form as a mapping or tuple of mapping and user defined opt
+    function self.set_keymaps(mode, key, val)
+        local opt = nil
+        key, val, opt = getparams(mode, key, val)
+
         if val then
             vim.api.nvim_set_keymap(mode, key, val, opt)
         else
@@ -66,34 +77,54 @@ function Loader(init)
     end
 
 
+    -- Set key mappings individually for bufnr
+    -- @param mode The keymap mode, can be one of the keys of mode_adapters
+    -- @param key The key of keymap
+    -- @param val Can be form as a mapping or tuple of mapping and user defined opt
+    function self.set_buf_keymaps(mode, key, val, bufnr)
+        local opt = nil
+        key, val, opt = getparams(mode, key, val)
+
+        if val then
+            vim.api.nvim_buf_get_name(bufnr, mode, key, val, opt)
+        else
+            pcall(vim.api.nvim_buf_del_keymap, bufnr, mode, key)
+        end
+    end
+
+
     -- Load key mappings for a given mode
     -- @param mode The keymap mode, can be one of the keys of mode_adapters
     -- @param keymaps The list of key mappings
-    function self.load_mode(mode, keymaps)
-        if self.wk_flag then
-            self.set_keymaps_wk(keymaps, defaults.opts_wk[mode] or defaults.gen_opts_wk(mode))
+    function self.load_mode(mode, keymaps, bufnr, wk_flag)
+        if wk_flag then
+            self.set_keymaps_wk(
+                keymaps,
+                defaults.opts_wk(defaults.prefix, bufnr)[mode]
+            )
         end
 
+        local f_setkeymap = bufnr and self.set_buf_keymaps or self.set_keymaps  -- chosing the correct function
         mode = defaults.mode_adapters[mode] or mode
         for map, cmd in pairs(keymaps) do
-            self.set_keymaps(mode, map, cmd)
+            f_setkeymap(mode, map, cmd, bufnr)
         end
     end
 
 
     -- Load key mappings for all provided modes
     -- @param keymaps A list of key mappings for each mode
-    function self.load_keymaps(keymaps, wk_flag)
+    function self.load_keymaps(keymaps, bufnr, wk_flag)
         self.keymaps = keymaps or {}
-        self.wk_flag = wk_flag or false
-        self.load()
+        self.load(bufnr, wk_flag)
     end
 
 
     -- Load key mappings for all provided modes from saved keymaps
-    function self.load()
+    function self.load(bufnr, wk_flag)
+        self.bufnr = bufnr
         for mode, mapping in pairs(self.keymaps) do
-            self.load_mode(mode, mapping)
+            self.load_mode(mode, mapping, bufnr, wk_flag)
         end
     end
 
