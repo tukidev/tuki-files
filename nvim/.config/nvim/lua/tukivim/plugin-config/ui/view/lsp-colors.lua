@@ -5,8 +5,4 @@ local conf = {
     Hint = "#10B981"
 }
 
-
-
 vim.tukivim.register("lsp-colors", conf)
-
--- require("lsp-colors").setup(conf)

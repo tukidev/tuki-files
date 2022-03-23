@@ -1,9 +1,11 @@
+local ICONS = vim.tukivim.res.icons.telescope
+
 local actions = require "telescope.actions"
 
 local conf = {
     defaults = {
-        prompt_prefix = " ",
-        selection_caret = " ",
+        prompt_prefix = ICONS.prompt_prefix,
+        selection_caret = ICONS.selection_caret,
         path_display = { "smart" },
 
         mappings = {
@@ -90,4 +92,3 @@ local conf = {
 }
 
 vim.tukivim.register("telescope", conf)
--- telescope.load_extension('projects')

@@ -1,5 +1,3 @@
-local wk = vim.tukivim.plugins['which-key']         -- WARN: CODE W_plugin_wk : use after plugin is loaded !
-
 local defaults = require("tukivim.com.keymaps.loader.defaults")
 
 function Loader(init)
@@ -43,10 +41,11 @@ function Loader(init)
 
 
     ---Set keymaps using `which-key` plugin
-    ---@param keymaps table of keymaps
-    ---@param opts table of options
+    -- WARN: use after `which-key` plugin is loaded
+    -- @param keymaps table of keymaps
+    -- @param opts table of options
     function self.set_keymaps_wk(keymaps, opts)
-        wk.register(keymaps, opts)
+        vim.tukivim.plugins["which-key"].register(keymaps, opts)
     end
 
     -- Set key mappings individually

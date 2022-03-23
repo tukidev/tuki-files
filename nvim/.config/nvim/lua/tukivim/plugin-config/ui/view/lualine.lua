@@ -27,6 +27,5 @@ local conf = {
         tabline = {},
         extensions = {}
 }
-vim.tukivim.register("lualine", conf)
 
--- require('lualine').setup(conf)
+vim.tukivim.register("lualine", conf)

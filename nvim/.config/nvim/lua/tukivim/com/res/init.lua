@@ -8,8 +8,13 @@ R.path = {
     com = {
         n = "com",
         p = nil,
-        res = { n = "res", p = nil, },
-        src = { 
+        res = {
+            n = "res",
+            p = nil,
+            icons = { n = "icons", },
+            path = { n = "path", },
+        },
+        src = {
             n = "source",
             p = nil,
             utils = { n = "utils", p = nil, }
@@ -82,6 +87,9 @@ R.path.p = R.path.n
 R.path.com.p = R.path.p .. '.' .. R.path.com.n
 
 R.path.com.res.p = R.path.com.p .. '.' .. R.path.com.res.n
+R.path.com.res.icons.p = R.path.com.res.p .. '.' .. R.path.com.res.icons.n
+R.path.com.res.path.p = R.path.com.res.p .. '.' .. R.path.com.res.path.n
+
 R.path.com.commands.p = R.path.com.p .. '.' .. R.path.com.commands.n
 R.path.com.src.p = R.path.com.p .. '.' .. R.path.com.src.n
 R.path.com.src.utils.p = R.path.com.src.p .. '.' .. R.path.com.src.utils.n
@@ -108,93 +116,7 @@ R.path.config.ui.view.p = R.path.config.ui.p .. '.' .. R.path.config.ui.view.n
 --#endregion
 
 
-R.icons = {
-    folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-    },
-    diagnostic = {
-        hint = "",
-        info = "",
-        warning = "",
-        error = "",
-    },
-    git = {
-        github = "",
-        branch_a = "",
-        branch_b = "",
-        unstaged = "",
-        staged = "",
-        unmerged = "",
-        renamed = "",
-        deleted_a = "",
-        deleted_b = "",
-        added_a = "",
-        added_b = "",
-        modified = "",
-        untracked = "",
-        ignored = "◌",
-    },
-    indicators = {
-        check = "",
-        check_circle_a = "",
-        check_circle_b = "",
-        check_box_a = "",
-        check_box_b = "",
-
-        times = "",
-        times_circle_a = "",
-        times_circle_b = "",
-        times_box_a = "",
-        times_box_b = "",
-
-        question = "",
-        question_circle_a = "",
-        question_circle_b = "",
-
-        warning = '',
-        bug = '',
-        hint = '',
-        hint_o = '',
-        hint_b = '',
-        
-        info = "",
-        info_circle_a = "",
-        info_circle_b = "𥉉",
-        info_circle_c = "",
-        info_triangle = "",
-
-        plus = "",
-        plus_circle_a = "",
-        plus_box_a = "",
-        plus_box_b = "",
-
-        minus = "",
-        minus_circle_a = "",
-        minus_circle_b = "",
-        minus_circle_c = "",
-        minus_box_a = "",
-        minus_box_b = "",
-
-    },
-    objects = {
-        line_v_left = "▎",
-        triangle_m_right = "",
-        triangle_m_down = "",
-        triangle_m_up = "",
-        triangle_l_right = "",
-        triangle_l_left = "",
-        angle_l_right = "",
-        angle_l_left = "",
-        file = "",
-        linux = "",
-        rocket = "",
-         -- = "",
-    },
-}
+R.icons = require(R.path.com.res.icons.p)
 
 --[[
 ---fill PATHes fields

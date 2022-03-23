@@ -1,4 +1,8 @@
-local saga = vim.tukivim.register("lspsaga")
+local status, saga = require("lspsaga")
+if not status then
+    return
+end
+
 local icons = vim.tukivim.res.icons
 
 local config = {
@@ -42,3 +46,4 @@ local config = {
 }
 
 saga.init_lsp_saga(config)
+return saga

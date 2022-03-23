@@ -34,5 +34,3 @@ local conf = {
 }
 
 vim.tukivim.register("project_nvim", conf)
-
--- require("telescope").load_extension("projects")

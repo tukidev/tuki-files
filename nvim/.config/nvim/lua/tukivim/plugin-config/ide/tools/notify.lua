@@ -8,17 +8,9 @@ vim.tukivim.register("notify", {
     max_height = nil,
     minimum_width = 50,
 
-    -- INFO: a highlight group | an RGB hex | a function
-    background_colour = "Normal",    -- The highlight behind the window
+    background_colour = "Normal",    -- a highlight group | an RGB hex | a function
 
-    -- Icons for the different levels
-    icons = {
-        ERROR = "",
-        WARN = "",
-        INFO = "",
-        DEBUG = "",
-        TRACE = "✎",
-    },
+    icons = vim.tukivim.res.icons.notify,
 })
 
 vim.notify = vim.tukivim.plugins["notify"]

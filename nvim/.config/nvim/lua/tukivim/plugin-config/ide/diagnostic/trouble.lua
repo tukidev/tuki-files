@@ -9,8 +9,7 @@ vim.tukivim.register("trouble", {
     group = true,                   -- group results by file
     padding = true,                 -- add an extra new line on top of the list
     action_keys = {                 -- key mappings for actions in the trouble list
-        -- map to {} to remove a mapping, for example:
-        -- close = {},
+        -- map to {} to remove a mapping
         close = "q",                         -- close the list
         cancel = "<esc>",                    -- cancel the preview and get back to your last window / buffer / cursor
         refresh = "r",                       -- manually refresh
@@ -35,13 +34,6 @@ vim.tukivim.register("trouble", {
     auto_preview = true,                -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
     auto_fold = false,                  -- automatically fold a file trouble list at creation
     auto_jump = {"lsp_definitions"},    -- for the given modes, automatically jump if there is only a single result
-    signs = {
-        -- icons / text used for a diagnostic
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "﫠"
-    },
+    signs = vim.tukivim.res.icons.trouble,
     use_diagnostic_signs = false        -- enabling this will use the signs defined in your lsp client
 })
