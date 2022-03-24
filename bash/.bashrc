@@ -14,3 +14,4 @@ source ~/.bash.d/.conda.sh
 [[ $- != *i* ]] && return
 
 [[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
+. "$HOME/.cargo/env"

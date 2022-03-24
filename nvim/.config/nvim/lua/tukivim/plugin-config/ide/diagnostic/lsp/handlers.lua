@@ -1,12 +1,3 @@
--- NOTE: need to be required `cmp-nvim-lsp` plugin
--- local status, cmp_nvim_lsp = require('cmp_nvim_lsp')
--- if not status then
---     print('cmp-nvim-lsp status FALSE')
---     return
--- end
---
--- print(cmp_nvim_lsp)
-
 local defaults = {}
 defaults.signs = {
     { name = "DiagnosticSignError", text = "" },

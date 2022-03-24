@@ -2,7 +2,7 @@ local defaults = require("tukivim.com.keymaps.loader.defaults")
 
 local Loader = {}
 
-function Loader.new(init)
+function Loader.setup(init)
     local self = {}
 
     self.keymaps = {}
@@ -68,13 +68,8 @@ function Loader.new(init)
     -- @param key The key of keymap
     -- @param val Can be form as a mapping or tuple of mapping and user defined opt
     function self.set_keymaps(mode, key, val)
-        -- local opt = nil
-        -- key, val, opt = getparams(mode, key, val)
-        local opt = defaults.mode_opts[mode] or defaults.opts
-        if type(val) == "table" then
-            opt = val[2]
-            val = val[1]
-        end
+        local opt = nil
+        key, val, opt = getparams(mode, key, val)
 
         if val then
             vim.api.nvim_set_keymap(mode, key, val, opt)
@@ -84,18 +79,13 @@ function Loader.new(init)
     end
 
 
-    -- Set key mappings individually for bufnr
+    --- Set key mappings individually for bufnr
     -- @param mode The keymap mode, can be one of the keys of mode_adapters
     -- @param key The key of keymap
     -- @param val Can be form as a mapping or tuple of mapping and user defined opt
     function self.set_buf_keymaps(mode, key, val, bufnr)
-        -- local opt = nil
-        -- key, val, opt = getparams(mode, key, val)
-        local opt = defaults.mode_opts[mode] or defaults.opts
-        if type(val) == "table" then
-            opt = val[2]
-            val = val[1]
-        end
+        local opt = nil
+        key, val, opt = getparams(mode, key, val)
 
         if val then
             vim.api.nvim_buf_set_keymap(bufnr, mode, key, val, opt)
@@ -105,17 +95,11 @@ function Loader.new(init)
     end
 
 
-    -- Load key mappings for a given mode
+    --- Load key mappings for a given mode MANUALLY
     -- @param mode The keymap mode, can be one of the keys of mode_adapters
     -- @param keymaps The list of key mappings
-    function self.load_mode(mode, keymaps, bufnr, wk_flag)
-        if wk_flag then
-            self.set_keymaps_wk(
-                keymaps,
-                defaults.opts_wk(defaults.prefix, bufnr)[mode]
-            )
-        end
-
+    -- @param bufnr buffer where to load keymaps
+    function self.load_mode_manual(mode, keymaps, bufnr)
         local f_setkeymap = bufnr and self.set_buf_keymaps or self.set_keymaps  -- chosing the correct function
         mode = defaults.mode_adapters[mode] or mode
         for map, cmd in pairs(keymaps) do
@@ -124,15 +108,35 @@ function Loader.new(init)
     end
 
 
-    -- Load key mappings for all provided modes
+    --- Load key mappings for a given mode
+    -- @param mode The keymap mode, can be one of the keys of mode_adapters
+    -- @param keymaps The list of key mappings
+    -- @param bufnr buffer where to load keymaps
+    -- @param wk_flag flag of using `which-key` plugin
+    function self.load_mode(mode, keymaps, bufnr, wk_flag)
+        if wk_flag then
+            self.set_keymaps_wk(keymaps,
+                defaults.opts_wk(defaults.prefix, bufnr)[mode])
+        else
+            self.load_mode_manual(mode, keymaps, bufnr)
+        end
+
+    end
+
+
+    --- Load key mappings for all provided modes
     -- @param keymaps A list of key mappings for each mode
+    -- @param bufnr buffer where to load keymaps
+    -- @param wk_flag flag of using `which-key` plugin
     function self.load_keymaps(keymaps, bufnr, wk_flag)
         self.keymaps = keymaps or {}
         self.load(bufnr, wk_flag)
     end
 
 
-    -- Load key mappings for all provided modes from saved keymaps
+    --- Load key mappings for all provided modes from saved keymaps
+    -- @param bufnr buffer where to load keymaps
+    -- @param wk_flag flag of using `which-key` plugin
     function self.load(bufnr, wk_flag)
         self.bufnr = bufnr
         for mode, mapping in pairs(self.keymaps) do

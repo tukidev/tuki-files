@@ -17,6 +17,6 @@ local keymaps = {
     }
 }
 
-local loader = require("tukivim.com.keymaps.loader").new()
+local loader = require("tukivim.com.keymaps.loader").setup()
 loader.setup(keymaps)
 return loader

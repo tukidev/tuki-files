@@ -5,7 +5,7 @@ defaults.res      = R
 defaults.utils    = require(R.path.com.src.utils.p)
 defaults.settings = require(R.path.com.settings.p)
 defaults.cmd      = require(R.path.com.commands.p)
-defaults.keymaps  = require(R.path.com.keymaps.p)
+defaults.keymaps  = require(R.path.com.keymaps.p).new()
 
 
 function TukiVim()

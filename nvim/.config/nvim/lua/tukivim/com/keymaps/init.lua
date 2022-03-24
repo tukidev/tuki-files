@@ -3,18 +3,19 @@
 local leader_default = ' '
 
 local keys = {
-    lsp = require("tukivim.com.keymaps.lsp_maps"),
+    whichkey = require("tukivim.com.keymaps.wk_maps"),
     defaults = require("tukivim.com.keymaps.defaults"),
+    lsp = require("tukivim.com.keymaps.lsp_maps"),
+    -- explorer = require("tukivim.com.keymaps.explorer")
 }
 
-print(keys.lsp)
-print(keys.defaults)
+local KeymapsLoader = {}
 
-function KeymapsLoader()
+
+function KeymapsLoader.new()
     local self = {}
     self.leader = leader_default
 
-    -- self.explorer = require("tukivim.master.defaults.keymappings.explorer")
 
     function self.load_module(module, buff, wk_flag)
         if not keys[module] then return end
@@ -25,6 +26,7 @@ function KeymapsLoader()
 
     function self.load_defaults()
         self.load_module("defaults")
+        self.load_module("whichkey", nil, true)
     end
 
 
@@ -44,4 +46,4 @@ function KeymapsLoader()
     return self
 end
 
-return KeymapsLoader()
+return KeymapsLoader

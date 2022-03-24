@@ -35,9 +35,5 @@ function LSPModule()
     return self
 end
 
--- testing
--- print(PATH .. '.handlers')
--- local module = LSPModule()
--- module.setup()
 
 return LSPModule()

@@ -28,10 +28,16 @@ M.opts_wk = function (prefix, buf)
             mode = "i",
             prefix = prefix,
             buffer = buf,
-            silent = true, noremap = true, nowait = true,   -- standart
+            silent = true, noremap = true, nowait = true,   -- standart opts
         },
         normal_mode = {
             mode = "n",
+            prefix = prefix,
+            buffer = buf,
+            silent = true, noremap = true, nowait = true,
+        },
+        visual_mode = {
+            mode = "v",
             prefix = prefix,
             buffer = buf,
             silent = true, noremap = true, nowait = true,

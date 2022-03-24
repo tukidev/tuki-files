@@ -8,3 +8,4 @@ export EDITOR='lvim'
 export VISUAL='lvim'
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+. "$HOME/.cargo/env"
