@@ -4,7 +4,6 @@
 
 local diagnostic_plugins = {
     "lsp",
-    "null-ls",
     "treesitter",
     "trouble",
 }

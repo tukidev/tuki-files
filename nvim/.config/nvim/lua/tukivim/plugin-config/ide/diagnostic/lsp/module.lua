@@ -6,6 +6,7 @@ function LSPModule()
     self.lspconfig = require("lspconfig")
     self.settings  = require(PATH .. ".settings")
     self.handler = nil
+    self.null_ls = nil
     self.saga = nil
 
     local function setup_handlers()
@@ -13,22 +14,11 @@ function LSPModule()
         self.handler.setup()
     end
 
-
-    local function setup_installer()
-        local installer = require(PATH .. ".lsp-installer")
-        installer.setup(self.handler, self.settings)
-    end
-
-
-    local function setup_saga()
-        self.saga = require(PATH .. ".saga")
-    end
-
-
     function self.setup()
         setup_handlers()
-        setup_installer()
-        setup_saga()
+        require(PATH .. ".lsp-installer").setup(self.handler, self.settings)
+        self.null_ls = require(PATH .. ".null-ls")
+        self.saga = require(PATH .. ".saga")
     end
 
 
