@@ -89,8 +89,4 @@ function H()
     return self
 end
 
--- testing
--- local handler = H()
--- handler.setup()
-
 return H()

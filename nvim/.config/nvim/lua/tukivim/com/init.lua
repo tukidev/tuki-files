@@ -12,8 +12,8 @@ function TukiVim()
     local self = {}
     self.res      = defaults.res
     self.utils    = defaults.utils
+    self.keymaps  = defaults.keymaps
     self.settings = nil
-    self.keymaps  = nil
     self.cmd      = nil
     self.plugins  = {}
 

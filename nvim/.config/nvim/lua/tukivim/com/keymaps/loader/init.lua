@@ -1,6 +1,8 @@
 local defaults = require("tukivim.com.keymaps.loader.defaults")
 
-function Loader(init)
+local Loader = {}
+
+function Loader.new(init)
     local self = {}
 
     self.keymaps = {}
@@ -26,7 +28,7 @@ function Loader(init)
     -- Unsets all keybindings defined in keymaps
     -- @param keymaps The table of key mappings containing a list per mode (normal_mode, insert_mode, ..)
     function self.clear(keymaps)
-        local default = self.get_defaults()
+        local default = self.keymaps
         for mode, mappings in pairs(keymaps) do
             local translated_mode = defaults.mode_adapters[mode] or mode
             for key, _ in pairs(mappings) do
@@ -144,4 +146,4 @@ function Loader(init)
 end
 
 
-return Loader()
+return Loader
