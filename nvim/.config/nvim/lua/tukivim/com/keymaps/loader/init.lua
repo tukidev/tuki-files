@@ -66,8 +66,13 @@ function Loader(init)
     -- @param key The key of keymap
     -- @param val Can be form as a mapping or tuple of mapping and user defined opt
     function self.set_keymaps(mode, key, val)
-        local opt = nil
-        key, val, opt = getparams(mode, key, val)
+        -- local opt = nil
+        -- key, val, opt = getparams(mode, key, val)
+        local opt = defaults.mode_opts[mode] or defaults.opts
+        if type(val) == "table" then
+            opt = val[2]
+            val = val[1]
+        end
 
         if val then
             vim.api.nvim_set_keymap(mode, key, val, opt)
@@ -82,11 +87,16 @@ function Loader(init)
     -- @param key The key of keymap
     -- @param val Can be form as a mapping or tuple of mapping and user defined opt
     function self.set_buf_keymaps(mode, key, val, bufnr)
-        local opt = nil
-        key, val, opt = getparams(mode, key, val)
+        -- local opt = nil
+        -- key, val, opt = getparams(mode, key, val)
+        local opt = defaults.mode_opts[mode] or defaults.opts
+        if type(val) == "table" then
+            opt = val[2]
+            val = val[1]
+        end
 
         if val then
-            vim.api.nvim_buf_get_name(bufnr, mode, key, val, opt)
+            vim.api.nvim_buf_set_keymap(bufnr, mode, key, val, opt)
         else
             pcall(vim.api.nvim_buf_del_keymap, bufnr, mode, key)
         end

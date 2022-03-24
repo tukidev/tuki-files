@@ -4,18 +4,20 @@ local leader_default = ' '
 
 function KeymapsLoader()
     local self = {}
-    self.keysmaps = {}
-    self.keymaps_buf = {}
+    self.leader = leader_default
+    self.keymaps = {}
+    self.keymaps.defaults = require("tukivim.com.keymaps.defaults")
+    self.keymaps.lsp      = require("tukivim.com.keymaps.lsp_maps")
 
-    self.leader = nil
-
-    self.defaults = require("tukivim.com.keymaps.defaults")
-    -- self.lsp = require("tukivim.master.defaults.keymappings.lsp")
     -- self.explorer = require("tukivim.master.defaults.keymappings.explorer")
-    -- self.wk = require("tukivim.master.defaults.keymappings.wk")
+
+    function self.load_module(module, buff, wk_flag)
+        self.keymaps[module].load(buff, wk_flag)
+    end
 
     local function load_modules()
-        self.defaults.load()
+        self.keymaps.defaults.load()
+        -- self.keymaps.wk.load(nil, true)
     end
 
     --#region public methods
