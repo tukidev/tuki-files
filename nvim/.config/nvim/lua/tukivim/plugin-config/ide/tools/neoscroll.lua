@@ -10,16 +10,16 @@ local neoscroll = vim.tukivim.register("neoscroll", {
     performance_mode = false,           -- Disable "Performance Mode" on all buffers.
 })
 
--- local mappings_defaults = {
---     ['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}},
---     ['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}},
---     ['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}},
---     ['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}},
---     ['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}},
---     ['<C-e>'] = {'scroll', { '0.10', 'false', '100'}},
---     ['zt']    = {'zt', {'250'}},
---     ['zz']    = {'zz', {'250'}},
---     ['zb']    = {'zb', {'250'}},
--- }
+local mappings = {
+    ['<S-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}},
+    ['<S-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}},
+    -- ['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}},
+    -- ['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}},
+    -- ['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}},
+    -- ['<C-e>'] = {'scroll', { '0.10', 'false', '100'}},
+    -- ['zt']    = {'zt', {'250'}},
+    -- ['zz']    = {'zz', {'250'}},
+    -- ['zb']    = {'zb', {'250'}},
+}
 
--- require('neoscroll.config').set_mappings(mappings)
+require('neoscroll.config').set_mappings(mappings)

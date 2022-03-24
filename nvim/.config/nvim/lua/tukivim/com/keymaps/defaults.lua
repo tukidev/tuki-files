@@ -32,8 +32,8 @@ local keymaps = {
         ["<A-k>"] = ":m .-2<CR>==",
 
         -- QuickFix
-        ["]q"] = ":cnext<CR>",
-        ["[q"] = ":cprev<CR>",
+        ["fj"] = ":cnext<CR>",
+        ["fk"] = ":cprev<CR>",
         ["<C-q>"] = ":call QuickFixToggle()<CR>",
 
         -- [""] = "",

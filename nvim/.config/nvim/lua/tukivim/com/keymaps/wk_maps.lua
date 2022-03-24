@@ -1,8 +1,10 @@
+-- INFO: to be loaded using `which-key` plugin
+
 local keymaps = {
     normal_mode = {
         ["w"] = { "<cmd>w!<CR>", "Save" },
         ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-        ["q"] = { "<cmd>q<CR>", "Quit" },
+        ["q"] = { "<cmd>qa<CR>", "Quit" },
         ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
         ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
         ["f"] = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find File" },
