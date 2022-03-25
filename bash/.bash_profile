@@ -4,8 +4,8 @@
 
 export PATH="/home/tuki/.local/bin:$PATH"
 export NNN_OPTS="H" 
-export EDITOR='lvim' 
-export VISUAL='lvim'
+export EDITOR='nvim' 
+export VISUAL='nvim'
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 . "$HOME/.cargo/env"
