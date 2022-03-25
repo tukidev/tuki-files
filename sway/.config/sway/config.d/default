@@ -10,7 +10,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulators
-set $term-float alacritty 
+set $term-float kitty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -37,11 +37,11 @@ exec swayidle -w\
 # Basics:
 #
     # Start a floating terminal
-    $ubind $mod+Return exec $term-float    
+    $ubind $mod+Return exec $term-float
 
     # open wofipassmenu
     $ubind $mod+Shift+p exec wofipassmenu
-         
+
     # Open the power menu
     $ubind $mod+Shift+e exec $powermenu
 
@@ -50,7 +50,7 @@ exec swayidle -w\
 
     # Start your launcher
     $ubind $mod+d exec $menu
-    
+
     # Activities
     $ubind $mod+p exec ~/.config/wofi/windows.py
 
@@ -72,6 +72,7 @@ exec swayidle -w\
     $ubind $mod+$down focus down
     $ubind $mod+$up focus up
     $ubind $mod+$right focus right
+
     # Or use $mod+[up|down|left|right]
     $ubind $mod+Left focus left
     $ubind $mod+Down focus down
@@ -83,11 +84,13 @@ exec swayidle -w\
     $ubind $mod+Shift+$down move down
     $ubind $mod+Shift+$up move up
     $ubind $mod+Shift+$right move right
+
     # Ditto, with arrow keys
     $ubind $mod+Shift+Left move left
     $ubind $mod+Shift+Down move down
     $ubind $mod+Shift+Up move up
     $ubind $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -115,6 +118,7 @@ exec swayidle -w\
     $ubind $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
