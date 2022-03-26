@@ -64,17 +64,26 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
 
 #: /=====< User configuration >=====/
 
-# Advanced Tab completion
+# /==: Options
+setopt globdots     # view hidden files
+
+
+# /==: Enable vi-mode
+bindkey -v
+
+
+# /==: Advanced Tab completion
 autoload -U compinit
 compinit
 
 
+# /==: Plugins
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -126,3 +135,4 @@ alias gc='git commit'
 alias gca='git commit -a'
 
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
+export PATH="/usr/local/bin:$PATH"
