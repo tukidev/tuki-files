@@ -9,6 +9,7 @@ local tools_plugins = {
     "toggleterm",
     "whichkey",
     "neoscroll",
+    -- "octo",
     "notify",
 }
 

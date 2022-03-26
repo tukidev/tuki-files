@@ -84,11 +84,23 @@ local plugins = {
     { 'neovim/nvim-lspconfig' },                -- enable LSP
     { 'williamboman/nvim-lsp-installer' },      -- simple way to manage language server installer
     { 'glepnir/lspsaga.nvim' },                 -- additional LSP tools and methods
-
     { 'jose-elias-alvarez/null-ls.nvim' },      -- null-ls server
+
+    -- debug tools
+    { 'mfussenegger/nvim-dap' },
+    { 'rcarriga/nvim-dap-ui' },
+    { 'mfussenegger/nvim-dap-python' },
+    { 'jbyuki/one-small-step-for-vimkind' },    -- `Lua` DAP adapter
+    { 'simrat39/rust-tools.nvim' },
 
     -- Git
     { 'lewis6991/gitsigns.nvim' },
+    -- { 'pwntester/octo.nvim', requires = {
+    --         'nvim-lua/plenary.nvim',
+    --         'nvim-telescope/telescope.nvim',
+    --         'kyazdani42/nvim-web-devicons',
+    --     },
+    -- },
 
 
     -- Tree-sitter

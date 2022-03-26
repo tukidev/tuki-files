@@ -6,19 +6,19 @@ catppuccin.setup {
     term_colors = false,
     styles = {
         comments = "italic",
-        functions = "italic",
-        keywords = "italic",
+        functions = "NONE",
+        keywords = "NONE",
         strings = "NONE",
-        variables = "italic",
+        variables = "NONE",
     },
     integrations = {
         treesitter = true,
         native_lsp = {
             enabled = true,
             virtual_text = {
-                errors = "italic",
+                errors = "bold",
                 hints = "italic",
-                warnings = "italic",
+                warnings = "NONE",
                 information = "italic",
             },
             underlines = {
@@ -28,9 +28,9 @@ catppuccin.setup {
                 information = "underline",
             },
         },
-        lsp_trouble = false,
+        lsp_trouble = true,
         cmp = true,
-        lsp_saga = false,
+        lsp_saga = true,
         gitgutter = false,
         gitsigns = true,
         telescope = true,
@@ -44,7 +44,7 @@ catppuccin.setup {
             show_root = false,
             transparent_panel = false,
         },
-        which_key = false,
+        which_key = true,
         indent_blankline = {
             enabled = true,
             colored_indent_levels = false,

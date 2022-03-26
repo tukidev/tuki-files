@@ -194,6 +194,21 @@ _G.packer_plugins = {
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-python"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
+    url = "https://github.com/mfussenegger/nvim-dap-python"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -229,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["one-small-step-for-vimkind"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/one-small-step-for-vimkind",
+    url = "https://github.com/jbyuki/one-small-step-for-vimkind"
+  },
   ["onedark.nvim"] = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/onedark.nvim",
@@ -253,6 +273,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tuki/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/tuki/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
