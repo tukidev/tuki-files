@@ -66,23 +66,23 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 
 #: /=====< User configuration >=====/
+# /==: Plugins
+plugins=(git zsh-syntax-highlighting)   # another:=(zsh-autosuggestions,...)
+
 source $ZSH/oh-my-zsh.sh
 
-# /==: Options
+# /==> Options
 setopt globdots     # view hidden files
 
 
-# /==: Enable vi-mode
+# /==> Enable vi-mode
 bindkey -v
 
+# /==> ZShell Style Completion
+# zstyle 'completion:complete:cd:*' ignore-patterns ''
 
-# /==: Advanced Tab completion
-autoload -U compinit
-compinit
-
-
-# /==: Plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# /==> Advanced Tab completion
+autoload -U compinit; compinit
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -100,10 +100,7 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+
 
 
 #: /====< Aliases >====/
@@ -114,7 +111,7 @@ alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles exce
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias v='nvim'                   # exec lunarvim with v command
+alias v='nvim'
 alias cl='clear'
 alias cpp='rsync -ah --info=progress2'
 alias tr='mv -ft ~/.local/share/Trash '
@@ -140,4 +137,5 @@ alias gca='g commit -a -m'
 alias gi='g init;echo "|=========<< New Project >>=======|" >> README.md;ga README.md;gc "Init commit."'
 
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
-export PATH="/usr/local/bin:$PATH"
+
+# export PATH="/usr/local/bin:$PATH"
