@@ -66,6 +66,7 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 
 #: /=====< User configuration >=====/
+source $ZSH/oh-my-zsh.sh
 
 # /==: Options
 setopt globdots     # view hidden files
@@ -83,7 +84,6 @@ compinit
 # /==: Plugins
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -117,22 +117,27 @@ alias ....='cd ../../..'
 alias v='nvim'                   # exec lunarvim with v command
 alias cl='clear'
 alias cpp='rsync -ah --info=progress2'
-alias tr='mv --force -t ~/.local/share/Trash '
-alias trl='ll ~/.local/share/Trash '
+alias tr='mv -ft ~/.local/share/Trash '
+alias ltr='ll ~/.local/share/Trash '
 alias trcl='rm -rfv ~/.local/share/Trash/{*,.*} '
 
-alias gg='shutdown now'
+alias qq='shutdown now'
 alias re='reboot'
 alias u='sudo pacman -Syu'
 alias U='sudo yay'
 alias conf='cd $HOME/.dotty/'
 alias bconf='v $HOME/.dotty/bash/.bashrc'
-alias zconf='v $HOME/.dotty/bash/.bashrc'
+alias zconf='v $HOME/.dotty/zsh/.zshrc'
+
+alias dir='mkdir -p'
 
 alias g='git'
-alias gs='git status'
-alias gc='git commit'
-alias gca='git commit -a'
+alias gs='g status'
+alias gc='g commit -m'
+alias ga='g add'
+alias gaa='ga -A'
+alias gca='g commit -a -m'
+alias gi='g init;echo "|=========<< New Project >>=======|" >> README.md;ga README.md;gc "Init commit."'
 
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 export PATH="/usr/local/bin:$PATH"
