@@ -65,26 +65,26 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-#: /=====< User configuration >=====/
-# /==: Plugins
+#: /=====<< User Configuration >>=====/
+
+# /==< Plugins
 plugins=(git zsh-syntax-highlighting)   # another:=(zsh-autosuggestions,...)
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh                # /==> Load plugin framework
 
-# /==> Options
-setopt globdots     # view hidden files
+# /==< Options
+# setopt globdots             # View hidden files
+
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 
-# /==> Enable vi-mode
-bindkey -v
 
-# /==> Completion
-source $HOME/.zsh.d/completion.zsh
-# zstyle 'completion:complete:cd:*' ignore-patterns ''
-
-# /==> Advanced Tab completion
-autoload -U compinit; compinit
-
+autoload -U compinit; compinit          # /==> Advanced Tab completion
+source $ZDOTDIR2/completion.zsh         # /==> Completion
+source $ZDOTDIR2/vimode.zsh             # /==> Vi-mode
+source $ZDOTDIR2/aliases.zsh            # /==> Aliases
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -100,43 +100,5 @@ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-
-
-
-#: /====< Aliases >====/
-alias ls='ls --color=auto'
-alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
-alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias v='nvim'
-alias cl='clear'
-alias cpp='rsync -ah --info=progress2'
-alias tr='mv -ft ~/.local/share/Trash '
-alias ltr='ll ~/.local/share/Trash '
-alias trcl='rm -rfv ~/.local/share/Trash/{*,.*} '
-
-alias qq='shutdown now'
-alias re='reboot'
-alias u='sudo pacman -Syu'
-alias U='sudo yay'
-alias conf='cd $HOME/.dotty/'
-alias bconf='v $HOME/.dotty/bash/.bashrc'
-alias zconf='v $HOME/.dotty/zsh/.zshrc'
-
-alias dir='mkdir -p'
-
-alias g='git'
-alias gs='g status'
-alias gc='g commit -m'
-alias ga='g add'
-alias gaa='ga -A'
-alias gca='g commit -a -m'
-alias gi='g init;echo "|=========<< New Project >>=======|" >> README.md;ga README.md;gc "Init commit."'
-
-alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 
 # export PATH="/usr/local/bin:$PATH"
