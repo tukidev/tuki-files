@@ -1,0 +1,2 @@
+WARN  2022-03-28T15:25:24.618 324954 log_path_init:95: Failed to create directory /cache for writing logs: Unknown system error 1
+WARN  2022-03-28T15:26:49.745 324954 deadly_signal:161: got signal 1 (SIGHUP)

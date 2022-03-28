@@ -22,7 +22,7 @@ vim.tukivim.register("toggleterm", {
         -- not natively supported but implemented in this plugin.
         border = 'curved', -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
         width = 120,
-        height = 20,
+        height = 30,
         winblend = 3,
         highlights = {
             border = "Normal",
