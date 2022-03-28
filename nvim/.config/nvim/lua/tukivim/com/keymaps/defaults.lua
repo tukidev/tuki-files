@@ -36,6 +36,12 @@ local keymaps = {
         ["fk"] = ":cprev<CR>",
         ["<C-q>"] = ":call QuickFixToggle()<CR>",
 
+        ["gw"] = "<cmd>HopWord<cr>",
+        ["gW"] = "<cmd>HopWordCurrentLine<cr>",
+        ["gl"] = "<cmd>HopLineStart<cr>",
+        ["gL"] = "<cmd>HopLine<cr>",
+        ["gs"] = "<cmd>HopChar1<cr>",
+        ["gS"] = "<cmd>HopChar1CurrentLine<cr>",
         -- [""] = "",
     },
 

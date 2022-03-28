@@ -47,6 +47,7 @@ local plugins = {
     -- -- Plugins
     { 'kyazdani42/nvim-web-devicons' },
     { 'nvim-lua/plenary.nvim' },
+
     { 'kyazdani42/nvim-tree.lua' },
     { 'nvim-telescope/telescope.nvim' },
     { 'nvim-lualine/lualine.nvim' },
@@ -124,6 +125,18 @@ local plugins = {
     --     'NarutoXY/dim.lua',
     --     requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" }
     -- },
+
+    -- New another plugins
+    {
+        'phaazon/hop.nvim', config=function()
+            require('tukivim.plugin-config.hop')
+        end
+    }
+    -- {
+    --     '', config=function()
+    --         require('')
+    --     end
+    -- }
 }
 
 return require("packer").startup(function (use)
