@@ -4,29 +4,29 @@
     //
 
     "layer": "top",
-    "height": 20,
+    // "height": 14,
     "margin-top": 4,
     "margin-right": 4,
     "margin-left": 4,
     "margin-bottom": 0,
     "modules-left": [
         "clock",
-        "sway/language",
-        "network",
-        "tray",
+        "battery",
+        "cpu",
+        "memory",
+        "temperature",
+        // "network",
+        "sway/mode",
     ],
     "modules-center": [
         "sway/workspaces",
     ],
     "modules-right": [
-        "sway/mode",
-        "cpu",
-        "memory",
-        "temperature",
+        "tray",
+        "sway/language",
         "pulseaudio",
         "bluetooth",
         "backlight",
-        "battery",
         "custom/power"
     ],
 
@@ -35,34 +35,43 @@
     //
 
     "sway/workspaces": {
+        "all-outputs": true,
+        "disable-click": false,
         "disable-scroll": false,
         "disable-scroll-wraparound": false,
-        "disable-click": false,
-        "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "  ",
-            "2": "  ",
-            "3": "  ",
+            "1": "",
+            "2": "",
+            "3": "",
 
-            "8": "  ",
-            "9": "  ",
-            "10": "  ",
+            "8": "",
+            "9": "",
+            "10": "",
 
             "urgent": "",
             "default": "",
             // "focused": "",
-        }
+        },
+        "persistent_workspaces": {
+            "1":[],
+            "2":[],
+            "3":[],
+            //"4":[],
+            //"5":[],
+            //"6":[],
+            //"7":[],
+            "8":[],
+            "9":[],
+            "10":[]
+        },
     },
 
-    "sway/window": {
-        "max-length": 50
-    },
     "clock": {
         "interval": 60,
-        "format": "{:%H:%M}",
+        "format": "{:  %H:%M}",
         "max-length": 25,
-        "format-alt": "{:%a %d %b  %H:%M}"
+        "format-alt": "{:  %a %b %d      %H:%M}"
     },
     "battery": {
         "bat": "BAT0",
@@ -71,9 +80,8 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}",
-        "format-alt": "{icon}  {capacity}%",
-        "format-charging": "",
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
 
@@ -117,7 +125,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "  {}%",
+        "format": "    {}%",
         "on-click": "kitty -e 'htop'",
         "states": {
             "warning": 70,
@@ -129,12 +137,12 @@
         // "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
         "critical-threshold": 80,
         "interval": 5,
-        "format": "{icon}  {temperatureC}°",
+        "format": "{icon}    {temperatureC}°",
         "format-icons": [ "", "", "", "", "" ]
     },
 
     "tray": {
-        "icon-size": 21,
+        "icon-size": 16,
         "spacing": 10
     },
 

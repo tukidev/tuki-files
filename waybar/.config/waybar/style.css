@@ -1,19 +1,94 @@
+/*      /==========================/
+*       /==<    VARIABLES      >===/
+*       /==========================/
+**/
+
+/*
+*   /=> COLORS
+*   /==> Catppuccin
+*   Black0:     #161320
+*   Black1:     #1A1826
+*   Black2:     #1E1E2E
+*   Black3:     #302D41
+*   Black4:     #575268
+*   Gray0:      #6E6C7E
+*   Gray1:      #988BA2
+*   Gray2:      #C3BAC6
+*   White:      #D9E0EE
+*   Lavender:   #C9CBFF
+*   Rosewater:  #F5E0DC
+*
+*   Flamingo:   #F2CDCD
+*   Mauve:      #DDB6F2
+*   Pink:       #F5C2E7
+*   Marron:     #E8A2AF
+*   Red:        #F28FAD
+*   Peach:      #F8BD96
+*   Yellow:     #FAE3B0
+*   Green:      #ABE9B3
+*   Teal:       #B5E8E0
+*   Blue:       #96CDFB
+*   Sky:        #89DCEB
+*
+*
+*
+* */
+
+/* :root { */
+    /* --black0: #161320; */
+    /* --black1: #1A1826; */
+    /* --black2: #1E1E2E; */
+    /* --black3: #302D41; */
+    /* --black4: #575268; */
+    /* --gray0: #6E6C7E; */
+    /* --gray1: #988BA2; */
+    /* --gray2: #C3BAC6; */
+    /* --white: #D9E0EE; */
+    /* --lavender: #C9CBFF; */
+    /* --rosewater: #F5E0DC; */
+    /* --flamingo: #F2CDCD; */
+    /* --mauve: #DDB6F2; */
+    /* --pink: #F5C2E7; */
+    /* --marron: #E8A2AF; */
+    /* --red: #F28FAD; */
+    /* --peach: #F8BD96; */
+    /* --yellow: #FAE3B0; */
+    /* --green: #ABE9B3; */
+    /* --teal: #B5E8E0; */
+    /* --blue: #96CDFB; */
+    /* --sky: #89DCEB; */
+/* } */
+
+
+/*      /====================================/
+*       /==<    GLOBAL WAYBAR STYLE      >===/
+*       /====================================/
+**/
+
+#waybar {
+    border-radius:10px;
+    background-color: #1E1E2E;
+}
+
 #battery,
-#clock,
 #backlight,
 #cpu,
-#custom-keyboard-layout,
 #memory,
 #mode,
-#custom-weather,
-#network,
+#language,
+#bluetooth,
 #pulseaudio,
 #temperature,
 #tray,
 #idle_inhibitor{
-    padding:0.5rem 0.6rem;
-    font-size:12px;
-      /* margin: 1px 0px; */
+    color: #D9E0EE;
+    font-size: 12px;
+    padding: 0.2rem 0.8rem;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-color: #302D41;
 }
 
 /*      /===============================/
@@ -27,7 +102,9 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    margin-right:4px;
+    border-radius:6px 0px 0px 6px;
+    padding-left: 1.0rem;
+    margin-left: 8px;
 }
  
 #battery.warning {
@@ -52,24 +129,20 @@
 
 /*      /==>    WORKSPACES     <==/    */
 #workspaces{
-    font-size:20px;
+    font-size: 20px;
+    padding: 0px;
+    border-radius: 16px;
+    background-color: #302D41;
 }
-
 #workspaces button {
-    border-bottom: 3px solid transparent;
-    margin-bottom: 0px;
-    padding-top:0px;
-    padding-right:0px;
-    padding-bottom:0px;
-    padding-left:0px;
+    padding: 0rem 0.8rem;
 }
-
 #workspaces button.focused {
-    border-bottom: 2px solid  @highlight;
-    margin-bottom: 1px;
-    padding-left:0;
+    font-size: 24px;
+    border-radius: 16px;
+    color: #1A1826;
+    background-color: #C3BAC6;
 }
-
 #workspaces button.urgent {
     border-color: #c9545d;
     color: #c9545d;
@@ -78,14 +151,15 @@
 
 /*      /==>    BACKLIGHT     <==/    */
 #backlight{
-    margin-right:8px;
     font-size:16px;
+    margin-right:8px;
+    padding-right: 1.0rem;
+    border-radius: 0px 6px 6px 0px;
 }
 
 
 /*      /==>    BLUETOOTH     <==/    */
 #bluetooth{
-    margin-right:8px;
     font-size:16px;
 }
 
@@ -125,19 +199,22 @@
 
 /*      /==>    TEMPERATURE     <==/    */
 #temperature {
-    margin-right:8px;
+    border-radius: 0px 6px 6px 0px;
+    padding-right: 1.0rem;
+    margin-right: 8px;
 }
 
 
 #language {
-    margin-right:8px;
+    margin-left:8px;
+    border-radius: 6px 0px 0px 6px;
+    padding-left: 1.0rem;
 }
 
 
 
 /*      /==>    VOLUME     <==/    */
 #pulseaudio {
-    margin-right:8px;
 }
 #pulseaudio.muted {
     font-size:20px;
@@ -146,20 +223,36 @@
 
 
 #mode {
-    background: @highlight;
-    border-bottom: 3px transparent;
-    color:white;
-    margin-left: 5px;
-    padding:7px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    margin-left: 8px;
+    border-radius: 16px;
+    color: #1A1826;
+    background-color: #B5E8E0;
 }
  
 #network.disconnected {
-        color: orange;
+    color: orange;
 }
 
 
+#clock {
+    font-size:14px;
+    margin-left:16px;
+    margin-right:8px;
+}
+
+#tray{
+    margin-right:8px;
+    border-radius: 6px 6px 6px 6px;
+    padding-right: 1.0rem;
+    padding-left: 1.0rem;
+}
+
+
+/*      /==>    CUSTOM     <==/    */
 #custom-power{
-   margin-left:15px;
-   margin-right:15px;
-   font-size:15px;
+   margin-left:8px;
+   margin-right:16px;
+   font-size:18px;
 }
