@@ -135,6 +135,10 @@
 
     "temperature": {
         // "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+        "states": {
+            "warning": 5,
+            "critical": 75,
+        },
         "critical-threshold": 80,
         "interval": 5,
         "format": "{icon}    {temperatureC}°",

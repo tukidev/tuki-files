@@ -83,11 +83,11 @@
 #idle_inhibitor{
     color: #D9E0EE;
     font-size: 12px;
-    padding: 0.2rem 0.8rem;
+    padding: 0px 0.8rem;
     margin-right: 0px;
     margin-left: 0px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     background-color: #302D41;
 }
 
@@ -114,6 +114,9 @@
 #battery.critical {
     color: red;
 }
+#battery.charging {
+    color: #ABE9B3;
+}
  
 #battery.warning.discharging {
     animation-name: blink-warning;
@@ -135,10 +138,10 @@
     background-color: #302D41;
 }
 #workspaces button {
-    padding: 0rem 0.8rem;
+    padding: 0rem 0.0rem;
 }
 #workspaces button.focused {
-    font-size: 24px;
+    font-size: 20px;
     border-radius: 16px;
     color: #1A1826;
     background-color: #C3BAC6;
@@ -166,14 +169,14 @@
 
 /*      /==>    CPU     <==/    */
 #cpu{
-    /* margin-right:-8px; */
+    /* color: ; */
 }
 #cpu.warning {
-        color: orange;
+    color: #F8BD96;
 }
  
 #cpu.critical {
-        color: red;
+    color: #F28FAD;
 }
 
 
@@ -185,11 +188,11 @@
 }
  
 #memory.warning {
-    color: orange;
+    color: #F8BD96;
  }
  
 #memory.critical {
-    color: red;
+    color: #F28FAD;
     animation-name: blink-critical;
     animation-duration: 2s;
     padding-left:5px;
@@ -243,6 +246,7 @@
 }
 
 #tray{
+    background-color:#161320;
     margin-right:8px;
     border-radius: 6px 6px 6px 6px;
     padding-right: 1.0rem;
