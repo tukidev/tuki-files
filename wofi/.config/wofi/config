@@ -1,9 +1,9 @@
 hide_scroll=true
 show=drun
 width=25%
-lines=10
+lines=6
 line_wrap=word
-term=alacritty
+term=kitty
 allow_markup=true
 always_parse_args=true
 show_all=true

@@ -7,49 +7,90 @@ Arc-Dark Color Scheme
 @define-color base2 #40455;
 @define-color base3  #4b5160;
 
+/*
+*   /=> Catppuccin Color Scheme <=/
+*/
+ 
+@define-color black0     #161320;
+@define-color black1     #1A1826;
+@define-color black2     #1E1E2E;
+@define-color black3     #302D41;
+@define-color black4     #575268;
+@define-color gray0      #6E6C7E;
+@define-color gray1      #988BA2;
+@define-color gray2      #C3BAC6;
+@define-color white      #D9E0EE;
+@define-color lavender   #C9CBFF;
+@define-color rosewater  #F5E0DC;
+
+@define-color flamingo   #F2CDCD;
+@define-color mauve      #DDB6F2;
+@define-color pink       #F5C2E7;
+@define-color marron     #E8A2AF;
+@define-color red        #F28FAD;
+@define-color peach      #F8BD96;
+@define-color yellow     #FAE3B0;
+@define-color green      #ABE9B3;
+@define-color teal       #B5E8E0;
+@define-color blue       #96CDFB;
+@define-color sky        #89DCEB;
+
 
 *{
-    font-family: UbuntuMono;
+    font-family: Space Grotesk Medium;
+    font-size: 14px;
 }
 
-window {
-	border: 1px solid @highlight;
+#window {
+    background-color: @black1;
+    border-radius: 24px;
+    border: 2px solid @black3;
 }
 
 #input {
-    margin-bottom: 15px;
-    padding:3px;
-    border-radius: 5px;
-    border:none;
-    color: white;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding: 2px 16px;
+    border-radius: 32px;
+    border: none;
+    color: @white;
+    background-color: @black2;
 }
 
 #inner-box {
-    background-color: @base3;
-
+    background-color: @black1;
+    border-radius: 40px;
 }
 
 #outer-box {
     margin: 5px;
     padding:15px;
-    background-color: @base2;
+    border-radius: 40px;
 }
 
 #scroll {
 }
 
 #text {
-padding: 5px;
-color: white;
+    padding: 5px;
+    color: @gray2;
 }
 
-#entry:nth-child(even){
-    background-color: @base1;
+#entry{
+    padding: 6px;
+    margin: 4px 0px;
+    background-color: @black2;
+    border-radius: 40px;
 }
 
 #entry:selected {
-    background-color: @highlight;
+    padding: 6px 28px;
+    border-radius: 40px;
+    background-color: @gray1;
 }
 
 #text:selected {
+    color: @black3;
+    font-weight: bold;
+    border-radius: 40px;
 }
