@@ -10,10 +10,10 @@ progress-color=over #96CDFB
 icon-path=/usr/share/icons/Arc-X-D
 max-icon-size=70
 layer=overlay
-border-radius=10
+border-radius=16
 default-timeout=5000
 border-size=3
-border-color=#302D41
+border-color=#DDB6F2
 
 [urgency=high]
 ignore-timeout=1
