@@ -3,62 +3,31 @@
 *       /==========================/
 **/
 
-/*
-*   /=> COLORS
-*   /==> Catppuccin
-*   Black0:     #161320
-*   Black1:     #1A1826
-*   Black2:     #1E1E2E
-*   Black3:     #302D41
-*   Black4:     #575268
-*   Gray0:      #6E6C7E
-*   Gray1:      #988BA2
-*   Gray2:      #C3BAC6
-*   White:      #D9E0EE
-*   Lavender:   #C9CBFF
-*   Rosewater:  #F5E0DC
-*
-*   Flamingo:   #F2CDCD
-*   Mauve:      #DDB6F2
-*   Pink:       #F5C2E7
-*   Marron:     #E8A2AF
-*   Red:        #F28FAD
-*   Peach:      #F8BD96
-*   Yellow:     #FAE3B0
-*   Green:      #ABE9B3
-*   Teal:       #B5E8E0
-*   Blue:       #96CDFB
-*   Sky:        #89DCEB
-*
-*
-*
-* */
+/* /===> COLORS
+   /=>   Catppuccin */
+@define-color black0     #161320;
+@define-color black1     #1A1826;
+@define-color black2     #1E1E2E;
+@define-color black3     #302D41;
+@define-color black4     #575268;
+@define-color gray0      #6E6C7E;
+@define-color gray1      #988BA2;
+@define-color gray2      #C3BAC6;
+@define-color white      #D9E0EE;
+@define-color lavender   #C9CBFF;
+@define-color rosewater  #F5E0DC;
 
-/* :root { */
-    /* --black0: #161320; */
-    /* --black1: #1A1826; */
-    /* --black2: #1E1E2E; */
-    /* --black3: #302D41; */
-    /* --black4: #575268; */
-    /* --gray0: #6E6C7E; */
-    /* --gray1: #988BA2; */
-    /* --gray2: #C3BAC6; */
-    /* --white: #D9E0EE; */
-    /* --lavender: #C9CBFF; */
-    /* --rosewater: #F5E0DC; */
-    /* --flamingo: #F2CDCD; */
-    /* --mauve: #DDB6F2; */
-    /* --pink: #F5C2E7; */
-    /* --marron: #E8A2AF; */
-    /* --red: #F28FAD; */
-    /* --peach: #F8BD96; */
-    /* --yellow: #FAE3B0; */
-    /* --green: #ABE9B3; */
-    /* --teal: #B5E8E0; */
-    /* --blue: #96CDFB; */
-    /* --sky: #89DCEB; */
-/* } */
-
+@define-color flamingo   #F2CDCD;
+@define-color mauve      #DDB6F2;
+@define-color pink       #F5C2E7;
+@define-color marron     #E8A2AF;
+@define-color red        #F28FAD;
+@define-color peach      #F8BD96;
+@define-color yellow     #FAE3B0;
+@define-color green      #ABE9B3;
+@define-color teal       #B5E8E0;
+@define-color blue       #96CDFB;
+@define-color sky        #89DCEB;
 
 /*      /====================================/
 *       /==<    GLOBAL WAYBAR STYLE      >===/
@@ -66,8 +35,8 @@
 **/
 
 #waybar {
-    border-radius:10px;
-    background-color: #1E1E2E;
+    /* border-radius: 0px 0px 12px 12px; */
+    background-color: @black2;
 }
 
 #battery,
@@ -81,14 +50,12 @@
 #temperature,
 #tray,
 #idle_inhibitor{
-    color: #D9E0EE;
+    /* font-weight:bold; */
+    color: @lavender;
     font-size: 12px;
     padding: 0px 0.8rem;
-    margin-right: 0px;
-    margin-left: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    background-color: #302D41;
+    margin: 0px;
+    background-color: @black3;
 }
 
 /*      /===============================/
@@ -102,20 +69,23 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    border-radius:6px 0px 0px 6px;
-    padding-left: 1.0rem;
-    margin-left: 8px;
+    border-radius: 16px 0px 0px 16px;
+    padding-left: 1rem;
+    margin-left: 4px;
 }
  
 #battery.warning {
-    color: orange;
+    color: @black3;
+    background-color: @rosewater;
 }
  
 #battery.critical {
-    color: red;
+    color: @black3;
+    background-color: @marron;
 }
 #battery.charging {
-    color: #ABE9B3;
+    color: @black3;
+    background-color: @green;
 }
  
 #battery.warning.discharging {
@@ -132,32 +102,32 @@
 
 /*      /==>    WORKSPACES     <==/    */
 #workspaces{
-    font-size: 20px;
-    padding: 0px;
+    font-size: 18px;
+    padding: 0px 2px;
     border-radius: 16px;
-    background-color: #302D41;
+    background-color: @black0;
 }
 #workspaces button {
-    padding: 0rem 0.0rem;
+    margin: 0px -2px;
+    padding: 0rem;
+    color: @white;
+    border-radius: 16px;
 }
 #workspaces button.focused {
-    font-size: 20px;
-    border-radius: 16px;
-    color: #1A1826;
-    background-color: #C3BAC6;
+    color: @black0;
+    background-color: @gray2;
 }
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    color: @marron;
 }
 
 
 /*      /==>    BACKLIGHT     <==/    */
 #backlight{
-    font-size:16px;
-    margin-right:8px;
-    padding-right: 1.0rem;
-    border-radius: 0px 6px 6px 0px;
+    font-size: 16px;
+    margin-right: 8px;
+    padding-right: 1rem;
+    border-radius: 0px 16px 16px 0px;
 }
 
 
@@ -172,11 +142,13 @@
     /* color: ; */
 }
 #cpu.warning {
-    color: #F8BD96;
+    color: @black3;
+    background-color: @rosewater;
 }
  
 #cpu.critical {
-    color: #F28FAD;
+    color: @black3;
+    background-color: @marron;
 }
 
 
@@ -188,11 +160,13 @@
 }
  
 #memory.warning {
-    color: #F8BD96;
+    color: @black3;
+    background-color: @rosewater;
  }
  
 #memory.critical {
-    color: #F28FAD;
+    color: @black3;
+    background-color: @marron;
     animation-name: blink-critical;
     animation-duration: 2s;
     padding-left:5px;
@@ -202,16 +176,16 @@
 
 /*      /==>    TEMPERATURE     <==/    */
 #temperature {
-    border-radius: 0px 6px 6px 0px;
-    padding-right: 1.0rem;
-    margin-right: 8px;
+    border-radius: 0px 16px 16px 0px;
+    padding-right: 1rem;
+    margin-right: 2px;
 }
 
 
 #language {
-    margin-left:8px;
-    border-radius: 6px 0px 0px 6px;
-    padding-left: 1.0rem;
+    margin-left: 8px;
+    border-radius: 16px 0px 0px 16px;
+    padding-left: 1rem;
 }
 
 
@@ -220,8 +194,8 @@
 #pulseaudio {
 }
 #pulseaudio.muted {
-    font-size:20px;
-    color: @highlight;
+    font-size: 18px;
+    color: @gray0;
 }
 
 
@@ -240,23 +214,25 @@
 
 
 #clock {
-    font-size:14px;
-    margin-left:16px;
-    margin-right:8px;
+    color: @flamingo;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #tray{
-    background-color:#161320;
-    margin-right:8px;
-    border-radius: 6px 6px 6px 6px;
-    padding-right: 1.0rem;
-    padding-left: 1.0rem;
+    background-color: @black0;
+    margin: 0px 8px;
+    border-radius: 20px;
+    padding: 0rem 0.8rem;
 }
 
 
 /*      /==>    CUSTOM     <==/    */
 #custom-power{
-   margin-left:8px;
-   margin-right:16px;
-   font-size:18px;
+    color: @flamingo;
+    /* font-weight:bold; */
+    margin-left: 10px;
+    margin-right: 12px;
+    font-size: 16px;
 }

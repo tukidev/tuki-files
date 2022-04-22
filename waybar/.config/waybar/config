@@ -4,11 +4,12 @@
     //
 
     "layer": "top",
+    // "position": "bottom",
     // "height": 14,
-    "margin-top": 4,
-    "margin-right": 4,
-    "margin-left": 4,
-    "margin-bottom": 0,
+    // "margin-top": 4,
+    // "margin-right": -2,
+    // "margin-left": -2,
+    // "margin-bottom": 0,
     "modules-left": [
         "clock",
         "battery",
@@ -69,9 +70,9 @@
 
     "clock": {
         "interval": 60,
-        "format": "{:  %H:%M}",
+        "format": "{:  <b>%H:%M</b>}",
         "max-length": 25,
-        "format-alt": "{:  %a %b %d      %H:%M}"
+        "format-alt": "{:  <b>%a %b %d</b>}"
     },
     "battery": {
         "bat": "BAT0",
@@ -80,8 +81,8 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
+        "format": "{icon} <b>{capacity}%</b>",
+        "format-charging": " <b>{capacity}%</b>",
         "format-icons": ["", "", "", "", ""]
     },
 
@@ -117,7 +118,7 @@
         "format": "  {icon0}{icon1}{icon2}{icon3}",
         "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
         "states": {
-            "warning": 70,
+            "warning": 60,
             "critical": 90,
         },
         "on-click": "kitty -e 'htop'",
@@ -125,7 +126,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "    {}%",
+        "format": "  <b>{}%</b>",
         "on-click": "kitty -e 'htop'",
         "states": {
             "warning": 70,
@@ -141,7 +142,7 @@
         },
         "critical-threshold": 80,
         "interval": 5,
-        "format": "{icon}    {temperatureC}°",
+        "format": "{icon}  <b>{temperatureC}°</b>",
         "format-icons": [ "", "", "", "", "" ]
     },
 
@@ -151,7 +152,7 @@
     },
 
     "sway/language": {
-        "format": "  {shortDescription}",
+        "format": "  <b>{shortDescription}</b>",
     },
 
     "pulseaudio": {
@@ -166,7 +167,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["  ", " ", ""]
         },
         "on-click": "pavucontrol",
         "on-scroll-up": "pamixer -ui 2",
