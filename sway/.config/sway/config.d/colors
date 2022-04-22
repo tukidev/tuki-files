@@ -1,19 +1,45 @@
-set $darkgreenmoss_lighter       #81a984
-set $darkgreenmoss_light         #68946c
-set $darkgreenmoss               #4c7450
-set $darkgreenmoss_dark          #416044
-set $darkgreenmoss_darker        #355438
-set $forestgreen                 #006b38ff
-
-set $bg_greenblue_d              #101820
-set $bg                          #0c0c0c
-set $bg_authumn_d                #2f3e46
-set $bd0                         #394f6b
-set $bd1                         #6dffe7
-set $bd_authumn_l                #cad2c5
-
-set $cl_high $bd_authumn_l
-set $cl_indi $darkgreenmoss_dark
-set $cl_back $bg_greenblue_d
-set $cl_fore #00ff00
-set $cl_urge #00ff00
+#
+# Catppuccin Colorscheme
+#
+    set $black0         #161320
+    set $black1         #1A1826
+    set $black2         #1E1E2E
+    set $black3         #302D41
+    set $black4         #575268
+    set $gray0          #6E6C7E
+    set $gray1          #988BA2
+    set $gray2          #C3BAC6
+    set $white          #D9E0EE
+    set $lavender       #C9CBFF
+    set $rosewater      #F5E0DC
+    set $flamingo       #F2CDCD
+    set $mauve          #DDB6F2
+    set $pink           #F5C2E7
+    set $marron         #E8A2AF
+    set $red            #F28FAD
+    set $peach          #F8BD96
+    set $yellow         #FAE3B0
+    set $green          #ABE9B3
+    set $teal           #B5E8E0
+    set $blue           #96CDFB
+    set $sky            #89DCEB
+#
+# Another colors
+#
+    set $darkgreenmoss_lighter       #81a984
+    set $darkgreenmoss_light         #68946c
+    set $darkgreenmoss               #4c7450
+    set $darkgreenmoss_dark          #416044
+    set $darkgreenmoss_darker        #355438
+    set $forestgreen                 #006b38ff
+    set $bg_greenblue_d              #101820
+    set $bg                          #0c0c0c
+    set $bg_authumn_d                #2f3e46
+    set $bd0                         #394f6b
+    set $bd1                         #6dffe7
+    set $bd_authumn_l                #cad2c5
+    set $cl_high $bd_authumn_l
+    set $cl_indi $darkgreenmoss_dark
+    set $cl_back $bg_greenblue_d
+    set $cl_fore #00ff00
+    set $cl_urge #00ff00

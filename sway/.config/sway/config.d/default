@@ -125,22 +125,22 @@ exec swayidle -w\
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    $ubind $mod+b splith
-    $ubind $mod+v splitv
+    $ubind $mod+n splith
+    $ubind $mod+m splitv
 
     # Switch the current container between different layout styles
     $ubind $mod+s layout stacking
-    $ubind $mod+w layout tabbed
+    $ubind $mod+o layout tabbed
     $ubind $mod+e layout toggle split
 
     # Make the current focus fullscreen
     $ubind $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    $ubind $mod+Shift+space floating toggle
+    $ubind $mod+Shift+w floating toggle
 
     # Swap focus between the tiling area and the floating area
-    $ubind $mod+space focus mode_toggle
+    $ubind $mod+w focus mode_toggle
 
     # Move focus to the parent container
     $ubind $mod+a focus parent
@@ -208,14 +208,10 @@ $ubind --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 pp
 #
 # App shortcuts
 #
-    $ubind $mod+n exec thunar
-    $ubind $mod+o exec firefox
+    # $ubind $mod+n exec thunar
+    # $ubind $mod+o exec brave
 #
 # Screenshots
 #
     $ubind print exec /usr/share/sway/scripts/grimshot --notify save output
     $ubind Shift+print exec ~/.config/sway/scripts/screenshot.sh
-#
-# Keybindings List
-#
-   $ubind $mod+t exec xed ~/.config/sway/cheatsheet
