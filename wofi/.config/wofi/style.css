@@ -42,9 +42,9 @@ Arc-Dark Color Scheme
 }
 
 #window {
-    background-color: @black1;
-    border-radius: 24px;
-    border: 2px solid @black3;
+    background-color: @black0;
+    border-radius: 32px;
+    border: 0px solid @black3;
 }
 
 #input {
@@ -58,13 +58,12 @@ Arc-Dark Color Scheme
 }
 
 #inner-box {
-    background-color: @black1;
     border-radius: 40px;
 }
 
 #outer-box {
     margin: 5px;
-    padding:15px;
+    padding: 16px;
     border-radius: 40px;
 }
 
@@ -86,7 +85,7 @@ Arc-Dark Color Scheme
 #entry:selected {
     padding: 6px 28px;
     border-radius: 40px;
-    background-color: @gray1;
+    background-color: @gray2;
 }
 
 #text:selected {

@@ -44,9 +44,9 @@ Arc-Dark Color Scheme
 }
 
 #window {
-    background-color: @black1;
-    border-radius: 24px;
-    border: 2px solid @black3;
+    background-color: @black0;
+    border-radius: 28px;
+    border: 0px solid @black3;
 }
 
 #inner-box {
@@ -76,7 +76,7 @@ Arc-Dark Color Scheme
 
 
 #entry:selected {
-    background-color: @gray1;
+    background-color: @gray2;
 }
 
 #text:selected {
