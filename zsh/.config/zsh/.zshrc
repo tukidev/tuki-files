@@ -68,7 +68,8 @@ COMPLETION_WAITING_DOTS="true"
 #: /=====<< User Configuration >>=====/
 
 # /==< Plugins
-plugins=(git zsh-syntax-highlighting)   # another:=(zsh-autosuggestions,...)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+# another:=(zsh-autosuggestions,...)
 
 source $ZSH/oh-my-zsh.sh                # /==> Load plugin framework
 
@@ -85,6 +86,7 @@ autoload -U compinit; compinit          # /==> Advanced Tab completion
 source $ZDOTDIR2/completion.zsh         # /==> Completion
 source $ZDOTDIR2/vimode.zsh             # /==> Vi-mode
 source $ZDOTDIR2/aliases.zsh            # /==> Aliases
+source $ZDOTDIR2/zoxide.zsh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

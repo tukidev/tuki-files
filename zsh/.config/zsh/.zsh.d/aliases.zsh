@@ -1,15 +1,14 @@
-#:      /=====<< Aliases For My ZShell >>=====/
+#
+#      /=====<< Aliases For My ZShell >>=====/
 #
 
-alias ls='ls --color=auto'
-alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
-alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias cd='z'
+alias ..='z ..'
+alias ...='z ../..'
+alias ....='z ../../..'
 alias v='nvim'
 alias cl='clear'
+alias jk='z $HOME;clear'
 alias cpp='rsync -ah --info=progress2'
 alias tr='mv -ft ~/.local/share/Trash '
 alias ltr='ll ~/.local/share/Trash '
@@ -21,11 +20,11 @@ alias u='sudo pacman -Syu'
 alias U='sudo yay'
 alias conf='cd $HOME/.dotty/'
 alias bconf='v $HOME/.dotty/bash/.bashrc'
-alias zconf='v $HOME/.dotty/zsh/.zshrc'
+alias zconf='v $HOME/.dotty/zsh/.config/zsh/.zshrc'
 
-alias dir='mkdir -p'
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd "+"${index}"; unset index
+alias mkd='mkdir -p'
+# alias d='dirs -v'
+# for index ({1..9}) alias "$index"="cd "+"${index}"; unset index
 
 alias g='git'
 alias gs='g status'
@@ -37,5 +36,12 @@ alias gi='g init;echo "|=========<< New Project >>=======|" >> README.md;ga READ
 
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 
+alias l='exa --icons -s=type'
+alias ll='exa --icons -lF --no-time --git -s=type'
+alias la='exa --icons -alF --no-time --git -s=type'
+alias lA='exa --icons -alF -B --git -s=type'
+alias ld='exa --icons -DlF --no-time -s=type'
+alias lda='exa --icons -aDlF --no-time -s=type'
+alias ldA='exa --icons -aDlF -B --git -s=type'
 
-
+alias fda='fd -HI'
