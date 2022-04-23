@@ -7,8 +7,8 @@ catppuccin.setup {
     styles = {
         comments = "italic",
         functions = "NONE",
-        keywords = "NONE",
-        strings = "NONE",
+        keywords = "bold",
+        strings = "italic",
         variables = "NONE",
     },
     integrations = {
@@ -23,9 +23,9 @@ catppuccin.setup {
             },
             underlines = {
                 errors = "underline",
-                hints = "underline",
+                hints = "NONE",
                 warnings = "underline",
-                information = "underline",
+                information = "NONE",
             },
         },
         lsp_trouble = true,
@@ -36,7 +36,7 @@ catppuccin.setup {
         telescope = true,
         nvimtree = {
             enabled = true,
-            show_root = false,
+            show_root = true,
             transparent_panel = false,
         },
         neotree = {
@@ -58,10 +58,22 @@ catppuccin.setup {
         markdown = true,
         lightspeed = false,
         ts_rainbow = false,
-        hop = false,
+        hop = true,
         notify = true,
         telekasten = true,
     }
 }
+--[[
+local cp = require("catppuccin.core.color_palette")
+local cnf = require("catppuccin.config").options
 
+catppuccin.remap(
+    {
+        NormalNC = { fg = cp.white, bg = cnf.transparent_background and cp.none or cp.black0 }, -- normal text in non-current windows
+		NormalSB = { fg = cp.white, bg = cp.black0 }, -- normal text in non-current windows
+        SignColumn = { bg = cnf.transparent_background and cp.none or cp.black1, fg = cp.black4 }, -- column where |signs| are displayed
+		SignColumnSB = { bg = cp.black0, fg = cp.black4 }, -- column where |signs| are displayed
+    }
+)
+]]
 vim.cmd[[colorscheme catppuccin]]
