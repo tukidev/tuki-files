@@ -2,7 +2,8 @@
 
 local keymaps = {
     normal_mode = {
-        ["q"] = { "<esc><cmd>qa!<CR><cmd>qa<cr>", "Quit" },
+        ["q"] = { "<cmd>q<CR>", "Quit" },
+        ["Q"] = { "<cmd>qa!<CR>", "Quit All" },
         ["w"] = { "<cmd>w!<CR>", "Save" },
         ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
         ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
