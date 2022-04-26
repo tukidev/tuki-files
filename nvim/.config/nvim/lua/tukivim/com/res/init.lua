@@ -1,6 +1,5 @@
 local R = {}
 
--- make structure of PATHes
 R.path = {
     n = "tukivim",
     p = nil,
@@ -38,46 +37,6 @@ R.path = {
     config = {
         n = "plugin-config",
         p = nil,
-        ide = {
-            n = "ide",
-            p = nil,
-            cmp = {
-                n = "completion",
-                p = nil
-            },
-            diagnostic = {
-                n = "diagnostic",
-                p = nil,
-                lsp = {
-                    n = "lsp",
-                    p = nil
-                },
-                null_ls = {
-                    n = "null_ls",
-                    p = nil
-                },
-            },
-            tools = {
-                n = "tools",
-                p = nil
-            },
-        },
-        ui = {
-            n = "ui",
-            p = nil,
-            colorschemes = {
-                n = "colorschemes",
-                p = nil
-            },
-            view = {
-                n = "view",
-                p = nil
-            },
-        },
-        opt = {
-            n = "opt",
-            p = nil,
-        }
     },
 }
 
@@ -101,18 +60,6 @@ R.path.com.keymaps.p = R.path.com.p .. '.' .. R.path.com.keymaps.n
 R.path.com.keymaps.loader.p = R.path.com.keymaps.p .. '.' .. R.path.com.keymaps.loader.n
 
 R.path.config.p = R.path.p .. '.' .. R.path.config.n
-R.path.config.opt.p = R.path.config.p .. '.' .. R.path.config.opt.n
-
-R.path.config.ide.p = R.path.config.p .. '.' .. R.path.config.ide.n
-R.path.config.ide.cmp.p = R.path.config.ide.p .. '.' .. R.path.config.ide.cmp.n
-R.path.config.ide.tools.p = R.path.config.ide.p .. '.' .. R.path.config.ide.tools.n
-R.path.config.ide.diagnostic.p = R.path.config.ide.p .. '.' .. R.path.config.ide.diagnostic.n
-R.path.config.ide.diagnostic.lsp.p = R.path.config.ide.diagnostic.p .. '.' .. R.path.config.ide.diagnostic.lsp.n
-R.path.config.ide.diagnostic.null_ls.p = R.path.config.ide.diagnostic.p .. '.' .. R.path.config.ide.diagnostic.null_ls.n
-
-R.path.config.ui.p = R.path.config.p .. '.' .. R.path.config.ui.n
-R.path.config.ui.colorschemes.p = R.path.config.ui.p .. '.' .. R.path.config.ui.colorschemes.n
-R.path.config.ui.view.p = R.path.config.ui.p .. '.' .. R.path.config.ui.view.n
 --#endregion
 
 

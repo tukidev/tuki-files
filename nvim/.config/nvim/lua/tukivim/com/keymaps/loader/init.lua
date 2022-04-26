@@ -48,7 +48,7 @@ function Loader.setup(init)
     -- @param keymaps table of keymaps
     -- @param opts table of options
     function self.set_keymaps_wk(keymaps, opts)
-        vim.tukivim.plugins["which-key"].register(keymaps, opts)
+        require("which-key").register(keymaps, opts)
     end
 
 

@@ -12,7 +12,7 @@ local keymaps = {
         ["[d"] = '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
         ["]d"] = '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
 
-        ["<leader>q"] = "<cmd>lua vim.diagnostic.setloclist()<CR>",
+        -- ["<leader>q"] = "<cmd>lua vim.diagnostic.setloclist()<CR>",
 
     }
 }

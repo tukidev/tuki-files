@@ -35,6 +35,8 @@ return {
         check_box_a = "",
         check_box_b = "",
 
+        pinned = "車",
+
         times = "",
         times_circle_a = "",
         times_circle_b = "",
@@ -153,6 +155,27 @@ return {
         WARN = " ",
         NOTE = " ",
         PERF = " ",
+    },
+    neotree = {
+        folder = {
+            folder_closed = "",
+            folder_open = "",
+            folder_empty = "",
+            default = "*",
+        },
+        git = {
+            -- Change type
+            added     = "✚",
+            deleted   = "✖",
+            modified  = "",
+            renamed   = "",
+            -- Status type
+            untracked = "u",
+            ignored   = "",
+            unstaged  = "",
+            staged    = "",
+            conflict  = "",
+        }
     },
 
     --#endregion

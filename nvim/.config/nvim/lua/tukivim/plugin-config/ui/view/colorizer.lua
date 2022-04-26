@@ -1,1 +1,0 @@
-vim.tukivim.register("colorizer", {})

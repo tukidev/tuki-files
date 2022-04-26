@@ -17,6 +17,13 @@ local keymaps = {
         ["<C-k>"] = "<C-w>k",
         ["<C-l>"] = "<C-w>l",
 
+        -- Splitting
+        ["<C-s><C-s>"] = "<cmd>sp<cr>",
+        ["<C-s><C-v>"] = "<cmd>vsp<cr>",
+        ["<C-s><C-f>e"] = "<cmd>FocusEnable<cr>",
+        ["<C-s><C-f>d"] = "<cmd>FocusDisable<cr>",
+        -- ["<C-f>"] = "<cmd>FocusMaxOrEqual<cr>",
+
         -- Resize with arrows
         ["<C-Up>"] = ":resize -2<CR>",
         ["<C-Down>"] = ":resize +2<CR>",
@@ -42,6 +49,12 @@ local keymaps = {
         ["gL"] = "<cmd>HopLine<cr>",
         ["gs"] = "<cmd>HopChar1<cr>",
         ["gS"] = "<cmd>HopChar1CurrentLine<cr>",
+
+        -- Smooth scrolling (neoscroll)
+        ["K"] = ":lua require('neoscroll').scroll(-vim.wo.scroll, true, 200)<cr>",
+        ["J"] = ":lua require('neoscroll').scroll(vim.wo.scroll, true, 200)<cr>",
+
+
         -- [""] = "",
     },
 

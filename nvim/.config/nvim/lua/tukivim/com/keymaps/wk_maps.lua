@@ -2,10 +2,11 @@
 
 local keymaps = {
     normal_mode = {
+        ["q"] = { "<esc><cmd>qa!<CR><cmd>qa<cr>", "Quit" },
         ["w"] = { "<cmd>w!<CR>", "Save" },
         ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-        ["q"] = { "<cmd>qa<CR>", "Quit" },
         ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
+        ["?"] = { "<cmd>lua require('Comment.api').toggle_current_blockwise()<CR>", "Comment" },
         ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
         ["f"] = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find File" },
         ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -43,8 +44,8 @@ local keymaps = {
             S = { "<cmd>PackerStatus<cr>", "Status" },
             u = { "<cmd>PackerUpdate<cr>", "Update" },
         },
-        t = {
-            name = "Trouble",
+        d = {
+            name = "Diagnostic",
             t = { "<cmd>Trouble document_diagnostics<cr>", "Document diagnostic" },
             r = { "<cmd>TroubleRefresh<cr>", "Refresh" },
             f = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
@@ -63,27 +64,26 @@ local keymaps = {
         g = {
             name = "Git",
             j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-            k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+            k = { "<gmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
             l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
             p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
             r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
             R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
             s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-            u = {
-                "Undo Stage Hunk",
-                "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+            u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
+            v = {
+                name = "View",
+                o = { "<cmd>Telescope git_status<cr>", "View changed file" },
+                b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+                c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+                C = { "<cmd>Telescope git_bcommits<cr>","Checkout commit(for current file)", },
             },
-            o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-            b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-            c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-            C = {
-                "<cmd>Telescope git_bcommits<cr>",
-                "Checkout commit(for current file)",
-            },
-            d = {
-                "<cmd>Gitsigns diffthis HEAD<cr>",
-                "Git Diff",
-            },
+            g = { "<cmd>Neogit<cr>", "Open git status" },
+            c = { "<cmd>Neogit commit<cr>", "Commit" },
+            d = { "<cmd>DiffviewOpen<cr>", "Diffview Open", },
+            D = { "<cmd>DiffviewClose<cr>", "Diffview Close", },
+            h = { "<cmd>DiffviewFileHistory<cr>", "File History", },
+            e = { "<cmd>DiffviewToggleFiles<cr>", "Diffview Explorer", },
         },
 
         l = {
@@ -117,8 +117,11 @@ local keymaps = {
                 "Workspace Symbols",
             },
         },
+
         s = {
-            name = "Search",
+            name = "Scope",
+
+            -- Telescope original
             b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
             c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
             f = { "<cmd>Telescope find_files<cr>", "Find File" },
@@ -130,6 +133,13 @@ local keymaps = {
             k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
             C = { "<cmd>Telescope commands<cr>", "Commands" },
             p = { "<cmd>Telescope find_project_files<cr>", "Project Files" },
+
+            -- Telescope dap
+
+
+            -- Telescope command_center
+
+
         },
         T = {
             name = "Treesitter",
@@ -138,6 +148,7 @@ local keymaps = {
     },
     visual_mode = {
         ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
+        ["?"] = { "<esc><cmd>lua require('Comment.api').toggle_current_blockwise_op(vim.fn.visualmode())<CR>", "Comment block" },
     },
 }
 
