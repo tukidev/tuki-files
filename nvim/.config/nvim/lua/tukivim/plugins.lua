@@ -51,7 +51,7 @@ local plugins = {
     { 'nathom/filetype.nvim' },                 -- startup-time optimization (adds commands)
 
 
-    -- LSP                      | (built-in Language Server Protocols)
+    --- [ LSP ]                      | (built-in Language Server Protocols)
     {
         'neovim/nvim-lspconfig', config = function ()
             require("tukivim.plugin-config.lsp")
@@ -63,7 +63,7 @@ local plugins = {
     },
 
 
-    -- CMP                      | (completion & snippets & it's sources)
+    --- [ CMP ]                      | (completion & snippets & it's sources)
     {
         'hrsh7th/nvim-cmp', config = function ()
             require("tukivim.plugin-config.cmp")
@@ -81,35 +81,33 @@ local plugins = {
     },
 
 
-    -- Telescope                | (modern `fzf` plugin)
+    --- [ Telescope ]                | (modern `fzf` plugin)
     {
         'nvim-telescope/telescope.nvim', config=function()
             require('tukivim.plugin-config.telescope')
         end
 
-    -- },{ 'nvim-telescope/telescope-dap.nvim'
+    },{ 'nvim-telescope/telescope-dap.nvim'
     },{ 'FeiyouG/command_center.nvim'
     },
 
 
-    -- DAP                      | (Debug Adapter Protocols)
-    -- {
-    --     'mfussenegger/nvim-dap', config = function()
-    --         require("tukivim.plugin-config.dap")
-    --     end
-    -- },{
-    --     'rcarriga/nvim-dap-ui', config=function()
-    --         require('')
-    --     end
-    --
-    -- },{ 'mfussenegger/nvim-dap-python'
-    -- },{ 'simrat39/rust-tools.nvim'
-    -- },
+    --- [ DAP ]                      | (Debug Adapter Protocols)
+    {
+        'mfussenegger/nvim-dap', config = function()
+            require("tukivim.plugin-config.dap")
+        end
+    },{ 'theHamsta/nvim-dap-virtual-text'
+    },{ 'rcarriga/nvim-dap-ui'
+    -- #DAPTools
+    },{ 'mfussenegger/nvim-dap-python'
+    },{ 'simrat39/rust-tools.nvim'
+    },
 
     -- { 'jbyuki/one-small-step-for-vimkind' },    -- `Lua` DAP adapter
 
 
-    -- TS                       | (Tree-sitter [syntax highlighting])
+    --- [ TS ]                       | (Tree-sitter [syntax highlighting])
     {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
@@ -126,7 +124,7 @@ local plugins = {
     --     requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" }
     -- },
 
-    --- Others
+    --- [ Others ]
     {
         'phaazon/hop.nvim', config=function()
             require('tukivim.plugin-config.hop')
