@@ -1,3 +1,6 @@
+# autoload bashcompinit
+# bashcompinit
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -68,7 +71,7 @@ COMPLETION_WAITING_DOTS="true"
 #: /=====<< User Configuration >>=====/
 
 # /==< Plugins
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions conda-zsh-completion)
 # another:=(zsh-autosuggestions,...)
 
 source $ZSH/oh-my-zsh.sh                # /==> Load plugin framework
@@ -88,6 +91,10 @@ source $ZDOTDIR2/vimode.zsh             # /==> Vi-mode
 source $ZDOTDIR2/aliases.zsh            # /==> Aliases
 source $ZDOTDIR2/zoxide.zsh
 
+
+# miniconda integration
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -97,10 +104,14 @@ source $ZDOTDIR2/zoxide.zsh
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
-    export EDITOR='mvim'
+    export EDITOR='nvim'
 fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # export PATH="/usr/local/bin:$PATH"
+
+# PATH
+path+=('/home/tuki/.cargo/bin')
+export PATH

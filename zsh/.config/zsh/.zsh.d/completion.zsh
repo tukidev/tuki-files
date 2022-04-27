@@ -19,3 +19,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
 zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
 # zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+
+# conda-zsh-completion option's
+zstyle ':completion::complete:*' use-cache 1
+zstyle ":conda_zsh_completion:*" show-unnamed true
+zstyle ":conda_zsh_completion:*" sort-envs-by-time true

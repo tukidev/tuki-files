@@ -45,3 +45,5 @@ alias lda='exa --icons -aDlF --no-time -s=type'
 alias ldA='exa --icons -aDlF -B --git -s=type'
 
 alias fda='fd -HI'
+
+alias tt='thokr'
