@@ -51,8 +51,16 @@ local keymaps = {
         ["gS"] = "<cmd>HopChar1CurrentLine<cr>",
 
         -- Smooth scrolling (neoscroll)
-        ["K"] = ":lua require('neoscroll').scroll(-vim.wo.scroll, true, 200)<cr>",
-        ["J"] = ":lua require('neoscroll').scroll(vim.wo.scroll, true, 200)<cr>",
+        ["K"] = ":lua require('neoscroll').scroll(-vim.wo.scroll, true, 300)<cr>",
+        ["J"] = ":lua require('neoscroll').scroll(vim.wo.scroll, true, 300)<cr>",
+
+
+        --- [ DAP ]
+        ['<F2>']  = ":lua require'dap'.terminate()<CR>",
+        ['<F5>']  = ":lua require'dap'.continue()<CR>",
+        ['<F10>']  = ":lua require'dap'.step_over()<CR>",
+        ['<F11>'] = ":lua require'dap'.step_into()<CR>",
+        ['<F12>'] = ":lua require'dap'.step_out()<CR>",
 
 
         -- [""] = "",

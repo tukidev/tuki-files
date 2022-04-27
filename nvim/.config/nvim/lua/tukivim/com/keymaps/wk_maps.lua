@@ -9,7 +9,6 @@ local keymaps = {
         ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
         ["?"] = { "<cmd>lua require('Comment.api').toggle_current_blockwise()<CR>", "Comment" },
         ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
-        ["f"] = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find File" },
         ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
         ["N"] = { "<cmd>Notifications<CR>", "Notify History" },
         b = {
@@ -46,6 +45,41 @@ local keymaps = {
             u = { "<cmd>PackerUpdate<cr>", "Update" },
         },
         d = {
+            name = "DAP",
+
+            --- [ dap ]
+            r = { "<cmd>lua require'dap'.repl.toggle()<cr>" , "Toogle Repl" },
+            l = { "<cmd>lua require'dap'.run_last()<cr>" , "Run Last" },
+            b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>" , "Toggle breakpoint" },
+            -- w = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>" , "Widget hover" },
+            -- W = { "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<cr>" , "Widget scope" },
+
+
+            --- [ dap-python ]
+            -- P = {
+            --     name = "Python",
+            --     m = { "", "test method" },
+            --     c = { "", "test class" },
+            -- },
+
+
+
+            --- [ telescope-dap ]
+            s = {
+                name = "Search",
+                b = { "<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>", "Breakpoints" },
+                k = { "<cmd>lua require'telescope'.extensions.dap.configurations{}<CR>", "Konfigurations" },
+                c = { "<cmd>lua require'telescope'.extensions.dap.commands{}<CR>", "Commands" },
+                v = { "<cmd>lua require'telescope'.extensions.dap.variables{}<CR>", "Variable" },
+                f = { "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", "Frames" },
+            },
+
+
+            --- [ dap-ui ]
+            u = { "<cmd>lua require'dapui'.toggle()<CR>", "Toogle UI" },
+
+        },
+        f = {
             name = "Diagnostic",
             t = { "<cmd>Trouble document_diagnostics<cr>", "Document diagnostic" },
             r = { "<cmd>TroubleRefresh<cr>", "Refresh" },
@@ -125,7 +159,8 @@ local keymaps = {
             -- Telescope original
             b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
             c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-            f = { "<cmd>Telescope find_files<cr>", "Find File" },
+            f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find File" },
+            F = { "<cmd>Telescope find_files<cr>", "Find File" },
             h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
             M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
             r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
@@ -150,6 +185,14 @@ local keymaps = {
     visual_mode = {
         ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
         ["?"] = { "<esc><cmd>lua require('Comment.api').toggle_current_blockwise_op(vim.fn.visualmode())<CR>", "Comment block" },
+        d = {
+            name = "Debug",
+            P = {
+                name = "python",
+                s = { "", "test selection" },
+
+            },
+        },
     },
 }
 
