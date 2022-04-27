@@ -1,4 +1,10 @@
-/* zsh
+/* zsh */
 .zhistory
 .zcompdump
 .zcompdump*
+
+/* nvim */
+nvim/.config/nvim/pack
+nvim/.config/nvim/.nvimlog
+nvim/.config/nvim/plugin
+nvim/.config/nvim/lua/plugin-config/deprecated
