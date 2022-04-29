@@ -209,17 +209,27 @@ local plugins = {
         'lewis6991/gitsigns.nvim', config=function()
             require('tukivim.plugin-config.gitsigns')
         end
-    },
-    -- },{
-    --     'sunjon/shade.nvim', config=function()
-    --         require("tukivim.plugin-config.shade")
-    --     end
-
+    },{
+        'folke/zen-mode.nvim', config=function()
+            require('tukivim.plugin-config.zen')
+        end
     -- },{
     --     '', config=function()
     --         require('tukivim.plugin-config.')
     --     end
     -- },{
+    --     '', config=function()
+    --         require('tukivim.plugin-config.')
+    --     end
+    -- },{
+    --     '', config=function()
+    --         require('tukivim.plugin-config.')
+    --     end
+    -- },{
+    --     'sunjon/shade.nvim', config=function()
+    --         require("tukivim.plugin-config.shade")
+    --     end
+    },
 
 
     -- Color Schemes

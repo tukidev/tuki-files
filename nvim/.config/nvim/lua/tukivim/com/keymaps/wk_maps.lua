@@ -6,6 +6,7 @@ local keymaps = {
         ["Q"] = { "<cmd>qa!<CR>", "Quit All" },
         ["w"] = { "<cmd>w!<CR>", "Save" },
         ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+        ["z"] = { "<cmd>ZenMode<CR>", "ZenMode" },
         ["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
         ["?"] = { "<cmd>lua require('Comment.api').toggle_current_blockwise()<CR>", "Comment" },
         ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
