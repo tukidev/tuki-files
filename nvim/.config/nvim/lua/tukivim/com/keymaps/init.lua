@@ -1,32 +1,47 @@
--- TODO: import `almost ALL` keymaps to `which-key` plugin
-
+local loader = require("tukivim.com.keymaps.loader")
 local leader_default = ' '
 
 local keys = {
-    whichkey = require("tukivim.com.keymaps.wk_maps"),
+    whichkey = require("tukivim.com.keymaps.wk"),
     defaults = require("tukivim.com.keymaps.defaults"),
-    lsp = require("tukivim.com.keymaps.lsp_maps"),
-    -- explorer = require("tukivim.com.keymaps.explorer")
+    lsp = require("tukivim.com.keymaps.lsp"),
+    lsp_wk = require("tukivim.com.keymaps.lsp_wk"),
 }
 
-local KeymapsLoader = {}
 
-
-function KeymapsLoader.new()
+---Save and loads Tukivim's keymaps
+---Avaible keymaps modules:
+--- * defaults
+--- * whichkey
+--- * lsp
+function KeymapsLoader()
     local self = {}
     self.leader = leader_default
 
 
-    function self.load_module(module, buff, wk_flag)
-        if not keys[module] then return end
-        self[module] = keys[module]
-        self[module].load(buff, wk_flag)
+    function self.load_module(module, buff)
+        if not keys[module] then
+            return                          -- TODO: notify!!!
+        end
+
+        loader.load_keymaps(keys[module], buff)
     end
 
 
+    function self.load_module_wk(module, prefix, buff)
+        if not keys[module] then
+            return                          -- TODO: notify!!!
+        end
+
+        loader.load_keymaps_wk(keys[module], prefix,  buff)
+        -- code
+    end
+
+
+    --- Loads `defaults` and `whichkey` modules
     function self.load_defaults()
         self.load_module("defaults")
-        self.load_module("whichkey", nil, true)
+        self.load_module_wk("whichkey", self.leader)
     end
 
 
@@ -46,4 +61,4 @@ function KeymapsLoader.new()
     return self
 end
 
-return KeymapsLoader
+return KeymapsLoader()

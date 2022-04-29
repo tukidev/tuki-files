@@ -1,23 +1,5 @@
 local M = {}
-M.prefix = '<leader>'
-
-
----Generate default options table for which-key plugin
----@param mode string : `n` (default) | `i` | `c` | `v` | `x` | `t`
----@param key string : keymap prefix
----@return table
-function M.gen_opts_wk(mode, key, buf)
-    mode = mode or 'n'
-    key = key or M.prefix
-    return {
-        mode = mode,
-        prefix = key,
-        buffer = buf,
-        silent = true,
-        noremap = true,
-        nowait = true,
-    }
-end
+M.prefix = ' '      -- set default prefix as space
 
 
 ---Default options for `insert` and `normal` modes
@@ -55,6 +37,29 @@ M.mode_opts = {
     visual_block_mode = M.opts,
     term_mode = { silent = true },
 }
+
+
+M.opts2 = {
+    remap = true,
+    silent = true,
+    buffer = 0
+}
+M.mode_opts2 = {
+        insert_mode = M.opts,
+        normal_mode = M.opts,
+        visual_mode = M.opts,
+        command_mode = M.opts,
+        visual_block_mode = M.opts,
+        term_mode = { silent = true },
+}
+M.opts2_of = function (buffer)
+    return {
+        remap = true,
+        silent = true,
+        buffer = buffer
+    }
+end
+
 
 M.mode_adapters = {
     insert_mode = "i",

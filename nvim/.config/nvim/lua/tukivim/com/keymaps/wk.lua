@@ -186,15 +186,7 @@ local keymaps = {
     visual_mode = {
         ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
         ["?"] = { "<esc><cmd>lua require('Comment.api').toggle_current_blockwise_op(vim.fn.visualmode())<CR>", "Comment block" },
-        d = {
-            name = "Debug",
-            P = {
-                name = "python",
-                s = { "", "test selection" },
-
-            },
-        },
     },
 }
 
-return require("tukivim.com.keymaps.loader").setup(keymaps)
+return keymaps

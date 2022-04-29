@@ -24,7 +24,6 @@ defaults.config = {
 
 function H()
     local self = {}
-    self.keymaps = vim.tukivim.keymaps
 
     self.capabilities = require('cmp_nvim_lsp').update_capabilities(
         vim.lsp.protocol.make_client_capabilities()
@@ -49,7 +48,7 @@ function H()
 
 
     function self.on_attach(client, bufnr)
-        self.keymaps.load_module("lsp", bufnr)
+        vim.tukivim.keymaps.load_module_wk("lsp_wk", 'f', bufnr)
         lsp_highlight_document(client)
     end
 
@@ -59,7 +58,14 @@ function H()
         local signs = defaults.signs
 
         for _, sign in ipairs(signs) do
-            vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+            vim.fn.sign_define(
+                sign.name,
+                {
+                    texthl = sign.name,
+                    text = sign.text,
+                    numhl = ""
+                }
+            )
         end
 
         vim.diagnostic.config(config)
