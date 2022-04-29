@@ -213,10 +213,10 @@ local plugins = {
         'folke/zen-mode.nvim', config=function()
             require('tukivim.plugin-config.zen')
         end
-    -- },{
-    --     '', config=function()
-    --         require('tukivim.plugin-config.')
-    --     end
+    },{
+        'ur4ltz/surround.nvim', config=function()
+            require('tukivim.plugin-config.surround')
+        end
     -- },{
     --     '', config=function()
     --         require('tukivim.plugin-config.')
