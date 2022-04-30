@@ -1,1 +1,1 @@
-require("dap-python").setup('/opt/miniconda3/bin/python')
+require("dap-python").setup("/opt/miniconda3/bin/python")

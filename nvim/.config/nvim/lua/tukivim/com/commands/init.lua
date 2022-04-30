@@ -1,8 +1,7 @@
-
 local M = {}
 
 M.defaults = {
-    [[
+	[[
     function! QuickFixToggle()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
       copen
@@ -12,13 +11,13 @@ M.defaults = {
     endfunction
     ]],
 
-    [[ command! BufferKill lua require('tukivim.com.commands.commands').buf_kill('bd') ]],
+	[[ command! BufferKill lua require('tukivim.com.commands.commands').buf_kill('bd') ]],
 }
 
 M.load = function(commands)
-    for _, command in ipairs(commands) do
-        vim.cmd(command)
-    end
+	for _, command in ipairs(commands) do
+		vim.cmd(command)
+	end
 end
 
 return M

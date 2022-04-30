@@ -1,16 +1,21 @@
 local null_ls = vim.tukivim.utils.psetup("null-ls")
 
-
 local conf = {
-    sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.completion.spell,
+	sources = {
+		--- [ Lua ]
+		null_ls.builtins.formatting.stylua,
+		-- null_ls.builtins.diagnostics.luacheck,
 
-        -- tex/latex
-        null_ls.builtins.formatting.latexindent,
-        null_ls.builtins.diagnostics.chktex,
-    },
+		--- [ Tex / LaTex ]
+		null_ls.builtins.formatting.latexindent,
+		null_ls.builtins.diagnostics.chktex,
+
+        --- [ Git ]
+        null_ls.builtins.code_actions.gitsigns,
+
+        --- [ * ]
+		null_ls.builtins.completion.spell,
+	},
 }
 
 null_ls.setup(conf)

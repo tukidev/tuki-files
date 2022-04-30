@@ -1,1 +1,1 @@
-vim.tukivim.utils.psetup('hop', { keys = "etovxqpdygfblzhckisuran" })
+vim.tukivim.utils.psetup("hop", { keys = "etovxqpdygfblzhckisuran" })

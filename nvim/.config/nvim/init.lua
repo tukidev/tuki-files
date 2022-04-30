@@ -1,5 +1,5 @@
 local tukivim = require("tukivim.com")
-vim.tukivim = tukivim                       -- HACK: builtin own module into vim
+vim.tukivim = tukivim -- HACK: builtin own module into vim
 
 tukivim.setup_settings()
 
