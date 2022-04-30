@@ -27,7 +27,9 @@ defaults.config = {
 function H()
 	local self = {}
 
-	self.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+	self.capabilities = require("cmp_nvim_lsp").update_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
+    )
 
     self.ignore_lsp_formatting = {
         'sumneko_lua',

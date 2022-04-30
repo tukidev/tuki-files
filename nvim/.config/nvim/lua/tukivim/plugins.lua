@@ -67,18 +67,15 @@ local plugins = {
 		config = function()
 			require("tukivim.plugin-config.cmp")
 		end,
-
-		--  #Snippets
 	},
+    --  #Snippets
 	{ "L3MON4D3/LuaSnip" },
-	{
-		"rafamadriz/friendly-snippets", -- a bunch of snippets
-		--  #Sources
-	},
+	{ "rafamadriz/friendly-snippets" },
+    --  #Sources
+    { "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
 	{ "hrsh7th/cmp-cmdline" },
-	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "saadparwaiz1/cmp_luasnip" },
 
 	--- [ Telescope ]                | (modern `fzf` plugin)
@@ -105,8 +102,6 @@ local plugins = {
 	},
 	{ "mfussenegger/nvim-dap-python" },
 	{ "simrat39/rust-tools.nvim" },
-
-	-- { 'jbyuki/one-small-step-for-vimkind' },    -- `Lua` DAP adapter
 
 	--- [ TS ]                       | (Tree-sitter [syntax highlighting])
 	{
