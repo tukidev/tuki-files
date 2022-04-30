@@ -1,3 +1,5 @@
+local U = vim.tukivim.utils
+
 local defaults = {}
 defaults.signs = {
 	{ name = "DiagnosticSignError", text = "" },
@@ -27,6 +29,10 @@ function H()
 
 	self.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+    self.ignore_lsp_formatting = {
+        'sumneko_lua',
+    }
+
 	local function lsp_highlight_document(client) -- TODO: relocate to `tukivim.utils.lsp` module
 		-- Set autocommands conditional on server_capabilities
 		if client.resolved_capabilities.document_highlight then
@@ -44,6 +50,13 @@ function H()
 	end
 
 	function self.on_attach(client, bufnr)
+
+        -- remove formatting capabilities from servers
+        if U.has_value(self.ignore_lsp_formatting, client.name) then
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+        end
+
 		vim.tukivim.keymaps.load_module_wk("lsp_wk", "f", bufnr)
 		lsp_highlight_document(client)
 	end

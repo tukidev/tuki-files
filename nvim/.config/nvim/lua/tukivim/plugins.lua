@@ -72,7 +72,7 @@ local plugins = {
 	},
 	{ "L3MON4D3/LuaSnip" },
 	{
-		"rafamadriz/friendly-snippets",      -- a bunch of snippets
+		"rafamadriz/friendly-snippets", -- a bunch of snippets
 		--  #Sources
 	},
 	{ "hrsh7th/cmp-buffer" },

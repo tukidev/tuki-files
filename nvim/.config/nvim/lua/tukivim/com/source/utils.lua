@@ -23,4 +23,13 @@ function Utils.preqlist(plugins)
 	end
 end
 
+function Utils.has_value(table, val)
+	for _, el in ipairs(table) do
+		if val == el then
+			return true
+		end
+	end
+	return false
+end
+
 return Utils

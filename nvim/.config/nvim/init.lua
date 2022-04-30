@@ -4,7 +4,7 @@ vim.tukivim = tukivim -- HACK: builtin own module into vim
 tukivim.setup_settings()
 
 require("tukivim.plugins")
-require('tukivim.plugin-config.colorschemes').set("catppuccin")
+require("tukivim.plugin-config.colorschemes").set("catppuccin")
 
 tukivim.setup_keymaps()
 

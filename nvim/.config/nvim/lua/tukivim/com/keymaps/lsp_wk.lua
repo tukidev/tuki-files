@@ -22,6 +22,11 @@ local keymaps = {
 			"Diagnostic",
 		},
 	},
+
+    visual_mode = {
+        f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format" },
+        F = { "<cmd>lua vim.lsp.buf.range_code_action()<cr>", "Code Action" },
+    }
 }
 
 return keymaps

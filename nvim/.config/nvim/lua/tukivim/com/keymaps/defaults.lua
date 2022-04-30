@@ -77,6 +77,12 @@ local keymaps = {
 		["<"] = "<gv",
 		[">"] = ">gv",
 
+		["gw"] = "<cmd>HopWord<cr>",
+		["gW"] = "<cmd>HopWordCurrentLine<cr>",
+		["gl"] = "<cmd>HopLineStart<cr>",
+		["gL"] = "<cmd>HopLine<cr>",
+		["gs"] = "<cmd>HopChar1<cr>",
+		["gS"] = "<cmd>HopChar1CurrentLine<cr>",
 		-- ["p"] = '"0p',
 		-- ["P"] = '"0P',
 	},
