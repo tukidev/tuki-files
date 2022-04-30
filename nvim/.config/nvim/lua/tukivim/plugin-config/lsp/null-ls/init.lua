@@ -13,6 +13,11 @@ local conf = {
         --- [ Git ]
         null_ls.builtins.code_actions.gitsigns,
 
+        --- [ Shells ]
+        null_ls.builtins.diagnostics.zsh,
+        null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.code_actions.shellcheck,
+
         --- [ * ]
 		null_ls.builtins.completion.spell,
 	},

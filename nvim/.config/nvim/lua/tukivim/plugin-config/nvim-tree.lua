@@ -17,7 +17,7 @@ vim.g.nvim_tree_icons = {
 		staged = icons.git.staged,
 		unmerged = icons.git.unmerged,
 		renamed = icons.git.renamed,
-		deleted = icons.git.deleted_a,
+		deleted = icons.git.deleted_c,
 		untracked = icons.git.untracked,
 		ignored = icons.git.ignored,
 	},
@@ -29,6 +29,11 @@ vim.g.nvim_tree_icons = {
 		symlink = icons.folder.symlink,
 	},
 }
+
+--- [ remap highlight groups ]
+vim.cmd([[ highlight NvimTreeGitNew guifg = #DDB6F2 ]])
+vim.cmd([[ highlight NvimTreeGitStaged guifg = #ABE9B3 ]])
+
 
 local tree = vim.tukivim.utils.preq("nvim-tree")
 local tree_cb = vim.tukivim.utils.preq("nvim-tree.config").nvim_tree_callback
