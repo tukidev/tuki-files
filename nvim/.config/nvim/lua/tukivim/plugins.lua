@@ -58,7 +58,7 @@ local plugins = {
 		end,
 	},
 	{ "williamboman/nvim-lsp-installer" },
-	{ "glepnir/lspsaga.nvim" },
+	-- { "glepnir/lspsaga.nvim" },
 	{ "jose-elias-alvarez/null-ls.nvim" },
 
 	--- [ CMP ]                      | (completion & snippets & it's sources)
@@ -86,7 +86,7 @@ local plugins = {
 		end,
 	},
 	{ "nvim-telescope/telescope-dap.nvim" },
-	{ "FeiyouG/command_center.nvim" },
+	-- { "FeiyouG/command_center.nvim" },
 
 	--- [ DAP ]                      | (Debug Adapter Protocols)
 	{

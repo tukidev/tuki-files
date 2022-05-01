@@ -37,7 +37,7 @@ function H()
 
 	local function lsp_highlight_document(client) -- TODO: relocate to `tukivim.utils.lsp` module
 		-- Set autocommands conditional on server_capabilities
-		if client.resolved_capabilities.document_highlight then
+		if client.server_capabilities.document_highlight then
 			vim.api.nvim_exec( -- TODO: relocate cmd to `tukivim.commands` module
 				[[
                 augroup lsp_document_highlight
@@ -52,11 +52,10 @@ function H()
 	end
 
 	function self.on_attach(client, bufnr)
-
         -- remove formatting capabilities from servers
         if U.has_value(self.ignore_lsp_formatting, client.name) then
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
+            client.server_capabilities.document_formatting = false
+            -- client.server_capabilities.document_range_formatting = false    -- WARN: doesn't work
         end
 
 		vim.tukivim.keymaps.load_module_wk("lsp_wk", "f", bufnr)

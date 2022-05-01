@@ -95,5 +95,5 @@ local scope = vim.tukivim.utils.psetup("telescope", conf)
 --- [ Load additional extensions ]
 scope.load_extension("dap")
 
-require("tukivim.plugin-config.telescope.cmdcenter-scope")
-scope.load_extension("command_center")
+-- require("tukivim.plugin-config.telescope.cmdcenter-scope")
+-- scope.load_extension("command_center")

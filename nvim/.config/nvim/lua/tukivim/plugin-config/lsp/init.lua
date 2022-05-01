@@ -17,7 +17,7 @@ function LSPModule.new()
 		setup_handlers()
 		require("tukivim.plugin-config.lsp.lsp-installer").setup(self.handler, self.settings)
 		self.null_ls = require("tukivim.plugin-config.lsp.null-ls")
-		self.saga = require("tukivim.plugin-config.lsp.saga")
+		-- self.saga = require("tukivim.plugin-config.lsp.saga")
 	end
 
 	return self

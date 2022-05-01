@@ -94,21 +94,7 @@ local conf = {
 }
 
 
-local default_mapping_cmdline = {
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --     if cmp.visible() then
-    --         cmp.select_next_item()
-    --     else
-    --         fallback()
-    --     end
-    -- end),
-    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --     if cmp.visible() then
-    --         cmp.select_prev_item()
-    --     else
-    --         fallback()
-    --     end
-    -- end),
+local default_mapping_cmdline = cmp.mapping.preset.insert({
     ['<C-j>'] = {
           c = function(fallback)
             if cmp.visible() then
@@ -130,7 +116,7 @@ local default_mapping_cmdline = {
     ['<C-c>'] = {
       c = cmp.mapping.close(),
     },
-}
+})
 
 -- `/` cmdline setup.
 cmp.setup.cmdline('/', {
