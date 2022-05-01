@@ -11,8 +11,8 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="artuki"
-source $ZDOTDIR2/themes/tukiar.zsh-theme
+ZSH_THEME="artuki"
+# source $ZDOTDIR2/themes/tukiar.zsh-theme
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

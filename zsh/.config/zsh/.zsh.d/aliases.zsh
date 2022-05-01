@@ -18,9 +18,11 @@ alias qq='shutdown now'
 alias re='reboot'
 alias u='sudo pacman -Syu'
 alias U='sudo yay'
+
 alias conf='cd $HOME/.dotty/'
 alias bconf='v $HOME/.dotty/bash/.bashrc'
 alias zconf='v $HOME/.dotty/zsh/.config/zsh/.zshrc'
+alias vconf='v $HOME/.dotty/nvim/.config/nvim/init.lua'
 
 alias mkd='mkdir -p'
 # alias d='dirs -v'
