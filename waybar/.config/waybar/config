@@ -24,9 +24,9 @@
     ],
     "modules-right": [
         "tray",
+        "bluetooth",
         "sway/language",
         "pulseaudio",
-        "bluetooth",
         "backlight",
         "custom/power"
     ],
@@ -69,12 +69,15 @@
     },
 
     "clock": {
+        "min-length": 6,
         "interval": 60,
         "format": "{:  <b>%H:%M</b>}",
         "max-length": 25,
         "format-alt": "{:  <b>%a %b %d</b>}"
     },
     "battery": {
+        "align": 0.5,
+        "min-length": 6,
         "bat": "BAT0",
         "states": {
             "good": 95,
@@ -88,32 +91,43 @@
 
     "battery#bat1": {
         "bat": "BAT1",
-        "states": {
+        /* "states": {
             "good": 95,
             "warning": 30,
             "critical": 15
-        },
+        }, */
         "format": "{icon}  {capacity}%",
         "format-charging": "  {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
 
     "backlight": {
+        "align": 0.5,
+        "min-length": 6,
         "interval": 10,
-        "format": "{icon}",
-        // "format-alt": "{icon}  {percent}%",
-        "format-icons": ["", "", "", "", "", "", "",
-                         "", "", "", "", "", "" , ""] ,
+        "format": "{icon} <b>{percent}%</b>",
+        "states": {
+            "light": 70,
+            "medium": 50,
+            "dark": 30
+        },
+        "format-icons": [""],
+        /* "format-icons": ["", "", "", "", "", "", "", */
+        /*                  "", "", "", "", "", "" , ""] , */
         "on-scroll-down": "brightnessctl -c backlight set 1%-",
         "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
 
     "bluetooth":{
+        "align": 0.5,
+        /* "min-length": 2, */
         "format": "{icon}",
         "format-icons": [ "", "", ],
     },
 
     "cpu": {
+        "align": 0.5,
+        "min-length": 10,
         "interval": 1,
         "format": "  {icon0}{icon1}{icon2}{icon3}",
         "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -125,6 +139,8 @@
     },
 
     "memory": {
+        "align": 0.5,
+        "min-length": 6,
         "interval": 5,
         "format": "  <b>{}%</b>",
         "on-click": "kitty -e 'htop'",
@@ -136,6 +152,8 @@
 
     "temperature": {
         // "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+        "align": 0.5,
+        "min-length": 4,
         "states": {
             "warning": 5,
             "critical": 75,
@@ -152,13 +170,17 @@
     },
 
     "sway/language": {
+        "align": 0.5,
+        "min-length": 4,
         "format": "  <b>{shortDescription}</b>",
     },
 
     "pulseaudio": {
-        "format": "{icon}",
+        "align": 0.5,
+        "min-length": 6,
+        "format": "{icon} <b>{volume}%</b>",
         "format-bluetooth": "",
-        "format-muted": "",
+        "format-muted": "  <b>mut</b>",
         "scroll-step": 4,
         "format-icons": {
             "headphones": "",
@@ -184,7 +206,7 @@
     },
 
     "custom/power": {
-        "format":"⏻",
+        "format":" ⏻ ",
         "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
         "tooltip": false,
     },
