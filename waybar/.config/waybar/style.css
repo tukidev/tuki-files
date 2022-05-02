@@ -35,7 +35,6 @@
 **/
 
 #waybar {
-    /* border-radius: 0px 0px 12px 12px; */
     background-color: @black2;
 }
 
@@ -54,10 +53,11 @@
     /* font-family: ComicMono, */
     font-size: 12px;
     color: @lavender;
+    background-color: @black3;
+    /* border-radius: 8px; */
     padding: 0px 0.8rem;
     margin: 0px;
-    background-color: @black3;
-    margin: 0px 3px;
+    margin: 0px 2px;
 }
 
 /*      /===============================/
@@ -71,23 +71,27 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    border-radius: 14px 45px 22px 22px;
     padding-left: 1rem;
     margin-left: 4px;
+    border-bottom: 3px solid @teal;
+    /* border-radius: 14px 45px 22px 22px; */
 }
  
 #battery.warning {
     color: @black3;
-    background-color: @rosewater;
+    background-color: @yellow;
+    border-bottom: 3px solid @yellow;
 }
  
 #battery.critical {
     color: @black3;
     background-color: @marron;
+    border-bottom: 3px solid @red;
 }
 #battery.charging {
     color: @black3;
     background-color: @green;
+    border-bottom: 0px solid @green;
 }
  
 #battery.warning.discharging {
@@ -120,7 +124,8 @@
     background-color: @gray2;
 }
 #workspaces button.urgent {
-    color: @marron;
+    color: @black0;
+    background-color: @yellow;
 }
 
 
@@ -131,7 +136,7 @@
     padding-right: 1rem;
     background-color: @yellow;
     color: @black2;
-    border-radius: 60px 19px 42px 14px;
+    /* border-radius: 60px 19px 42px 14px; */
 }
 
 /*      /==>    BLUETOOTH     <==/    */
@@ -139,7 +144,7 @@
     font-size: 14px;
     margin-left: 8px;
     padding-left: 1rem;
-    border-radius: 44px 18px 55px 22px;
+    /* border-radius: 44px 18px 55px 22px; */
     background-color: @pink;
     color: @black2;
 }
@@ -147,36 +152,41 @@
 
 /*      /==>    CPU     <==/    */
 #cpu{
-    border-radius: 48px 39px 19px 11px;
-    /* color: ; */
+    /* border-radius: 48px 39px 19px 11px; */
+    border-bottom: 3px solid @teal;
 }
 #cpu.warning {
     color: @black3;
-    background-color: @rosewater;
+    background-color: @yellow;
+    border-bottom: 3px solid @yellow;
 }
  
 #cpu.critical {
     color: @black3;
     background-color: @marron;
+    border-bottom: 3px solid @red;
 }
 
 
 /*      /==>    MEMORY     <==/    */
 #memory {
-    border-radius: 19px 11px 48px 39px;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    border-bottom: 3px solid @teal;
+    /* border-radius: 19px 11px 48px 39px; */
 }
  
 #memory.warning {
     color: @black3;
-    background-color: @rosewater;
+    background-color: @yellow;
+    border-bottom: 3px solid @yellow;
  }
  
 #memory.critical {
     color: @black3;
     background-color: @marron;
+    border-bottom: 3px solid @red;
     animation-name: blink-critical;
     animation-duration: 2s;
     padding-left:5px;
@@ -186,16 +196,17 @@
 
 /*      /==>    TEMPERATURE     <==/    */
 #temperature {
-    border-radius: 30px 15px 22px 19px;
     padding-right: 1rem;
     margin-right: 2px;
+    border-bottom: 3px solid @teal;
+    /* border-radius: 30px 15px 22px 19px; */
 }
 
 
 #language {
     background-color: @green;
     color: @black2;
-    border-radius: 48px 39px 19px 11px;
+    /* border-radius: 48px 39px 19px 11px; */
 }
 
 
@@ -204,7 +215,7 @@
 #pulseaudio {
     background-color: @sky;
     color: @black2;
-    border-radius: 19px 11px 48px 39px;
+    /* border-radius: 19px 11px 48px 39px; */
 }
 #pulseaudio.muted {
     /* font-size: 14px; */
@@ -223,7 +234,7 @@
 }
  
 #network.disconnected {
-    color: orange;
+    color: @peach;
 }
 
 
@@ -236,10 +247,10 @@
 
 #tray{
     background-color: @black0;
-    margin: 0px 8px;
-    border-right: 2px solid @mauve;
-    border-left: 2px solid @mauve;
-    border-radius: 66px 30px 30px 20px;
+    margin: 0px 4px;
+    border-right: 2px solid @gray1;
+    border-left: 2px solid @gray1;
+    border-radius: 16px;
     padding: 0rem 0.8rem;
 }
 
@@ -247,11 +258,8 @@
 /*      /==>    CUSTOM     <==/    */
 #custom-power{
     color: @mauve;
-    /* font-weight:bold; */
-    border-radius: 66px 20px 66px 20px;
-    border-left: 2px solid @mauve;
-    border-right: 2px solid @mauve;
     margin-left: 4px;
-    margin-right: 8px;
+    margin-right: 4px;
     font-size: 16px;
+    /* border-radius: 66px 20px 66px 20px; */
 }

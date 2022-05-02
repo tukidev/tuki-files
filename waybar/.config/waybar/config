@@ -7,8 +7,8 @@
     // "position": "bottom",
     // "height": 14,
     // "margin-top": 4,
-    // "margin-right": -2,
-    // "margin-left": -2,
+    // "margin-right": 4,
+    // "margin-left": 4,
     // "margin-bottom": 0,
     "modules-left": [
         "clock",
@@ -127,9 +127,9 @@
 
     "cpu": {
         "align": 0.5,
-        "min-length": 10,
+        "min-length": 6,
         "interval": 1,
-        "format": "  {icon0}{icon1}{icon2}{icon3}",
+        "format": " {icon0}{icon1}{icon2}{icon3}",
         "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
         "states": {
             "warning": 60,
@@ -171,8 +171,8 @@
 
     "sway/language": {
         "align": 0.5,
-        "min-length": 4,
-        "format": "  <b>{shortDescription}</b>",
+        "min-length": 3,
+        "format": " <b>{shortDescription}</b>",
     },
 
     "pulseaudio": {
@@ -180,7 +180,7 @@
         "min-length": 6,
         "format": "{icon} <b>{volume}%</b>",
         "format-bluetooth": "",
-        "format-muted": "  <b>mut</b>",
+        "format-muted": "   <b>mut</b>",
         "scroll-step": 4,
         "format-icons": {
             "headphones": "",
