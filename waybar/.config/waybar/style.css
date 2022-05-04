@@ -50,7 +50,7 @@
 #tray,
 #idle_inhibitor{
     /* font-weight:bold; */
-    /* font-family: ComicMono, */
+    font-family: Cascadia Mono;
     font-size: 12px;
     color: @lavender;
     background-color: @black3;
@@ -80,13 +80,13 @@
 #battery.warning {
     color: @black3;
     background-color: @yellow;
-    border-bottom: 3px solid @yellow;
+    border-bottom: 3px solid @mauve;
 }
  
 #battery.critical {
     color: @black3;
     background-color: @marron;
-    border-bottom: 3px solid @red;
+    border-bottom: 3px solid @gray2;
 }
 #battery.charging {
     color: @black3;
@@ -108,14 +108,13 @@
 
 /*      /==>    WORKSPACES     <==/    */
 #workspaces{
+    font-family: Cascadia Mono;
     font-size: 18px;
-    padding: 0px 2px;
     border-radius: 16px;
     background-color: @black0;
 }
 #workspaces button {
-    margin: 0px -2px;
-    padding: 0rem;
+    padding: 0rem 0.8rem;
     color: @white;
     border-radius: 16px;
 }
@@ -142,7 +141,7 @@
 /*      /==>    BLUETOOTH     <==/    */
 #bluetooth{
     font-size: 14px;
-    margin-left: 8px;
+    margin-left: 4px;
     padding-left: 1rem;
     /* border-radius: 44px 18px 55px 22px; */
     background-color: @pink;
@@ -158,13 +157,13 @@
 #cpu.warning {
     color: @black3;
     background-color: @yellow;
-    border-bottom: 3px solid @yellow;
+    border-bottom: 3px solid @mauve;
 }
  
 #cpu.critical {
     color: @black3;
     background-color: @marron;
-    border-bottom: 3px solid @red;
+    border-bottom: 3px solid @gray2;
 }
 
 
@@ -180,13 +179,13 @@
 #memory.warning {
     color: @black3;
     background-color: @yellow;
-    border-bottom: 3px solid @yellow;
+    border-bottom: 3px solid @mauve;
  }
  
 #memory.critical {
     color: @black3;
     background-color: @marron;
-    border-bottom: 3px solid @red;
+    border-bottom: 3px solid @gray2;
     animation-name: blink-critical;
     animation-duration: 2s;
     padding-left:5px;
@@ -239,6 +238,7 @@
 
 
 #clock {
+    font-family: Cascadia Mono;
     color: @mauve;
     font-size: 13px;
     margin-left: 10px;
@@ -248,9 +248,9 @@
 #tray{
     background-color: @black0;
     margin: 0px 4px;
-    border-right: 2px solid @gray1;
-    border-left: 2px solid @gray1;
-    border-radius: 16px;
+    border-right: 2px solid @gray2;
+    border-left: 2px solid @gray2;
+    /* border-radius: 16px; */
     padding: 0rem 0.8rem;
 }
 
