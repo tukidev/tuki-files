@@ -265,6 +265,11 @@ local plugins = {
             require('tukivim.plugin-config.scrollbar')
         end
     },
+    {
+        'kevinhwang91/nvim-hlslens', config=function()
+            require('tukivim.plugin-config.hlslens')
+        end
+    },
     -- {
     --     '', config=function()
     --         require('tukivim.plugin-config.')
