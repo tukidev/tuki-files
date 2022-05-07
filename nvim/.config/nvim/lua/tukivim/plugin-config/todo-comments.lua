@@ -1,7 +1,7 @@
 local ICONS = vim.tukivim.res.icons.todo_comments
 vim.tukivim.utils.psetup("todo-comments", {
-	signs = true, -- show icons in the signs column
-	sign_priority = 8, -- sign priority
+	-- signs = true, -- show icons in the signs column
+	-- sign_priority = 8, -- sign priority
 
 	-- keywords recognized as todo comments
 	keywords = {

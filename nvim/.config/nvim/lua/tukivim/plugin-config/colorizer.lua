@@ -1,1 +1,4 @@
-vim.tukivim.utils.psetup("colorizer")
+local colorizer = vim.tukivim.utils.preq("colorizer")
+colorizer.setup( { '*' }, {
+    mode = 'background',
+})

@@ -1,4 +1,8 @@
-vim.tukivim.utils.preq("focus").setup()
+vim.tukivim.utils.preq("focus").setup({
+    -- winhighlight = true,
+    excluded_filetypes = { "toggleterm" },
+    compatible_filetrees = { "nvimtree" },
+})
 
 -- vim.api.nvim_set_keymap('n', '<C-s>h', ':FocusSplitLeft<CR>', { silent = true })
 -- vim.api.nvim_set_keymap('n', '<C-s>j', ':FocusSplitDown<CR>', { silent = true })

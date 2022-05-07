@@ -3,6 +3,10 @@ local Utils = {}
 function Utils.preq(plugin_name)
 	local ok, plugin = pcall(require, plugin_name)
 	if not ok then
+        vim.notify(
+            "Failed to load [ " .. plugin_name .. " ] module.",
+            vim.log.levels.ERROR
+        )
 		return
 	end
 	return plugin

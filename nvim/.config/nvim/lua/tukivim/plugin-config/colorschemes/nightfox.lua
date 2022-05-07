@@ -5,9 +5,9 @@ require("nightfox").setup({
 		dim_inactive = true, -- Non focused panes set to alternative background
 
 		styles = { -- Style to be applied to different syntax groups
-			comments = "NONE",
+			comments = "italic",
 			functions = "NONE",
-			keywords = "NONE",
+			keywords = "bold",
 			numbers = "NONE",
 			strings = "NONE",
 			types = "NONE",

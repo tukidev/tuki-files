@@ -77,10 +77,10 @@ local keymaps = {
 		},
 		f = {
 			name = "Diagnostic",
-			t = { "<cmd>Trouble document_diagnostics<cr>", "Document diagnostic" },
-			r = { "<cmd>TroubleRefresh<cr>", "Refresh" },
-			f = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
-			w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace diagnostic" },
+			d = { "<cmd>Trouble document_diagnostics<cr>", "Document diagnostic" },
+            D = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace diagnostic" },
+			r = { "<cmd>Trouble Refresh<cr>", "Refresh" },
+			q = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
 			-- j = { "<esc><cmd>lua require('trouble').next({skip_groups = true, jump = true})<cr>", "Next" },
 			-- k = { "<esc><cmd>lua require('trouble').previous({skip_groups = true, jump = true})<cr>", "Previous" },
 		},
@@ -177,6 +177,10 @@ local keymaps = {
 			name = "Treesitter",
 			i = { ":TSConfigInfo<cr>", "Info" },
 		},
+        U = {
+            name = "UI",
+            c = { ":ColorizerToggle<cr>", "Toggle Colors" },
+        }
 	},
 	visual_mode = {
 		["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
