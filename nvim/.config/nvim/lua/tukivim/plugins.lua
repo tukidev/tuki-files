@@ -47,7 +47,7 @@ local plugins = {
 	{ "nvim-lua/plenary.nvim" },
 	{ "MunifTanjim/nui.nvim" },
 
-	{ "lewis6991/impatient.nvim" }, -- startup-time optimization (cache)
+	{ "lewis6991/impatient.nvim", config = function() require('impatient') end }, -- startup-time optimization (cache)
 	{ "nathom/filetype.nvim" }, -- startup-time optimization (adds commands)
 
 	--- [ LSP ]                      | (built-in Language Server Protocols)
@@ -76,6 +76,7 @@ local plugins = {
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
 	{ "hrsh7th/cmp-cmdline" },
+    -- { "tzachar/cmp-tabnine" },
 	{ "saadparwaiz1/cmp_luasnip" },
 
 	--- [ Telescope ]                | (modern `fzf` plugin)
@@ -258,21 +259,19 @@ local plugins = {
 		config = function()
 			require("tukivim.plugin-config.surround")
 		end,
-		-- },{
-		--     '', config=function()
-		--         require('tukivim.plugin-config.')
-		--     end
-		-- },{
-		--     '', config=function()
-		--         require('tukivim.plugin-config.')
-		--     end
-		-- },{
-		--     'sunjon/shade.nvim', config=function()
-		--         require("tukivim.plugin-config.shade")
-		--     end
-	},
+    },
+    {
+        'petertriho/nvim-scrollbar', config=function()
+            require('tukivim.plugin-config.scrollbar')
+        end
+    },
+    -- {
+    --     '', config=function()
+    --         require('tukivim.plugin-config.')
+    --     end
+    -- },
 
-	-- Color Schemes
+	-- ColorSchemes
 	{ "folke/tokyonight.nvim" },
 	{ "projekt0n/github-nvim-theme" },
 	{ "navarasu/onedark.nvim" },
@@ -280,7 +279,7 @@ local plugins = {
 	{ "rebelot/kanagawa.nvim" },
 	{ "catppuccin/nvim", as = "catppuccin" },
 	{ "EdenEast/nightfox.nvim" },
-	{ "z4yw0o/nightwolf.nvim" },
+	-- { "z4yw0o/nightwolf.nvim" },
 }
 
 return require("packer").startup(function(use)
