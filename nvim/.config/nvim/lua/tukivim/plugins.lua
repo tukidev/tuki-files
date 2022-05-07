@@ -270,6 +270,11 @@ local plugins = {
             require('tukivim.plugin-config.hlslens')
         end
     },
+    {
+        'ellisonleao/glow.nvim', config=function()
+            require('tukivim.plugin-config.glow')
+        end
+    },
     -- {
     --     '', config=function()
     --         require('tukivim.plugin-config.')
