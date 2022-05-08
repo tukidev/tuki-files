@@ -7,7 +7,7 @@ require("scrollbar").setup({
         text = " ",
         color = nil,
         cterm = nil,
-        highlight = "CursorColumn",
+        highlight = "CursorLine",
         hide_if_all_visible = true, -- Hides handle if all lines are visible
     },
     marks = {
@@ -56,10 +56,13 @@ require("scrollbar").setup({
     },
     excluded_buftypes = {
         "terminal",
+        "NvimTree",
     },
     excluded_filetypes = {
         "prompt",
         "TelescopePrompt",
+        "NvimTree",
+        "nvimtree"
     },
     autocmd = {
         render = {
@@ -75,6 +78,14 @@ require("scrollbar").setup({
     },
     handlers = {
         diagnostic = true,
-        search = false, -- Requires hlslens to be loaded, will run require("scrollbar.handlers.search").setup() for you
+        search = true,
     },
 })
+
+
+vim.cmd([[
+    augroup scrollbar_search_hide
+        autocmd!
+        autocmd CmdlineLeave : lua require('scrollbar.handlers.search').handler.hide()
+    augroup END
+]])

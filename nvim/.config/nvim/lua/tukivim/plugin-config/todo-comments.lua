@@ -1,7 +1,7 @@
 local ICONS = vim.tukivim.res.icons.todo_comments
 vim.tukivim.utils.psetup("todo-comments", {
-	-- signs = true, -- show icons in the signs column
-	-- sign_priority = 8, -- sign priority
+	signs = false, -- show icons in the signs column
+	sign_priority = 999, -- sign priority
 
 	-- keywords recognized as todo comments
 	keywords = {
@@ -33,15 +33,6 @@ vim.tukivim.utils.psetup("todo-comments", {
 		exclude = {}, -- list of file types to exclude highlighting
 	},
 
-	-- list of named colors where we try to extract the guifg from the
-	-- list of hilight groups or use the hex color if hl not found as a fallback
-	colors = {
-		error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-		warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
-		info = { "DiagnosticInfo", "#2563EB" },
-		hint = { "DiagnosticHint", "#10B981" },
-		default = { "Identifier", "#7C3AED" },
-	},
 	search = {
 		command = "rg",
 		args = {
