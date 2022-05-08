@@ -82,11 +82,16 @@ local conf = {
 		-- builtin picker
 	},
 	extensions = {
-		-- Your extension configuration goes here:
-		-- extension_name = {
-		--   extension_config_key = value,
-		-- }
-		-- please take a look at the readme of the extension you want to configure
+        fzf = {
+            override_generic_sorter = true,  -- override the generic sorter
+            fuzzy = true,                    -- false will only do exact matching
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- "ignore_case" | "respect_case" | "smart_case"
+        },
+        -- fzy_native = {
+        --     override_generic_sorter = false,
+        --     override_file_sorter = true,
+        -- }
 	},
 }
 
@@ -94,6 +99,8 @@ local scope = vim.tukivim.utils.psetup("telescope", conf)
 
 --- [ Load additional extensions ]
 scope.load_extension("dap")
+scope.load_extension("fzf")
+-- scope.load_extension("fzy_native")
 
 -- require("tukivim.plugin-config.telescope.cmdcenter-scope")
 -- scope.load_extension("command_center")
