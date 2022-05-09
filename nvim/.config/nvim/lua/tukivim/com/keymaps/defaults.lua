@@ -61,6 +61,13 @@ local keymaps = {
 		["<F11>"] = function() require('dap').step_into() end,
 		["<F12>"] = function() require('dap').step_out()  end,
 
+        --- [ hlslens ]
+		["n"] = [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+		["N"] = [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+		["*"] = [[*<Cmd>lua require('hlslens').start()<CR>]],
+		["#"] = [[#<Cmd>lua require('hlslens').start()<CR>]],
+
+
 		-- [""] = "",
 	},
 
