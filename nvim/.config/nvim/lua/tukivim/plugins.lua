@@ -277,6 +277,11 @@ local plugins = {
             require('tukivim.plugin-config.glow')
         end
     },
+    {
+        'nvim-neorg/neorg', ft = "norg", config = function()
+            require('tukivim.plugin-config.neorg')
+        end,
+    },
     -- {
     --     '', config=function()
     --         require('tukivim.plugin-config.')
