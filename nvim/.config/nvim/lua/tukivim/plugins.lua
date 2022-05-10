@@ -291,9 +291,23 @@ local plugins = {
 			require("tukivim.plugin-config.neorg")
 		end,
 	},
+	{
+	    "anuvyklack/pretty-fold.nvim",
+        requires = "anuvyklack/nvim-keymap-amend",
+        config=function()
+	        require("tukivim.plugin-config.prettyfold")
+	    end
+	},
+	{
+	    "lewis6991/foldsigns.nvim",
+        config=function()
+            require("foldsigns").setup( {exclude = {'GitSigns.*'} } )
+	    end
+	},
 	-- {
-	--     '', config=function()
-	--         require('tukivim.plugin-config.')
+	--     "",
+    --     config=function()
+	--         require("tukivim.plugin-config.")
 	--     end
 	-- },
 

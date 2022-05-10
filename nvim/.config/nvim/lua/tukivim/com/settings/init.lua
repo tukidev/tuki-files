@@ -35,8 +35,15 @@ local options = {
 	expandtab = true, -- convert tabs to spaces
 	smarttab = true,
 	list = true,
+
+    -- [ folding ]
+    foldmethod = "expr",
+    foldexpr   = "nvim_treesitter#foldexpr()",
+    foldnestmax = 4,
+    foldminlines = 4,
 }
 
+vim.cmd [[ set nofoldenable ]]
 vim.opt.shortmess:append("c")
 
 return require("tukivim.com.settings.loader").setup(options)
