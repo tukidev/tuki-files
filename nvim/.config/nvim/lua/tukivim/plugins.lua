@@ -53,7 +53,6 @@ local plugins = {
 			require("impatient")
 		end,
 	}, -- startup-time optimization (cache)
-	{ "nathom/filetype.nvim" }, -- startup-time optimization (adds commands)
 
 	--- [ LSP ]                      | (built-in Language Server Protocols)
 	{
