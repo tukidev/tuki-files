@@ -105,6 +105,8 @@ vim.tukivim.utils.psetup('neorg', {
                             { "<leader>mN", ":Neorg mode traverse-heading<CR>" },
                         },
                     }, { silent = true, noremap = true, })
+
+                    keybinds.map("norg", "n", "<leader>tm", "<cmd>Neorg inject-metadata<cr>")
                 end,
 
             }
