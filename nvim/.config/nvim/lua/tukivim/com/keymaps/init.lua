@@ -1,11 +1,15 @@
-local loader = require("tukivim.com.keymaps.loader")
+local L = require("tukivim.com.keymaps.loader")
+local U = require("tukivim.com.source.utils")
 local leader_default = " "
 
 local keys = {
-	whichkey = require("tukivim.com.keymaps.wk"),
-	defaults = require("tukivim.com.keymaps.defaults"),
-	lsp = require("tukivim.com.keymaps.lsp"),
-	lsp_wk = require("tukivim.com.keymaps.lsp_wk"),
+	whichkey = "tukivim.com.keymaps.wk",
+	defaults = "tukivim.com.keymaps.defaults",
+	lsp = "tukivim.com.keymaps.lsp",
+	lsp_wk = "tukivim.com.keymaps.lsp_wk",
+
+	telekasten = "tukivim.com.keymaps.telekasten",
+	telekasten_wk = "tukivim.com.keymaps.telekasten_wk",
 }
 
 ---Save and loads Tukivim's keymaps
@@ -22,7 +26,9 @@ function KeymapsLoader()
 			return -- TODO: notify!!!
 		end
 
-		loader.load_keymaps(keys[module], buff)
+		local keymaps = require(keys[module])
+
+		L.load_keymaps(keymaps, buff)
 	end
 
 	function self.load_module_wk(module, prefix, buff)
@@ -30,7 +36,8 @@ function KeymapsLoader()
 			return -- TODO: notify!!!
 		end
 
-		loader.load_keymaps_wk(keys[module], prefix, buff)
+		local keymaps = require(keys[module])
+		L.load_keymaps_wk(keymaps, prefix, buff)
 		-- code
 	end
 

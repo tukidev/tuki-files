@@ -5,20 +5,20 @@ M.prefix = " " -- set default prefix as space
 M.opts_wk = function(prefix, buf)
 	prefix = prefix or M.prefix
 	return {
-		insert_mode = {
+		insert_mode = { -- standart opts
 			mode = "i",
 			prefix = prefix,
 			buffer = buf,
 			silent = true,
-			noremap = true,
-			nowait = true, -- standart opts
+			remap = false,
+			nowait = true,
 		},
 		normal_mode = {
 			mode = "n",
 			prefix = prefix,
 			buffer = buf,
 			silent = true,
-			noremap = true,
+			remap = false,
 			nowait = true,
 		},
 		visual_mode = {
@@ -26,7 +26,7 @@ M.opts_wk = function(prefix, buf)
 			prefix = prefix,
 			buffer = buf,
 			silent = true,
-			noremap = true,
+			remap = false,
 			nowait = true,
 		},
 	}

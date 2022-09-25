@@ -12,12 +12,9 @@ function TukiVim()
 	self.res = defaults.res
 	self.utils = defaults.utils
 	self.keymaps = defaults.keymaps
-	self.settings = nil
-	self.cmd = nil
-	self.plugins = {}
 
 	---Loads keymaps of inputs or default keymaps if param is empty
-	-- @param keymaps [opt] : instance of keymaps class with a propriate structure
+	---@param keymaps table [opt] instance of keymaps class with a propriate structure
 	function self.setup_keymaps(keymaps)
 		self.keymaps = keymaps or defaults.keymaps -- TODO: add exception handling
 		self.keymaps.load()
@@ -37,16 +34,7 @@ function TukiVim()
 		self.cmd.load()
 	end
 
-	---Adds param plugin to plugin's table with index to simplifier access
-	-- @param plugin : string : plugin's name
-	-- @param config : table : plugin's configuration
-	function self.register(plugin_name, config)
-		plugin_name = plugin_name or nil -- TODO: add exception handling
-		local plugin = self.utils.require_checked(plugin_name, config)
-		self.plugins[plugin_name] = plugin
-		return plugin
-	end
-
+  require("tukivim.com.source.neoman").init()
 	return self
 end
 

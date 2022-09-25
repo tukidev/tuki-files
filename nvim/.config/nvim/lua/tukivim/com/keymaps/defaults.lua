@@ -31,44 +31,125 @@ local keymaps = {
 		["<C-Right>"] = ":vertical resize +2<CR>",
 
 		-- Tab switch buffer
-		["<S-l>"] = ":BufferLineCycleNext<CR>",
-		["<S-h>"] = ":BufferLineCyclePrev<CR>",
+		["<S-l>"] = "<CMD>BufferLineCycleNext<CR>",
+		["<S-h>"] = "<CMD>BufferLineCyclePrev<CR>",
 
 		-- Rove current line / block with Alt-j/k a la vscode.
 		["<A-j>"] = ":m .+1<CR>==",
 		["<A-k>"] = ":m .-2<CR>==",
 
-		-- QuickFix
-		["fj"] = ":cnext<CR>",
-		["fk"] = ":cprev<CR>",
-		["<C-q>"] = ":call QuickFixToggle()<CR>",
+		-- Folds
+		["zz"] = "zR",
+		["zi"] = "zc",
+		["zI"] = "zC",
 
+		-- QuickFix
+		-- ["fj"] = ":cnext<CR>",
+		-- ["fk"] = ":cprev<CR>",
+		-- ["<C-q>"] = ":call QuickFixToggle()<CR>",
+
+		-- Hop
 		["gw"] = "<cmd>HopWord<cr>",
 		["gW"] = "<cmd>HopWordCurrentLine<cr>",
 		["gl"] = "<cmd>HopLineStart<cr>",
 		["gL"] = "<cmd>HopLine<cr>",
 		["gs"] = "<cmd>HopChar1<cr>",
-		["gS"] = "<cmd>HopChar1CurrentLine<cr>",
+		["gS"] = "<cmd>HopChar2<cr>",
+    ["gp"] = function ()
+      vim.cmd("HopLineStart")
+      vim.schedule(function ()
+        vim.cmd("normal! p")
+      end)
+    end,
+    ["gP"] = function ()
+      vim.cmd("HopWord")
+      vim.schedule(function ()
+        vim.cmd("normal! P")
+      end)
+    end,
+    ["go"] = function ()
+      vim.cmd("HopLineStart")
+      vim.schedule(function ()
+        vim.cmd("normal! o")
+        vim.cmd("normal! o")
+        vim.cmd("startinsert")
+      end)
+    end,
+    ["gO"] = function ()
+      vim.cmd("HopLineStart")
+      vim.schedule(function ()
+        vim.cmd("normal! O")
+        vim.cmd("normal! O")
+        vim.cmd("startinsert")
+      end)
+    end,
+		["fw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+				current_line_only = true,
+			})
+		end,
+		["Fw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+				current_line_only = true,
+			})
+		end,
+		["tw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+				current_line_only = true,
+				hint_offset = -1,
+			})
+		end,
+		["Tw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+				current_line_only = true,
+				hint_offset = -1,
+			})
+		end,
+
+		-- Harpoon
+		["g1"] = function()
+			require("harpoon.ui").nav_file(1)
+		end,
+		["g2"] = function()
+			require("harpoon.ui").nav_file(2)
+		end,
+		["g3"] = function()
+			require("harpoon.ui").nav_file(3)
+		end,
+		["g4"] = function()
+			require("harpoon.ui").nav_file(4)
+		end,
+		["gm"] = require("harpoon.ui").nav_next,
+		["gM"] = require("harpoon.ui").nav_prev,
 
 		-- Smooth scrolling (neoscroll)
-		["K"] = function() require('neoscroll').scroll(-vim.wo.scroll, true, 300) end,
-		["J"] = function() require('neoscroll').scroll(vim.wo.scroll, true, 300)  end,
+		["K"] = function()
+			require("neoscroll").scroll(-vim.wo.scroll, true, 280)
+		end,
+		["J"] = function()
+			require("neoscroll").scroll(vim.wo.scroll, true, 280)
+		end,
 
 		--- [ DAP ]
-		["<F2>"]  = function() require('dap').terminate() end,
-		["<F5>"]  = function() require('dap').continue()  end,
-		["<F10>"] = function() require('dap').step_over() end,
-		["<F11>"] = function() require('dap').step_into() end,
-		["<F12>"] = function() require('dap').step_out()  end,
-
-        --- [ hlslens ]
-		["n"] = [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-		["N"] = [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-		["*"] = [[*<Cmd>lua require('hlslens').start()<CR>]],
-		["#"] = [[#<Cmd>lua require('hlslens').start()<CR>]],
-
-
-		-- [""] = "",
+		["<F2>"] = function()
+			require("dap").terminate()
+		end,
+		["<F5>"] = function()
+			require("dap").continue()
+		end,
+		["<F10>"] = function()
+			require("dap").step_over()
+		end,
+		["<F11>"] = function()
+			require("dap").step_into()
+		end,
+		["<F12>"] = function()
+			require("dap").step_out()
+		end,
 	},
 
 	term_mode = {
@@ -89,9 +170,33 @@ local keymaps = {
 		["gl"] = "<cmd>HopLineStart<cr>",
 		["gL"] = "<cmd>HopLine<cr>",
 		["gs"] = "<cmd>HopChar1<cr>",
-		["gS"] = "<cmd>HopChar1CurrentLine<cr>",
-		-- ["p"] = '"0p',
-		-- ["P"] = '"0P',
+		["gS"] = "<cmd>HopChar2<cr>",
+		["fw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+				current_line_only = true,
+			})
+		end,
+		["Fw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+				current_line_only = true,
+			})
+		end,
+		["tw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+				current_line_only = true,
+				hint_offset = -1,
+			})
+		end,
+		["Tw"] = function()
+			require("hop").hint_words({
+				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+				current_line_only = true,
+				hint_offset = -1,
+			})
+		end,
 	},
 
 	visual_block_mode = {
@@ -113,6 +218,3 @@ local keymaps = {
 }
 
 return keymaps
-
--- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
--- keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)

@@ -14,6 +14,8 @@ M.defaults = {
 	[[ command! BufferKill lua require('tukivim.com.commands.commands').buf_kill('bd') ]],
 }
 
+
+
 M.load = function(commands)
 	for _, command in ipairs(commands) do
 		vim.cmd(command)

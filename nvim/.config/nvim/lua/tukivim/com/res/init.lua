@@ -81,4 +81,6 @@ gen_path_tree(R.path, "tukivim")
 ]]
 --
 
+R.acsii = require("tukivim.com.res.acsii")
+
 return R

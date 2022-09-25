@@ -1,32 +1,24 @@
+local scope = vim.tukivim.utils.preq("telescope.builtin")
+
 local keymaps = {
 	normal_mode = {
-		D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go declaration" },
-		d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go definition" },
-		i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go implementation" },
-        f = { function () vim.lsp.buf.formatting() end, "Format" },
-        F = { function () vim.lsp.buf.code_action() end, "Code Action" },
-		h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
-		H = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-		R = { "<cmd>lua vim.lsp.buf.references()<CR>", "Reference" },
-		j = {
-			'<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
-			"Next err",
-		},
-		k = {
-			'<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
-			"Prev err",
-		},
-		l = {
-			'<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
-			"Diagnostic",
-		},
+
+		D = { vim.lsp.buf.declaration, "Go declaration" },
+    d = { scope.lsp_definitions, "Definitions" },
+		i = { scope.lsp_implementations,  "Implementations" },
+		o = { vim.lsp.buf.hover, "Hover" },
+		r = { scope.lsp_references, "References"},
+    s = { vim.lsp.buf.signature_help, "Signature" },
+		k = { vim.diagnostic.goto_prev, "Prev (diagnostic)"},
+		j = { vim.diagnostic.goto_next, "Next (diagnostic)"},
+    f = { vim.diagnostic.open_float, "Diagnostic"},
+		a = { vim.lsp.buf.code_action, "Code Action"},
 	},
 
-    visual_mode = {
-        f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format" },
-        F = { "<cmd>lua vim.lsp.buf.range_code_action()<cr>", "Code Action" },
-    }
+	visual_mode = {
+		f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format" },
+		a = { "<cmd>lua vim.lsp.buf.range_code_action()<cr>", "Code Action" },
+	},
 }
 
 return keymaps

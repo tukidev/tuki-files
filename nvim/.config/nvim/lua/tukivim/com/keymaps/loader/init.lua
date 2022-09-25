@@ -30,10 +30,9 @@ end
 -- @param mode The keymap mode, can be one of the keys of mode_adapters
 -- @param keymaps The list of key mappings
 -- @param bufnr buffer where to load keymaps
--- @param wk_flag flag of using `which-key` plugin
 function Loader.load_mode(mode, maps, buf)
 	-- local f_setkeymap = buf and
-	--                     Loader.set_buf_keymaps or self.set_keymaps
+	-- Loader.set_buf_keymaps or self.set_keymaps
 
 	mode = defaults.mode_adapters[mode] or mode
 	for lhs, rhs in pairs(maps) do
@@ -45,7 +44,6 @@ end
 --- Load key mappings for all provided modes
 -- @param keymaps A list of key mappings for each mode
 -- @param bufnr buffer where to load keymaps
--- @param wk_flag flag of using `which-key` plugin
 function Loader.load_keymaps(keymaps, bufnr)
 	keymaps = keymaps or {}
 	for mode, mapping in pairs(keymaps) do
