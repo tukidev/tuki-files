@@ -1,0 +1,54 @@
+# indicator
+# no-unlock-indicator
+# daemonize
+show-keyboard-layout
+indicator-caps-lock
+# datestr=%A
+image=$HOME/.config/sway/wallpaper-lock.png
+scaling=fill
+font=Hack
+font-size=32
+
+# Ring
+indicator-radius=100
+
+# line-uses-ring
+inside-color=#CBA6F7
+line-color=#CBA6F7
+ring-color=#CBA6F7
+text-color=#1E1E2E
+
+separator-color=#CBA6F7
+layout-text-color=#F9E2AF
+
+# Caps Lock
+inside-caps-lock-color=#F5C2E7
+line-caps-lock-color=#F5C2E7
+ring-caps-lock-color=#F5C2E7
+text-caps-lock-color=#1E1E2E
+
+# Wrong
+inside-wrong-color=#F38BA8
+line-wrong-color=#F38BA8
+ring-wrong-color=#F38BA8
+text-wrong-color=#1E1E2E
+
+# Clear
+inside-clear-color=#F9E2AF
+line-clear-color=#F9E2AF
+ring-clear-color=#F9E2AF
+text-clear-color=#1E1E2E
+
+# Verification
+inside-ver-color=#94E2D5
+line-ver-color=#94E2D5
+ring-ver-color=#94E2D5
+text-ver-color=#1E1E2E
+
+# Keys
+key-hl-color=#181825
+caps-lock-key-hl-color=#181825
+
+# Backspace
+bs-hl-color=#F9E2AF
+caps-lock-bs-hl-color=#F9E2AF

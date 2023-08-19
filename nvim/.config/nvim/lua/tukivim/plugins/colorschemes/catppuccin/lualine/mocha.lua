@@ -1,51 +1,102 @@
 local cp = require("catppuccin.palettes").get_palette()
-local cp_accent = require("catppuccin.palettes.latte")
--- local ucolors = require("catppuccin.utils.colors")
 
-local monoline = {
-  bg = cp.surface0,
-  fg = cp.text
-}
-
-local theme = {
-	mode_colors = {
-		n = cp_accent.text,
-		i = cp_accent.lavender,
-		v = cp_accent.yellow,
-		[""] = cp_accent.yellow,
-		V = cp_accent.yellow,
-		c = cp_accent.maroon,
-		no = cp_accent.lavender,
-		s = cp_accent.mauve,
-		S = cp_accent.mauve,
-		[""] = cp_accent.mauve,
-		ic = cp_accent.lavender,
-		R = cp_accent.red,
-		Rv = cp_accent.red,
-		cv = cp_accent.yellow,
-		ce = cp_accent.yellow,
-		r = cp_accent.red,
-		rm = cp_accent.red,
-		["r?"] = cp_accent.red,
-		["!"] = cp_accent.maroon,
-		t = cp_accent.maroon,
+local lineBaseCP = {
+	statusline = {
+		bg = cp.mantle,
+		fg = cp.overlay2,
 	},
-
-  line_bg = monoline.bg,
-  line_fg = monoline.fg,
-
-  diagnostic = {
-    error = monoline,
-    warn = monoline,
-    info = monoline,
-    hint = monoline,
-  },
-
-  git = {
-    added = monoline,
-    removed = monoline,
-    modified = monoline,
-  }
+	winbar = {
+		bg = nil,
+		fg = cp.overlay2,
+	},
 }
 
-return theme
+local T = {}
+
+T.line_bg = lineBaseCP.statusline.bg
+T.line_fg = lineBaseCP.statusline.fg
+
+T.winbar = {
+	diagnostic = {
+		error = "DiagnosticVirtualTextError",
+		warn = "DiagnosticVirtualTextWarn",
+		info = "DiagnosticVirtualTextInfo",
+		hint = "DiagnosticVirtualTextHint",
+		-- error = { fg = cp.red, bg = cp.base },
+		-- warn = { fg = cp.yellow, bg = cp.base },
+		-- info = { fg = cp.sky, bg = cp.base },
+		-- hint = { fg = cp.teal, bg = cp.base },
+	},
+}
+
+T.theme = {
+	normal = {
+		a = { fg = cp.overlay0, bg = lineBaseCP.statusline.bg },
+    b = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		c = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+
+		x = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+    y = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		z = { fg = lineBaseCP.fg, bg = lineBaseCP.statusline.bg },
+	},
+	insert = {
+		a = { fg = cp.lavender, bg = lineBaseCP.statusline.bg },
+    b = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		c = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+
+		x = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+    y = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		z = { fg = cp.mantle, bg = lineBaseCP.statusline.bg },
+	},
+	visual = {
+		a = { fg = cp.sky, bg = lineBaseCP.statusline.bg },
+    b = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		c = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+
+		x = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+    y = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		z = { fg = cp.mantle, bg = lineBaseCP.statusline.bg },
+	},
+	replace = {
+		a = { fg = cp.red, bg = lineBaseCP.statusline.bg },
+    b = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		c = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+
+		x = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+    y = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		z = { fg = cp.mantle, bg = lineBaseCP.statusline.bg },
+	},
+	command = {
+		a = { fg = cp.peach, bg = lineBaseCP.statusline.bg },
+    b = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		c = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+
+		x = { fg = lineBaseCP.statusline.fg, bg = lineBaseCP.statusline.bg },
+    y = { fg = lineBaseCP.winbar.fg, bg = lineBaseCP.winbar.bg },
+		z = { fg = cp.mantle, bg = lineBaseCP.statusline.bg },
+	},
+}
+
+T.diagnostic = {
+	-- error = lineBaseCP.statusline,
+	-- warn = lineBaseCP.statusline,
+	-- info = lineBaseCP.statusline,
+	-- hint = lineBaseCP.statusline,
+
+	error = { fg = cp.red },
+	warn = { fg = cp.yellow },
+	info = { fg = cp.blue },
+	hint = { fg = cp.sky },
+}
+
+T.git = {
+	-- added = lineBaseCP.statusline,
+	-- removed = lineBaseCP.statusline,
+	-- modified = lineBaseCP.statusline,
+
+	added = { fg = cp.text },
+	removed = { fg = cp.maroon },
+	modified = { fg = cp.surface2 },
+}
+
+return T

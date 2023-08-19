@@ -1,0 +1,286 @@
+/*      /==========================/
+*       /==<    VARIABLES      >===/
+*       /==========================/
+**/
+
+/* Catppuccin Colorscheme */
+
+@define-color rosewater   #F5E0DC;
+@define-color flamingo    #F2CDCD;
+@define-color pink        #F5C2E7;
+@define-color mauve       #CBA6F7;
+@define-color red         #F38BA8;
+@define-color maroon      #EBA0AC;
+@define-color peach       #FAB387;
+@define-color yellow      #F9E2AF;
+@define-color green       #A6E3A1;
+@define-color teal        #94E2D5;
+@define-color sky         #89DCEB;
+@define-color sapphire    #74C7EC;
+@define-color blue        #89B4FA;
+@define-color lavender    #B4BEFE;
+@define-color text        #CDD6F4;
+@define-color subtext1    #BAC2DE;
+@define-color subtext0    #A6ADC8;
+@define-color overlay2    #9399B2;
+@define-color overlay1    #7F849C;
+@define-color overlay0    #6C7086;
+@define-color surface2    #585B70;
+@define-color surface1    #45475A;
+@define-color surface0    #313244;
+@define-color base        #1E1E2E;
+@define-color mantle      #181825;
+@define-color crust       #11111B;
+
+/*       ==================================
+*        =      GLOBAL WAYBAR STYLE       =
+*        ==================================
+**/
+
+#waybar {
+  background-color: @base;
+  padding: 0px;
+  margin: 0px;
+}
+
+#battery,
+#backlight,
+#cpu,
+#clock,
+#memory,
+#disk,
+#language,
+#bluetooth,
+#pulseaudio,
+#temperature,
+#network,
+#tray,
+#mode,
+#idle_inhibitor{
+  font-family: Barlow Semi Condensed Medium;
+  font-size: 11px;
+  color: @subtext1;
+  background-color: @base;
+  padding: 0px 0.40rem;
+  margin: 0px 0px;
+  border-right: 1px solid @surface0;
+  border-radius: 0px;
+}
+
+/*       ==============================
+*        ==     MODULES STYLES       ==
+*        ==============================
+**/
+
+
+/*      BATTERY     */
+
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  /* padding-left: 1rem; */
+  /* border-bottom: 2px solid @white; */
+  /* border-radius: 0px; */
+  /* border-radius: 14px 45px 22px 22px; */
+}
+ 
+#battery.warning {
+  color: @yellow;
+  /* border-bottom: 2px solid @yellow; */
+}
+ 
+#battery.critical {
+  color: @red;
+  /* border-bottom: 3px solid @red; */
+}
+#battery.charging {
+  color: @green;
+  /* border-bottom: 2px solid @green; */
+}
+ 
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+ 
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+
+/*      WORKSPACES     */
+#workspaces{
+  font-weight: bold;
+  font-family: Hack;
+  /* font-family: Barlow SemiBold; */
+  /* font-family: Barlow Semi Condensed Medium; */
+  font-size: 9pt;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 8px;
+}
+#workspaces button {
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+  color: @surface2;
+}
+#workspaces button.focused {
+  color: @pink;
+}
+#workspaces button.urgent {
+  font-weight: bold;
+  font-style: italic;
+  color: @red;
+}
+
+
+/*      BACKLIGHT     */
+#backlight{
+
+}
+
+/*      BLUETOOTH     */
+#bluetooth{
+}
+
+#bluetooth.disabled{
+  border-right: 0px;
+}
+
+#bluetooth.off{
+  border-right: 0px;
+}
+
+/*      CPU     */
+#cpu{
+  padding-right: 0.1rem;
+  padding-left: 0.8rem;
+  border-right: 0px;
+}
+#cpu.warning {
+  /* font-weight:bold; */
+  color: @peach;
+  /* border-bottom: 2px solid @peach; */
+}
+ 
+#cpu.critical {
+  /* font-weight:bold; */
+  color: @red;
+  /* border-bottom: 2px solid @red; */
+}
+
+
+/*      MEMORY     */
+#memory {
+  /* font-weight: bold; */
+  padding: 0px 0.15rem;
+  border-right: 0px;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border-radius: 0px;
+}
+ 
+#memory.warning {
+  /* font-weight:bold; */
+    color: @peach;
+  /* border-bottom: 2px solid @peach; */
+ }
+ 
+#memory.critical {
+  /* font-weight:bold; */
+  color: @red;
+  animation-name: blink-critical;
+  animation-duration: 2s;
+  padding-left:5px;
+  padding-right:5px;
+}
+
+
+/*      TEMPERATURE     */
+#temperature {
+  padding-right: 1rem;
+  margin-right: 2px;
+  border-bottom: 2px solid @white;
+  /* border-radius: 30px 15px 22px 19px; */
+}
+
+
+#language {
+  /* margin: 0px 2px; */
+  /* background-color: @base; */
+  color: @green;
+  border-radius: 0px;
+  /* border-radius: 48px 39px 19px 11px; */
+}
+
+
+
+/*      /==>    VOLUME     <==/    */
+#pulseaudio {
+  /* font-weight:bold; */
+  /* margin: 0px 2px; */
+  /* color: @lavender; */
+  border-radius: 0px;
+  /* background-color: @base; */
+  /* border-radius: 19px 11px 48px 39px; */
+}
+#pulseaudio.muted {
+  /* font-size: 14px; */
+  /* background-color: @base; */
+  color: @red;
+}
+
+#network {
+  padding: 0px 0.75rem;
+  /* font-family: Iosevka; */
+  /* font-style: italic; */
+}
+
+#mode {
+  /* font-family: Hack; */
+  margin: 2px 0px;
+  font-size: 14px;
+  border: 0px;
+  border-radius: 6px;
+  background-color: @base;
+  color: @yellow;
+}
+ 
+#network.disconnected {
+    color: @peach;
+}
+
+
+#clock {
+  /* font-family: Iosevka; */
+  font-size: 13px;
+  font-weight: bold;
+  color: @rosewater;
+  margin-right: 0px;
+  border-right: 0px;
+}
+
+#disk {
+  padding-left: 0.15rem;
+}
+
+#tray{
+  background-color: @base;
+  border-radius: 0px;
+  margin-left: 0px;
+  padding: 0rem 0.8rem;
+}
+
+
+/*      CUSTOM     */
+#custom-power{
+  color: @red;
+  margin: 0px 2px;
+  padding: 0px;
+  font-size: 18px;
+  /* border-radius: 66px 20px 66px 20px; */
+}

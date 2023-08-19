@@ -1,20 +1,20 @@
----[[
 local jdtls = require("jdtls")
 local handlers = require("tukivim.plugins.lsp.handlers")
 
---- [ VIM OPTIONS ]
---[[
+-- =======================================================
+-- ==              NVIM LOCAL SETTINGS                  ==
+-- =======================================================
+--#region settings
+
 local options = {
 	shiftwidth = 4,
 	tabstop = 4,
 }
 
-for k,v in pairs(options) do
-  vim.opt[k] = v
+for key, value in pairs(options) do
+	vim.opt_local[key] = value
 end
---]]
 
---- [ KEYMAPS DEFINING ]
 local keymaps = {
 	normal_mode = {
 		l = {
@@ -53,30 +53,56 @@ local keymaps = {
 	},
 }
 
---- [ `NVIM-JDTLS` PLUGINS ]
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+--#endregion
+
+-- =======================================================
+-- ==                      PATHS                       ==
+-- =======================================================
+--#region PATHS
 
 local home = os.getenv("HOME")
+local mason_packages = vim.fn.stdpath("data") .. "/mason/packages/"
 
-local jdtls_config = vim.fn.expand("$HOME/dev/lsp/jdtls/org.eclipse.jdt.ls.product/target/repository/config_linux")
-local jdtls_jar = vim.fn.expand(
-	"$HOME/dev/lsp/jdtls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar"
-)
+local java_dap = mason_packages .. "java-debug-adapter/"
+local java_test = mason_packages .. "java-test/"
 
-local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
-local root_dir = require("jdtls.setup").find_root(root_markers)
-if root_dir == "" then
-	return
-end
+-- local java_dap_local = vim.fn.expand("$HOME/dev/dap/java-debug")
+-- local java_test_local = vim.fn.expand("$HOME/dev/vscode-java-test")
+
+local jdtls_path = mason_packages .. "jdtls/"
+local jdtls_config = vim.fn.expand(jdtls_path .. "config_linux")
+local jdtls_jar = vim.fn.expand(jdtls_path .. "plugins/org.eclipse.equinox.launcher_*.jar")
+
+local lombok_jar = vim.fn.expand(jdtls_path .. "lombok.jar")
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = home .. "/workspace/" .. project_name
+local workspace_dir = home .. "/workspace/jdtls/" .. project_name
+
+--#endregion
+
+-- =======================================================
+-- ==               JDTLS CONFIGURATION                ==
+-- =======================================================
+--#region JDTLS
 
 local CONF = {}
 
 -- 
 -- This is the default if not provided, you can remove it. Or adjust as needed.
 -- One dedicated LSP server & client will be started per unique root_dir
+local root_markers = {
+	".git",
+	"mvnw",
+	"gradlew",
+	"pom.xml",
+	"build.gradle",
+}
+local root_dir = require("jdtls.setup").find_root(root_markers)
+
+if root_dir == "" then
+	return
+end
+
 CONF.root_dir = root_dir
 
 -- Here you can configure eclipse.jdt.ls specific settings
@@ -136,7 +162,12 @@ CONF.settings = {
 		references = {
 			includeDecompiledSources = true,
 		},
-		format = { enabled = false },
+		inlayHints = {
+			parameterNames = {
+				enabled = "all", -- literals, all, none
+			},
+		},
+		format = { enabled = true },
 	},
 }
 
@@ -152,6 +183,7 @@ CONF.cmd = {
 	"-Declipse.product=org.eclipse.jdt.ls.core.product",
 	"-Dlog.protocol=true",
 	"-Dlog.level=ALL",
+	"-javaagent:" .. lombok_jar,
 	"-Xms1g",
 	"--add-modules=ALL-SYSTEM",
 	"--add-opens",
@@ -174,37 +206,38 @@ CONF.cmd = {
 
 -- Extend the `bundles` with paths to jar files
 -- to use additional eclipse.jdt.ls plugins.
-CONF.init_options = {
-	bundles = {
-		-- java-debug
-		vim.fn.glob(
-			"$HOME/dev/java-debug/com.microsoft.java.debug.plugin" .. "/target/com.microsoft.java.debug.plugin-*.jar"
-		),
+local bundles = {}
+local ext_server_path = "extension/server/"
+table.insert(bundles, vim.fn.glob(java_dap .. ext_server_path .. "com.microsoft.java.debug.plugin-*.jar", 1))
+vim.list_extend(bundles, vim.split(vim.fn.glob(java_test .. ext_server_path .. "*.jar", 1), "\n"))
 
-		-- vscode-java-test
-		-- vim.split(vim.fn.glob("$HOME/dev/vscode-java-test/server/*.jar"), "\n"),
-	},
+-- local bundles = {
+-- 	vim.fn.glob(java_dap_local .. "com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+-- }
+-- vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_local .. "/server/*.jar", 1), "\n"))
+
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+
+CONF['init_options'] = {
+	bundles = bundles,
+	extendedClientCapabilities = extendedClientCapabilities,
 }
 
-CONF.capabilities = handlers.defaults.capabilities
+-- CONF.capabilities = handlers.defaults.capabilities
 CONF.autostart = true
 
-CONF.on_attach = function(client, bufnr)
-	-- client.server_capabilities.document_formatting = false
+CONF['on_attach'] = function(client, bufnr)
+	client.server_capabilities.document_formatting = false
 	handlers.defaults.on_attach(client, bufnr)
 	require("tukivim.com.keymaps.loader").load_keymaps_wk(keymaps, nil, bufnr)
 
-	jdtls.setup_dap({})
+	jdtls.setup_dap()
 	require("jdtls.setup").add_commands()
-
-	if not vim.g.jdtls_on then
-		vim.notify("Using `nvim-jdtls` plugin", "info", { render = "minimal" })
-	end
-
-	vim.g.jdtls_on = true
 end
+
+--#endregion
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(CONF)
--- ]]

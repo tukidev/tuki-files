@@ -18,30 +18,81 @@ local conditions = {
 	end,
 }
 
-local theme = require("tukivim.plugins.colorschemes.catppuccin.lualine.mocha")
+local THEME = require("tukivim.plugins.colorschemes.catppuccin.lualine.mocha")
 
 local M = {}
 
-M.mode_color = theme.mode_colors
+M.mode_color = THEME.mode_colors
 
-local hl_line = { bg = theme.line_bg, fg = theme.line_fg }
-
-M.theme = {
-	normal = { a = hl_line, b = hl_line, c = hl_line },
-	insert = { a = hl_line, b = hl_line, c = hl_line },
-	visual = { a = hl_line, b = hl_line, c = hl_line },
-	replace = { a = hl_line, b = hl_line, c = hl_line },
-}
+M.theme = THEME.theme
 
 M.components = {
+	winbar = {
+		file = {
+			function()
+				local filename = vim.fn.expand("%:t")
+				local extension = vim.fn.expand("%:e")
+
+				local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
+					filename,
+					extension,
+					{ default = true }
+				)
+
+				local hl_group = "FileIconColor" .. extension
+
+				vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
+
+				return "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " %#WinBar#" .. filename .. "%*"
+			end,
+		},
+
+		navic = {
+			function()
+				local ok, navic = pcall(require, "nvim-navic")
+				if not ok then
+					return ""
+				end
+
+				local ok_location, navic_location = pcall(navic.get_location, {})
+				if not ok_location then
+					return ""
+				end
+
+				if not navic.is_available() or navic_location == "error" then
+					return ""
+				end
+
+				if string.len(navic_location) < 1 then
+					return ""
+				end
+
+				return "%#Winbar# %*" .. navic_location
+			end,
+		},
+
+		diag_ok = {
+			function()
+				if #vim.diagnostic.get(0) > 0 then
+					return ""
+				end
+				return "%#diffAdded# "
+			end,
+		},
+
+		diag = {
+			"diagnostics",
+			sources = { "nvim_diagnostic" },
+			symbols = { error = "ﱢ ", warn = "卑", info = "● ", hint = " " },
+			diagnostics_color = THEME.winbar.diagnostic,
+		},
+	},
+
 	mode = {
 		function()
-			return "██"
+			return "▎●"
 		end,
 		padding = { right = 1 },
-		color = function()
-			return { fg = M.mode_color[vim.fn.mode()] }
-		end,
 	},
 
 	File = {
@@ -67,10 +118,10 @@ M.components = {
 					return " none"
 				end
 				for _, client in ipairs(clients) do
-          -- defining plugin `nvim-jdtls`
-          if buf_ft == "java" and vim.g.jdtls_on then
-            return " jdt.ls.plugin"
-          end
+					-- defining plugin `nvim-jdtls`
+					if buf_ft == "java" then
+						return " jdtls.plugin"
+					end
 					local filetypes = client.config.filetypes
 					if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
 						return " " .. client.name
@@ -84,8 +135,9 @@ M.components = {
 		diag = {
 			"diagnostics",
 			sources = { "nvim_diagnostic" },
-			symbols = { error = " ", warn = " ", info = " ", hint = " " },
-			diagnostics_color = theme.diagnostic,
+			symbols = { error = "ﱢ ", warn = "卑", info = "● ", hint = " " },
+			-- symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
+			diagnostics_color = THEME.diagnostic,
 		},
 	},
 
@@ -96,9 +148,8 @@ M.components = {
 		},
 		diff = {
 			"diff",
-			-- Is it me or the symbol for modified us really weird
-			symbols = { added = " ", modified = " ", removed = " " },
-			diff_color = theme.git,
+			symbols = { added = "+", modified = "~", removed = "" },
+			diff_color = THEME.git,
 			cond = conditions.hide_in_width,
 		},
 	},
@@ -107,44 +158,13 @@ M.components = {
 		location = {
 			"location",
 			icon = "",
-			color = function()
-				return { bg = M.mode_color[vim.fn.mode()] }
-			end,
 		},
 		percent = {
 			"progress",
+			icon = "",
 			separator = { left = "" },
-			color = function()
-				return { bg = M.mode_color[vim.fn.mode()] }
-			end,
 		},
 	},
 }
-
--- used just 2 sections
--- lualine_c for the right side
--- lualine_x for the left side
-M.sections = {
-	lualine_a = {},
-	lualine_b = {},
-	lualine_y = {},
-	lualine_z = {},
-
-	lualine_c = {
-		M.components.mode,
-		M.components.File.type,
-		M.components.File.name,
-		M.components.LSP.name,
-		M.components.LSP.diag,
-	},
-
-	lualine_x = {
-		M.components.GIT.diff,
-		M.components.GIT.branch,
-		M.components.Carret.percent,
-		M.components.Carret.location,
-	},
-}
-
 
 return M

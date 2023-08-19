@@ -32,7 +32,7 @@ M.opts_wk = function(prefix, buf)
 	}
 end
 
-M.opts = { noremap = true, silent = true }
+M.opts = { remap = false, silent = true }
 M.mode_opts = {
 	insert_mode = M.opts,
 	normal_mode = M.opts,
@@ -42,22 +42,9 @@ M.mode_opts = {
 	term_mode = { silent = true },
 }
 
-M.opts2 = {
-	remap = true,
-	silent = true,
-	buffer = 0,
-}
-M.mode_opts2 = {
-	insert_mode = M.opts,
-	normal_mode = M.opts,
-	visual_mode = M.opts,
-	command_mode = M.opts,
-	visual_block_mode = M.opts,
-	term_mode = { silent = true },
-}
-M.opts2_of = function(buffer)
+M.opts_of = function(buffer)
 	return {
-		remap = true,
+		remap = false,
 		silent = true,
 		buffer = buffer,
 	}

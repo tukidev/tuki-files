@@ -1,0 +1,271 @@
+{
+  //  == GLOBAL ==
+  "layer": "top",
+  "mode": "dock", // Display mode (dock|hide|invisible|overlay)
+  "exclusive": true, // Request an exclusive zone from the compositor
+  "position": "top",
+  "output": "eDP-1",
+  "margin": 0,
+  "padding": 0,
+  // "height": 10,
+  "modules-left": [
+    "custom/power",
+    "sway/workspaces"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "sway/mode",
+    "tray",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "sway/language",
+    "cpu",
+    "memory",
+    "disk",
+    "battery",
+    "clock"
+    //"temperature",
+    // "network",
+  ],
+  //
+  //  /===> MODULES   <===/
+  //
+  "sway/workspaces": {
+    "all-outputs": true,
+    "disable-click": false,
+    "disable-scroll": false,
+    "disable-scroll-wraparound": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1q": "q<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1w": "w<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1e": "e<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1a": "a<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1s": "s<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1d": "d<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1x": "x<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1c": "c<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "2q": "q<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2w": "w<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2e": "e<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2a": "a<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2s": "s<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2d": "d<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2x": "x<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2c": "c<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "3q": "q<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3w": "w<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3e": "e<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3a": "a<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3s": "s<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3d": "d<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3x": "x<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3c": "c<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "4q": "q<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4w": "w<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4e": "e<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4a": "a<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4s": "s<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4d": "d<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4x": "x<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4c": "c<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "urgent": "",
+      "default": ""
+      // "focused": "",
+    },
+    "persistent_workspaces": {}
+  },
+  "sway/mode": {
+    "format": "",
+    "align": 0.5,
+    "min-length": 1
+    // "max-length": 1
+  },
+  "clock": {
+    "align": 0.5,
+    "min-length": 5,
+    "interval": 60,
+    "format": "{:%H:%M}",
+    "max-length": 25
+    //"format-alt": "{:<b>%a %b %d</b>}"
+  },
+  "battery": {
+    "align": 0.5,
+    "min-length": 9,
+    "bat": "BAT0",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<b><span foreground='#94E2D5'>BAT</span></b>  {capacity}%",
+    "format-charging": "<b><span foreground='#A6E3A1'>BAT+</span></b>  <b>{capacity}%</b>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery#bat1": {
+    "bat": "BAT1",
+    /* "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        }, */
+    "format": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "backlight": {
+    "align": 0.5,
+    "min-length": 9,
+    "format": "<b><span foreground='#F9E2AF'>LT</span></b>  {percent}%",
+    "states": {
+      "light": 70,
+      "medium": 50,
+      "dark": 30
+    },
+    "format-icons": [
+      ""
+    ],
+    /* "format-icons": ["", "", "", "", "", "", "", */
+    /*                  "", "", "", "", "", "" , ""] , */
+    "on-scroll-down": "brightnessctl -c backlight set 1%-",
+    "on-scroll-up": "brightnessctl -c backlight set +1%"
+  },
+  "bluetooth": {
+    "min-length": 6,
+    "align": 0.5,
+    "format": "<b><span foreground='#B4BEFE'>BLUE</span></b> {status}",
+    // "format-disabled": "",
+    // "format-off": "",
+    "format-on": "<b><span foreground='#6C7086'>BLUE</span></b>",
+    "format-connected": "<b><span foreground='#B4BEFE'>BLUE</span></b>  <span text-transform='uppercase'>{device_alias}</span>",
+    "format-icons": {
+      "enabled": "enabled",
+      "disabled": "disabled"
+    },
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+  "cpu": {
+    "align": 0.0,
+    "min-length": 9,
+    "interval": 1,
+    "format": "<b><span foreground='#F38BA8'>CPU</span></b>  {usage}%",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
+    "states": {
+      "warning": 60,
+      "critical": 90
+    },
+    "on-click": "kitty -e 'btm'"
+  },
+  "memory": {
+    "align": 0.0,
+    "min-length": 9,
+    "interval": 5,
+    "format": "<b><span foreground='#F38BA8'>RAM</span></b>  {}%",
+    "on-click": "kitty -e 'htop'",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "temperature": {
+    // "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "align": 0.5,
+    "min-length": 4,
+    "states": {
+      "warning": 5,
+      "critical": 75
+    },
+    "critical-threshold": 80,
+    "interval": 5,
+    "format": "{icon}  <b>{temperatureC}°</b>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 10
+  },
+  "sway/language": {
+    "align": 0.5,
+    "min-length": 4,
+    "format": "<b><span text-transform='uppercase'>{shortDescription}</span></b>"
+  },
+  "pulseaudio": {
+    "align": 0.5,
+    "min-length": 10,
+    "format": "<b><span foreground='#74C7EC'>VOL</span></b>  {volume}%",
+    "format-bluetooth": "<b><span foreground='#74C7EC'>VOL-B</span></b>  {volume}%",
+    "format-muted": "<b> MUTED </b>",
+    "scroll-step": 4,
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "  ",
+        " ",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2"
+  },
+  "disk": {
+    "align": 0.0,
+    "min-length": 6,
+    "interval": 18000,
+    "format": "<b><span foreground='#F38BA8'>/</span></b>  {percentage_used}%",
+    "tooltip-format": "{used} used out of {total} on {path}"
+  },
+  "network": {
+    "interval": 2,
+    "format-wifi": "<b><span foreground='#CBA6F7'>WIFI</span></b>  {essid}",
+    "format-ethernet": "<b><span foreground='#CBA6F7'>ETH</span></b>  {ifname}",
+    "format-linked": "<b><span foreground='#CBA6F7'>LINKED</span></b>  {ifname} (No IP)",
+    "format-disconnected": "<b><span foreground='#FAB387'>DISCONNECTED</span></b>",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
+    // "on-click": "kitty -e 'nmtui'"
+    "on-click": "wofi-wifi-menu"
+  },
+  "custom/power": {
+    "format": " ⏻ ",
+    "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
+    "tooltip": false
+  }
+}

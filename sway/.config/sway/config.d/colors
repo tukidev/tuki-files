@@ -1,28 +1,34 @@
 #
 # Catppuccin Colorscheme
 #
-    set $black0         #161320
-    set $black1         #1A1826
-    set $black2         #1E1E2E
-    set $black3         #302D41
-    set $black4         #575268
-    set $gray0          #6E6C7E
-    set $gray1          #988BA2
-    set $gray2          #C3BAC6
-    set $white          #D9E0EE
-    set $lavender       #C9CBFF
-    set $rosewater      #F5E0DC
-    set $flamingo       #F2CDCD
-    set $mauve          #DDB6F2
-    set $pink           #F5C2E7
-    set $marron         #E8A2AF
-    set $red            #F28FAD
-    set $peach          #F8BD96
-    set $yellow         #FAE3B0
-    set $green          #ABE9B3
-    set $teal           #B5E8E0
-    set $blue           #96CDFB
-    set $sky            #89DCEB
+
+  set $rosewater   #F5E0DC
+  set $flamingo    #F2CDCD
+  set $pink        #F5C2E7
+  set $mauve       #CBA6F7
+  set $red         #F38BA8
+  set $maroon      #EBA0AC
+  set $peach       #FAB387
+  set $yellow      #F9E2AF
+  set $green       #A6E3A1
+  set $teal        #94E2D5
+  set $sky         #89DCEB
+  set $sapphire    #74C7EC
+  set $blue        #89B4FA
+  set $lavender    #B4BEFE
+  set $text        #CDD6F4
+  set $subtext1    #BAC2DE
+  set $subtext0    #A6ADC8
+  set $overlay2    #9399B2
+  set $overlay1    #7F849C
+  set $overlay0    #6C7086
+  set $surface2    #585B70
+  set $surface1    #45475A
+  set $surface0    #313244
+  set $base        #1E1E2E
+  set $mantle      #181825
+  set $crust       #11111B
+
 #
 # Another colors
 #

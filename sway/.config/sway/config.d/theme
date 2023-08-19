@@ -2,11 +2,11 @@
 exec_always ~/.config/sway/scripts/import-gsettings
 
 # Set inner/outer gaps
-gaps inner 6
+gaps inner 8
 gaps outer 0
 
-# Hide titlebar on windows: 
-default_border pixel 3
+# Hide titlebar on windows:
+default_border pixel 2
 
 # Default Font
 font pango:Noto Sans Regular 10
@@ -15,18 +15,18 @@ font pango:Noto Sans Regular 10
 smart_borders on
 
 # Set wallpaper:
-exec swaybg -i ~/.config/sway/wallpaper.png
+exec swaybg -i ~/.config/sway/wallpaper.png -m fill
 
 # Title format for windows
 for_window [shell="xdg_shell"] title_format "%title (%app_id)"
 for_window [shell="x_wayland"] title_format "%class - %title"
 
 # Colors                border          bg              text        indi            childborder
-client.focused          $teal           $teal           $black0     $teal           $teal
-client.focused_inactive $black2         $black1         $white      $black2         $black2
-client.unfocused        $black2         $black1         $white      $black2         $black2
-client.urgent           $black2         $black1         $red        $black2         $black2
-client.background       $black1
+client.focused          $mauve          $mauve          $base       $mauve           $mauve
+client.focused_inactive $base           $mantle         $text       $base            $base
+client.unfocused        $base           $mantle         $text       $base            $base
+client.urgent           $base           $mantle         $red        $base            $base
+client.background       $mantle
 
 #
 # Status Bar:

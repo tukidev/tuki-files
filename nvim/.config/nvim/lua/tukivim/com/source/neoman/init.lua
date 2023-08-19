@@ -16,9 +16,6 @@ local M = {}
 -- TODO: API : load, reload, disable, go_to_config
 M.init = function()
   local self = {}
-  -- self.plugins = {}
-  -- self.plugins.success = {}
-  -- self.plugins.failed = {}
 
   ---setup function
   ---@param opts table
@@ -43,7 +40,7 @@ M.init = function()
     local module_ok, module = pcall(require, name)
     if not module_ok then
       vim.notify("Plugin `" .. name .. "` is not exist.", "warn", notify_opts)
-      table.insert(self.plugins.failed, name)
+      -- table.insert(self.plugins.failed, name)
       return
     end
 
@@ -57,9 +54,11 @@ M.init = function()
     end
   end
 
-  self.configure = function(path)
-    if not pcall(require, config_dir .. path) then
-      vim.notify("Config path [[ " .. config_dir .. path .. " ]] does not exist.", "error", notify_opts)
+  ---Require module from directory "tukivim.plugins.`module`"
+  ---@param module string name of file with configuration
+  self.configure = function(module)
+    if not pcall(require, config_dir .. module) then
+      vim.notify("Config path [[ " .. config_dir .. module .. " ]] does not exist.", "error", notify_opts)
     end
   end
 

@@ -7,6 +7,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# GraalVM Java
+export GRAALVM_HOME=$HOME/dev/graalvm-ce-java17-22.2.0
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -91,6 +94,7 @@ source $ZDOTDIR2/completion.zsh         # /==> Completion
 source $ZDOTDIR2/vimode.zsh             # /==> Vi-mode
 source $ZDOTDIR2/aliases.zsh            # /==> Aliases
 source $ZDOTDIR2/zoxide.zsh
+source $ZDOTDIR2/nvimswitcher.zsh       # /==> NeoVIM config switcher
 
 
 # miniconda integration
@@ -103,9 +107,9 @@ source $ZDOTDIR2/zoxide.zsh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
+  export EDITOR='vim'
 else
-    export EDITOR='nvim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -115,4 +119,11 @@ fi
 
 # PATH
 path+=('/home/tuki/.cargo/bin')
+# path+=('/home/tuki/dev/lua/lua-language-server/bin')
+path+=('/home/tuki/dev/lsp/marksman')
+path+=('/home/tuki/dev/lsp/jdtls/org.eclipse.jdt.ls.product/target/repository/bin')
+# path+=('/home/tuki/dev/lsp/lemminx/org.eclipse.lemminx/target')
+# path+=('/home/tuki/dev/graalvm-ce-java17-22.2.0/bin')
 export PATH
+
+alias luamake=/home/tuki/dev/lua/lua-language-server/3rd/luamake/luamake

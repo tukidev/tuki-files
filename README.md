@@ -1,4 +1,16 @@
-## HEY
+## Storing my config files
 
-Here I save my dotfiles with my software's common configuration.
-Good luck!
+Hey, here i store my config files for restoring (using GNU Stow)
+
+### Currently I'm using
+
+* [WM] Sway
+* [OS] Endevaour
+* [shell] zsh
+* [term] kitty
+* [editor] neovim (nightly)
+* [browser] brave
+* [fm] thunar
+* [ereader] zathura
+
+

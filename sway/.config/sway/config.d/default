@@ -21,8 +21,8 @@ set $powermenu ~/.config/waybar/scripts/power-menu.sh
 
 ### Idle configuration
 exec swayidle -w\
-    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
-    timeout 770 'swaymsg "output * dpms off"' \
+    timeout 5000 'swaylock -f -C ~/.config/swaylock/config'\
+    timeout 8000 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -C ~/.config/swaylock/config'
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -30,26 +30,26 @@ exec swayidle -w\
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ## Lock Screen
- $ubind $mod+f1 exec ~/.config/sway/scripts/lockman.sh
+$ubind $mod+f1 exec swaylock
 
 ### Key bindings
 #
 # Basics:
 #
     # Start a floating terminal
-    $ubind $mod+Return exec $term-float
+    $ubind $mod+Shift+Return exec $term-float
 
     # open wofipassmenu
     $ubind $mod+Shift+p exec wofipassmenu
 
     # Open the power menu
-    $ubind $mod+Shift+e exec $powermenu
+    $ubind $mod+Shift+Backspace exec $powermenu
 
     # Kill focused window
-    $ubind $mod+q kill
+    $ubind $mod+Backspace kill
 
     # Start your launcher
-    $ubind $mod+d exec $menu
+    $ubind $mod+Return exec $menu
 
     # Activities
     $ubind $mod+p exec ~/.config/wofi/windows.py
@@ -62,7 +62,7 @@ exec swayidle -w\
     floating_modifier $mod normal
 
     # Reload the configuration file
-    $ubind $mod+Shift+c reload
+    $ubind $mod+Shift+r reload
 
 #
 # Moving around:
@@ -94,28 +94,80 @@ exec swayidle -w\
 #
 # Workspaces:
 #
+
+    set $wsQ q
+    set $wsW w
+    set $wsE e
+    set $wsA a
+    set $wsS s
+    set $wsD d
+    set $wsX x
+    set $wsC c
+
+    # Workrooms
+    set $workroom 1
+    set $workspace q
+
+
+    $ubind --no-repeat $mod+1 set $$workroom 1; workspace $$workroom$$workspace
+    $ubind --no-repeat $mod+2 set $$workroom 2; workspace $$workroom$$workspace
+    $ubind --no-repeat $mod+3 set $$workroom 3; workspace $$workroom$$workspace
+    $ubind --no-repeat $mod+4 set $$workroom 4; workspace $$workroom$$workspace
+
+    # Navigate
+    $ubind --no-repeat $mod+q workspace $$workroom$wsQ; set $$workspace $wsQ
+    $ubind --no-repeat $mod+w workspace $$workroom$wsW; set $$workspace $wsW
+    $ubind --no-repeat $mod+e workspace $$workroom$wsE; set $$workspace $wsE
+    $ubind --no-repeat $mod+a workspace $$workroom$wsA; set $$workspace $wsA
+    $ubind --no-repeat $mod+s workspace $$workroom$wsS; set $$workspace $wsS
+    $ubind --no-repeat $mod+d workspace $$workroom$wsD; set $$workspace $wsD
+    $ubind --no-repeat $mod+x workspace $$workroom$wsX; set $$workspace $wsX
+    $ubind --no-repeat $mod+c workspace $$workroom$wsC; set $$workspace $wsC
+
+    # Move to workspace with focused container
+    $ubind --no-repeat $mod+Shift+q move container to workspace $$workroom$wsQ; workspace $$workroom$wsQ; set $$workspace $wsQ
+    $ubind --no-repeat $mod+Shift+w move container to workspace $$workroom$wsW; workspace $$workroom$wsW; set $$workspace $wsW
+    $ubind --no-repeat $mod+Shift+e move container to workspace $$workroom$wsE; workspace $$workroom$wsE; set $$workspace $wsE
+    $ubind --no-repeat $mod+Shift+a move container to workspace $$workroom$wsA; workspace $$workroom$wsA; set $$workspace $wsA
+    $ubind --no-repeat $mod+Shift+s move container to workspace $$workroom$wsS; workspace $$workroom$wsS; set $$workspace $wsS
+    $ubind --no-repeat $mod+Shift+d move container to workspace $$workroom$wsD; workspace $$workroom$wsD; set $$workspace $wsD
+    $ubind --no-repeat $mod+Shift+x move container to workspace $$workroom$wsX; workspace $$workroom$wsX; set $$workspace $wsX
+    $ubind --no-repeat $mod+Shift+c move container to workspace $$workroom$wsC; workspace $$workroom$wsC; set $$workspace $wsC
+
+    # Move to workroom with focused container
+    $ubind --no-repeat $mod+Shift+1 set $$workroom 1; move container to workspace $$workroom$wsQ; workspace $$workroom$wsQ; set $$workspace $wsQ
+    $ubind --no-repeat $mod+Shift+2 set $$workroom 2; move container to workspace $$workroom$wsW; workspace $$workroom$wsW; set $$workspace $wsW
+    $ubind --no-repeat $mod+Shift+3 set $$workroom 3; move container to workspace $$workroom$wsE; workspace $$workroom$wsE; set $$workspace $wsE
+    $ubind --no-repeat $mod+Shift+4 set $$workroom 4; move container to workspace $$workroom$wsE; workspace $$workroom$wsE; set $$workspace $wsE
+
+    # Switch to workspace in circle behavior
+    # $ubind --no-repeat $mod+Tab       workspace next
+    # $ubind --no-repeat $mod+Shift+Tab workspace prev
+
     # Switch to workspace
-    $ubind $mod+1 workspace number 1
-    $ubind $mod+2 workspace number 2
-    $ubind $mod+3 workspace number 3
-    $ubind $mod+4 workspace number 4
-    $ubind $mod+5 workspace number 5
-    $ubind $mod+6 workspace number 6
-    $ubind $mod+7 workspace number 7
-    $ubind $mod+8 workspace number 8
-    $ubind $mod+9 workspace number 9
-    $ubind $mod+0 workspace number 10
+    # $ubind --no-repeat $mod+1 workspace number 1
+    # $ubind --no-repeat $mod+2 workspace number 2
+    # $ubind --no-repeat $mod+3 workspace number 3
+    # $ubind --no-repeat $mod+4 workspace number 4
+    # $ubind --no-repeat $mod+5 workspace number 5
+    # $ubind --no-repeat $mod+6 workspace number 6
+    # $ubind --no-repeat $mod+7 workspace number 7
+    # $ubind --no-repeat $mod+8 workspace number 8
+    # $ubind --no-repeat $mod+9 workspace number 9
+    # $ubind --no-repeat $mod+0 workspace number 10
+
     # Move focused container to workspace
-    $ubind $mod+Shift+1 move container to workspace number 1
-    $ubind $mod+Shift+2 move container to workspace number 2
-    $ubind $mod+Shift+3 move container to workspace number 3
-    $ubind $mod+Shift+4 move container to workspace number 4
-    $ubind $mod+Shift+5 move container to workspace number 5
-    $ubind $mod+Shift+6 move container to workspace number 6
-    $ubind $mod+Shift+7 move container to workspace number 7
-    $ubind $mod+Shift+8 move container to workspace number 8
-    $ubind $mod+Shift+9 move container to workspace number 9
-    $ubind $mod+Shift+0 move container to workspace number 10
+    # $ubind --no-repeat $mod+Shift+1 move container to workspace number 1
+    # $ubind --no-repeat $mod+Shift+2 move container to workspace number 2
+    # $ubind --no-repeat $mod+Shift+3 move container to workspace number 3
+    # $ubind --no-repeat $mod+Shift+4 move container to workspace number 4
+    # $ubind --no-repeat $mod+Shift+5 move container to workspace number 5
+    # $ubind --no-repeat $mod+Shift+6 move container to workspace number 6
+    # $ubind --no-repeat $mod+Shift+7 move container to workspace number 7
+    # $ubind --no-repeat $mod+Shift+8 move container to workspace number 8
+    # $ubind --no-repeat $mod+Shift+9 move container to workspace number 9
+    # $ubind --no-repeat $mod+Shift+0 move container to workspace number 10
+
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -125,25 +177,25 @@ exec swayidle -w\
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    $ubind $mod+n splith
-    $ubind $mod+m splitv
+    $ubind $mod+b splith
+    $ubind $mod+v splitv
 
     # Switch the current container between different layout styles
-    $ubind $mod+s layout stacking
+    $ubind $mod+u layout stacking
     $ubind $mod+o layout tabbed
-    $ubind $mod+e layout toggle split
+    $ubind $mod+i layout toggle split
 
     # Make the current focus fullscreen
     $ubind $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    $ubind $mod+Shift+w floating toggle
+    $ubind $mod+Shift+m floating toggle
 
     # Swap focus between the tiling area and the floating area
-    $ubind $mod+w focus mode_toggle
+    $ubind $mod+m focus mode_toggle
 
     # Move focus to the parent container
-    $ubind $mod+a focus parent
+    $ubind $mod+comma focus parent
 #
 # Scratchpad:
 #
@@ -164,16 +216,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    $ubind $left resize shrink width 10px
-    $ubind $down resize grow height 10px
-    $ubind $up resize shrink height 10px
-    $ubind $right resize grow width 10px
+    $ubind $left resize shrink width 25px
+    $ubind $down resize grow height 25px
+    $ubind $up resize shrink height 25px
+    $ubind $right resize grow width 25px
 
     # Ditto, with arrow keys
-    $ubind Left resize shrink width 10px
-    $ubind Down resize grow height 10px
-    $ubind Up resize shrink height 10px
-    $ubind Right resize grow width 10px
+    $ubind Left resize shrink width 25px
+    $ubind Down resize grow height 25px
+    $ubind Up resize shrink height 25px
+    $ubind Right resize grow width 25px
 
     # Return to default mode
     $ubind Return mode "default"
@@ -209,9 +261,10 @@ $ubind --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 pp
 # App shortcuts
 #
     # $ubind $mod+n exec thunar
-    # $ubind $mod+o exec brave
+  # $ubind $mod+o exec firefox
 #
 # Screenshots
 #
     $ubind print exec /usr/share/sway/scripts/grimshot --notify save output
     $ubind Shift+print exec ~/.config/sway/scripts/screenshot.sh
+    $ubind $mod+print exec grim -g "$(slurp)" - | wl-copy

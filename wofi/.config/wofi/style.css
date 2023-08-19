@@ -1,95 +1,83 @@
-/*
-Arc-Dark Color Scheme
-*/
-
-@define-color highlight #5294e2;
-@define-color base1  #404552;
-@define-color base2 #40455;
-@define-color base3  #4b5160;
-
-/*
-*   /=> Catppuccin Color Scheme <=/
-*/
- 
-@define-color black0     #161320;
-@define-color black1     #1A1826;
-@define-color black2     #1E1E2E;
-@define-color black3     #302D41;
-@define-color black4     #575268;
-@define-color gray0      #6E6C7E;
-@define-color gray1      #988BA2;
-@define-color gray2      #C3BAC6;
-@define-color white      #D9E0EE;
-@define-color lavender   #C9CBFF;
-@define-color rosewater  #F5E0DC;
-
-@define-color flamingo   #F2CDCD;
-@define-color mauve      #DDB6F2;
-@define-color pink       #F5C2E7;
-@define-color marron     #E8A2AF;
-@define-color red        #F28FAD;
-@define-color peach      #F8BD96;
-@define-color yellow     #FAE3B0;
-@define-color green      #ABE9B3;
-@define-color teal       #B5E8E0;
-@define-color blue       #96CDFB;
-@define-color sky        #89DCEB;
+@define-color rosewater   #F5E0DC;
+@define-color flamingo    #F2CDCD;
+@define-color pink        #F5C2E7;
+@define-color mauve       #CBA6F7;
+@define-color red         #F38BA8;
+@define-color maroon      #EBA0AC;
+@define-color peach       #FAB387;
+@define-color yellow      #F9E2AF;
+@define-color green       #A6E3A1;
+@define-color teal        #94E2D5;
+@define-color sky         #89DCEB;
+@define-color sapphire    #74C7EC;
+@define-color blue        #89B4FA;
+@define-color lavender    #B4BEFE;
+@define-color text        #CDD6F4;
+@define-color subtext1    #BAC2DE;
+@define-color subtext0    #A6ADC8;
+@define-color overlay2    #9399B2;
+@define-color overlay1    #7F849C;
+@define-color overlay0    #6C7086;
+@define-color surface2    #585B70;
+@define-color surface1    #45475A;
+@define-color surface0    #313244;
+@define-color base        #1E1E2E;
+@define-color mantle      #181825;
+@define-color crust       #11111B;
 
 
 *{
-    font-family: Space Grotesk Medium;
-    font-size: 14px;
+  /* font-family: Space Grotesk Medium; */
+  font-family: Barlow SemiBold;
+  font-size: 14px;
 }
 
 #window {
-    background-color: @black0;
-    border-radius: 32px;
-    border: 0px solid @black3;
+  background-color: @base;
+  border: 1px solid @surface0;
 }
 
 #input {
-    font-size: 16px;
-    margin-bottom: 12px;
-    padding: 2px 16px;
-    border-radius: 32px;
-    border: none;
-    color: @white;
-    background-color: @black2;
+  font-size: 16px;
+  padding: .8em;
+  margin: .5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid @base;
+  box-shadow: inset 0 -.2rem @mauve, 0px 0px 10px 1px rgba(0, 0, 0, 0.61);
+  border-radius: 0px;
+  color: @text;
+  background-color: @base;
 }
 
 #inner-box {
-    border-radius: 40px;
 }
 
 #outer-box {
-    margin: 5px;
-    padding: 16px;
-    border-radius: 40px;
+  margin: 5px;
+  padding: 16px;
 }
 
 #scroll {
 }
 
 #text {
-    padding: 5px;
-    color: @gray2;
+  padding: 5px;
+  color: @subtext1;
 }
 
 #entry{
-    padding: 6px;
-    margin: 4px 0px;
-    background-color: @black2;
-    border-radius: 40px;
+  padding: .5em;
+  margin: .25em 0.5em;
+  transition: box-shadow .30s ease-in-out, background-color .30s ease-in-out;
 }
 
 #entry:selected {
-    padding: 6px 28px;
-    border-radius: 40px;
-    background-color: @gray2;
+  background-color: @pink;
 }
 
 #text:selected {
-    color: @black3;
-    font-weight: bold;
-    border-radius: 40px;
+  color: @mantle;
+  font-weight: bold;
 }
+
+

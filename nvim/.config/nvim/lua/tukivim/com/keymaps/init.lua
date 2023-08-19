@@ -1,16 +1,23 @@
 local L = require("tukivim.com.keymaps.loader")
-local U = require("tukivim.com.source.utils")
 local leader_default = " "
 
-local keys = {
-	whichkey = "tukivim.com.keymaps.wk",
-	defaults = "tukivim.com.keymaps.defaults",
-	lsp = "tukivim.com.keymaps.lsp",
-	lsp_wk = "tukivim.com.keymaps.lsp_wk",
+local keys_path =  "tukivim.com.keymaps."
+local get_keys = function (module)
+  return require(keys_path .. module)
+end
 
-	telekasten = "tukivim.com.keymaps.telekasten",
-	telekasten_wk = "tukivim.com.keymaps.telekasten_wk",
+local keys = {
+	whichkey = keys_path .. "wk",
+	defaults = keys_path .. "defaults",
+	lsp = keys_path .. "lsp",
+	lsp_wk = keys_path .. "lsp_wk",
+
+	telekasten = keys_path .. "telekasten",
+	telekasten_wk = keys_path .. "telekasten_wk",
+
+  typescript = keys_path .. "typescript",
 }
+
 
 ---Save and loads Tukivim's keymaps
 ---Avaible keymaps modules:

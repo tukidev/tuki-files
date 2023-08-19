@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 2 
-    y: 2 
+    x: 2
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -103,25 +103,62 @@ window:
 
 # Font configuration
 font:
-  # Normal (roman) font face
-  normal:
-    family: JetBrains Mono Semibold
-    style: Regular
+  ## JetBrains Mono
+  # normal:
+  #   family: JetBrains Mono
+  #   style: Regular
+  # bold:
+  #   family: JetBrains Mono
+  #   style: Bold
+  # italic:
+  #   family: JetBrains Mono
+  #   style: Italic
+  # bold_italic:
+  #   family: JetBrains Mono
+  #   style: Bold Italic
 
-  # Bold font face
+  ## LigaSF Mono
+  # normal:
+  #   family: Liga SFMono Nerd Font
+  #   style: Regular
+  # bold:
+  #   family: Liga SFMono Nerd Font
+  #   style: Bold
+  # italic:
+  #   family: Liga SFMono Nerd Font
+  #   style: Regular Italic
+  # bold_italic:
+  #   family: Liga SFMono Nerd Font
+  #   style: Bold Italic
+
+  ## FiraCode
+  normal:
+    family: FiraCode Nerd Font
+    style: Retina
   bold:
-    family: JetBrains Mono Semibold
+    family: FiraCode Nerd Font
+    style: Medium
+  italic:
+    family: FiraCode Nerd Font
+    style: Retina
+  bold_italic:
+    family: FiraCode Nerd Font
     style: Bold
 
-  # Italic font face
-  italic:
-    family: JetBrains Mono Semibold
-    style: Italic
+  ## ComicMono font-family
+  # normal:
+  #   family: ComicMono
+  #   style: Regular
+  # bold:
+  #   family: ComicMono
+  #   style: Medium
+  # italic:
+  #   family: ComicMono
+  #   style: Regular
+  # bold_italic:
+  #   family: ComicMono
+  #   style: Medium
 
-  # Bold italic font face
-  bold_italic:
-    family: JetBrains Mono Semibold
-    style: Bold Italic
 
   # Point size
   size: 10.0
@@ -129,9 +166,9 @@ font:
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
+  offset:
+   x: 0
+   y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -150,10 +187,10 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-colors:
+# colors:
   # Default colors
-  primary:
-    background: '#101820'
+  # primary:
+    # background: '#101820'
   #  foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
@@ -824,3 +861,42 @@ colors:
 
   # Print all received window events.
   #print_events: false
+
+# Catppuccin!
+colors:
+  # Default colors
+  primary:
+    background: '0x1E1D2F'
+    foreground: '0xD9E0EE'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x1E1D2F'
+    cursor: '0xF5E0DC'
+
+  # Normal colors
+  normal:
+    black:   '0x6E6C7E'
+    red:     '0xF28FAD'
+    green:   '0xABE9B3'
+    yellow:  '0xFAE3B0'
+    blue:    '0x96CDFB'
+    magenta: '0xF5C2E7'
+    cyan:    '0x89DCEB'
+    white:   '0xD9E0EE'
+
+  # Bright colors
+  bright:
+    black:   '0x988BA2'
+    red:     '0xF28FAD'
+    green:   '0xABE9B3'
+    yellow:  '0xFAE3B0'
+    blue:    '0x96CDFB'
+    magenta: '0xF5C2E7'
+    cyan:    '0x89DCEB'
+    white:   '0xD9E0EE'
+
+  indexed_colors:
+    - { index: 16, color: '0xF8BD96' }
+    - { index: 17, color: '0xF5E0DC' }
+

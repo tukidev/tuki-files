@@ -8,11 +8,21 @@ import("lualine", function(lualine)
 		globalstatus = true,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha" },
+		disabled_filetypes = {
+			statusline = {
+				"alpha",
+			},
+			winbar = {
+        "alpha",
+        "NvimTree",
+      },
+		},
 	}
 
 	lualine.setup({
 		options = options,
-		sections = theme.sections,
+		sections = require("tukivim.plugins.lualine.statusline"),
+		winbar = require("tukivim.plugins.lualine.winbar"),
+		inactive_winbar = require("tukivim.plugins.lualine.winbar"),
 	})
 end)

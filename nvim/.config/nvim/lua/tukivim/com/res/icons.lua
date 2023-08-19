@@ -1,4 +1,10 @@
 return {
+  modes = {
+    normal = "",
+    insert = "",
+    visual = "",
+    replace = "",
+  },
 	folder = {
 		default = "",
 		open = "",
@@ -10,7 +16,7 @@ return {
 		error = " ",
 		warning = " ",
 		hint = "",
-		info = " ",
+		info = " ",
 	},
 	git = {
 		github = "",
@@ -74,9 +80,9 @@ return {
 		minus_box_b = "",
 	},
 	objects = {
-		line_v_left = "▎",
-		line_v_center = "│",
-		line_v_center_thin = "︱",
+		line_vert_left = "▎",
+		line_vert_center = "│",
+		line_vert_center_thin = "︱",
 		triangle_m_right = "",
 		triangle_m_down = "",
 		triangle_m_up = "",
@@ -84,6 +90,8 @@ return {
 		triangle_l_left = "",
 		angle_l_right = "",
 		angle_l_left = "",
+    angle_lb_right = "❱",
+    angle_lb_left = "❰",
 		file = "",
 		linux = "",
 		rocket = "",
@@ -162,5 +170,8 @@ return {
 		NOTE = " ",
 		PERF = " ",
 	},
+  navic = {
+    separator = "  ",
+  }
 	--#endregion
 }

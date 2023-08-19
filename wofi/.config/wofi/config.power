@@ -2,7 +2,12 @@ hide_search=true
 hide_scroll=true
 show=dmenu
 width=40
-lines=4
-location=top_right
-x=-156
-y=4
+lines=5
+location=top_left
+x=8
+y=8
+
+key_up=Control_L-k
+key_down=Control_L-j
+key_left=Control_L-h
+key_right=Control_L-l

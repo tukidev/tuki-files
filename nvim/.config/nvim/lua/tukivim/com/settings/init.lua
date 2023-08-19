@@ -35,7 +35,9 @@ local options = {
 	expandtab = true, -- convert tabs to spaces
 	smarttab = true,
 	list = true,
-  laststatus = 3, -- global statusline
+	laststatus = 3, -- global statusline
+
+	mousemoveevent = true,
 
 	-- [ folding ]
 	foldmethod = "expr",
