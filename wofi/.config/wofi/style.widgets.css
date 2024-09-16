@@ -25,26 +25,27 @@
 @define-color mantle      #181825;
 @define-color crust       #11111B;
 
-
-*{
+* {
   /* font-family: Space Grotesk Medium; */
   font-family: Barlow SemiBold;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 #window {
-  background-color: @mantle;
-  border: 1px solid @surface0;
-  /* border-radius: 8px; */
+  background-color: @base;
+  border: 2px solid @lavender;
+  opacity: 0.95;
+  border-radius: 4px;
 }
 
 #inner-box {
-  background-color: @mantle;
+  margin: 4px 4px;
+  background-color: @base;
 }
 
 #outer-box {
-  margin: 0px 4px;
-  padding: 4px 8px;
+  margin: 4px 4px;
+  padding: 8px 8px;
   margin-top: -1em;
 }
 
@@ -57,15 +58,17 @@
 }
 
 #entry {
-  background-color: @mantle;
-  padding: .5em;
-  margin: .25em 0.5em;
-  transition: box-shadow .30s ease-in-out, background-color .30s ease-in-out;
+  text-align: center;
+  background-color: @base;
+  padding: 0.5em;
+  margin: 0.5em 0.5em;
+  transition:
+    box-shadow 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
 }
 
-
 #entry:selected {
-  background-color: @pink;
+  background-color: @subtext1;
 }
 
 #text:selected {

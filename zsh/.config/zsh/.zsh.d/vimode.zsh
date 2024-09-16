@@ -1,7 +1,6 @@
 bindkey -v              # /==> Enable vi-mode
 export KEYTIMEOUT=1     # /==> Faster mode switching
 
-
 #: /==> Cursore swithing as in Vim
 cursor_mode() {
     # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
@@ -58,15 +57,3 @@ for km in viopp visual; do
         bindkey -M $km $c select-bracketed
     done
 done
-
-
-#: /==> Surrounding
-# autoload -Uz surround
-# zle -N delete-surround surround
-# zle -N add-surround surround
-# zle -N change-surround surround
-# bindkey -M vicmd cs change-surround
-# bindkey -M vicmd ds delete-surround
-# bindkey -M vicmd ys add-surround
-# bindkey -M visual S add-surround
-

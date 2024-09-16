@@ -17,7 +17,9 @@ set $term-float kitty
 # on the original workspace that the command was run on.
 set $menu wofi -c ~/.config/wofi/config -I
 
-set $powermenu ~/.config/waybar/scripts/power-menu.sh
+set $powermenu ~/.config/scripts/wofi/power-menu.sh
+set $servicetoggle ~/.config/scripts/wofi/services.sh
+
 
 ### Idle configuration
 exec swayidle -w\
@@ -30,7 +32,7 @@ exec swayidle -w\
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ## Lock Screen
-$ubind $mod+f1 exec swaylock
+$ubind $mod+f1 exec ~/.config/swaylock/swaylock-effects.sh
 
 ### Key bindings
 #
@@ -44,6 +46,9 @@ $ubind $mod+f1 exec swaylock
 
     # Open the power menu
     $ubind $mod+Shift+Backspace exec $powermenu
+
+    # Toggle services
+    $ubind $mod+Shift+n exec $servicetoggle
 
     # Kill focused window
     $ubind $mod+Backspace kill

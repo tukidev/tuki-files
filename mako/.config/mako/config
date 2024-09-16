@@ -1,16 +1,16 @@
-font=Space Grotesk Medium 11
+font=Noto Sans Medium 14
 
 sort=-time
 layer=overlay
 default-timeout=3000
-width=400
-height=240
+width=420
+height=320
 padding=12
-margin=8
+margin=12
 icon-path=/usr/share/icons/Arc-X-D
-max-icon-size=70
-border-radius=0
-border-size=1
+max-icon-size=90
+border-radius=6
+border-size=2
 
 background-color=#181825
 text-color=#CDD6F4

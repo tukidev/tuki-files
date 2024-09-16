@@ -64,8 +64,8 @@ def build_wofi_string(windows):
 # Executes wofi with the given input string
 def show_wofi(windows):
 
-    command="wofi -c ~/.config/wofi/menu -s ~/.config/wofi/sway.css -p \"Windows: \" -d -i --hide-scroll"
-    
+    command="wofi -c ~/.config/wofi/config.windows -s ~/.config/wofi/style.css"
+
     process = subprocess.Popen(command,shell=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
     return process.communicate(input=windows)[0]
 
@@ -78,7 +78,7 @@ def parse_id(windows, parsed_windows, selected):
 # Switches the focus to the given id
 def switch_window(id):
     command="swaymsg [con_id={}] focus".format(id)
-    
+
     process = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE)
     process.communicate()[0]
 

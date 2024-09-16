@@ -69,6 +69,7 @@
         "/home/tuki/.config/local/share/nvim/lazy/alpha-nvim/lua",
         "/home/tuki/.config/local/share/nvim/lazy/nui.nvim/lua",
         "/home/tuki/.dotty/nvim/.config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }

@@ -23,15 +23,14 @@ for_window [shell="x_wayland"] title_format "%class - %title"
 
 # Colors                border          bg              text        indi            childborder
 client.focused          $mauve          $mauve          $base       $mauve           $mauve
-client.focused_inactive $base           $mantle         $text       $base            $base
-client.unfocused        $base           $mantle         $text       $base            $base
+client.focused_inactive $surface1       $mantle         $text       $base            $base
+client.unfocused        $surface1       $mantle         $text       $base            $base
 client.urgent           $base           $mantle         $red        $base            $base
 client.background       $mantle
 
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-   swaybar_command waybar
-}
+bar swaybar_command waybar
+# exec waybar -c /home/tuki/.config/waybar/configs/sway-top-stones-colored/config.jsonc -s /home/tuki/.config/waybar/configs/sway-top-stones-colored/style.css
+exec /home/tuki/.config/scripts/waybar/waybar-loop-reloading.sh

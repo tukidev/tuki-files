@@ -11,3 +11,7 @@ export SAVEHIST=10000                   # Maximum events in history file
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+export OBSIDIAN_USE_WAYLAND=1
+
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring

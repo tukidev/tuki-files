@@ -1,0 +1,315 @@
+{
+  //  == GLOBAL ==
+  "layer": "top",
+  "mode": "dock", // Display mode (dock|hide|invisible|overlay)
+  "exclusive": true, // Request an exclusive zone from the compositor
+  "position": "top",
+  "output": "eDP-1",
+  "margin": 0,
+  "padding": 0,
+  // "height": 10,
+  "modules-left": [
+    "custom/power",
+    "hyprland/workspaces"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "hyprland/submap",
+    "tray",
+    "idle_inhibitor",
+    "hyprland/language",
+    "bluetooth",
+    "network#icon",
+    // "network",
+    "pulseaudio#icon",
+    "pulseaudio",
+    "backlight#icon",
+    "backlight",
+    "cpu#icon",
+    "cpu",
+    "memory#icon",
+    "memory",
+    "disk#icon",
+    "disk",
+    "battery#icon",
+    "battery",
+    "clock"
+  ],
+  //
+  //  /===> MODULES   <===/
+  //
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "disable-click": false,
+    "disable-scroll": false,
+    "disable-scroll-wraparound": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9"
+    }
+  },
+  "hyprland/submap": {
+    "format": " {}",
+    "align": 0.5,
+    "tooltip": true
+  },
+  "clock": {
+    "align": 0.5,
+    "min-length": 5,
+    "interval": 60,
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:<b>%A %b %d</b>}",
+    "max-length": 25
+    //"format-alt": "{:<b>%a %b %d</b>}"
+  },
+  // #############
+  // ## BATTERY ##
+  // #############
+  // "battery#icon": {
+  //   "align": 0.5,
+  //   "min-length": 2,
+  //   "bat": "BAT0",
+  //   "states": {
+  //     "good": 95,
+  //     "warning": 30,
+  //     "critical": 15
+  //   },
+  //   "format": "BAT",
+  //   "format-charging": "BAT"
+  // },
+  "battery": {
+    // "align": 0.5,
+    "min-length": 7,
+    "bat": "BAT0",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{icon}󱐋 {capacity}%",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
+  },
+  // ###############
+  // ## BACKLIGHT ##
+  // ###############
+  // "backlight#icon": {
+  //   "align": 0.5,
+  //   "min-length": 3,
+  //   "format": "LHT",
+  //   "states": {
+  //     "light": 70,
+  //     "medium": 50,
+  //     "dark": 30
+  //   },
+  //   "format-icons": [
+  //     ""
+  //   ],
+  //   "on-scroll-down": "brightnessctl -c backlight set 1%-",
+  //   "on-scroll-up": "brightnessctl -c backlight set +1%"
+  // },
+  "backlight": {
+    // "align": 0.5,
+    "min-length": 7,
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      " ",
+      " "
+    ],
+    "states": {
+      "light": 70,
+      "medium": 50,
+      "dark": 30
+    },
+    "on-scroll-down": "brightnessctl -c backlight set 5%-",
+    "on-scroll-up": "brightnessctl -c backlight set +5%",
+    "scroll-step": 0.5
+  },
+  // "bluetooth": {
+  //   "min-length": 4,
+  //   "align": 0.5,
+  //   "format": "BLUE",
+  //   "tooltip-format": "{controller_alias}\t{controller_address}",
+  //   "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_enumerate}",
+  //   "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  //   "on-click": "blueman-manager",
+  //   "on-click-right": "$HOME/.config/scripts/service-toggle.sh bluetooth"
+  // },
+  "bluetooth": {
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {device_alias}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  // "cpu#icon": {
+  //   "align": 0.5,
+  //   "min-length": 3,
+  //   "interval": 1,
+  //   "format": "CPU",
+  //   "states": {
+  //     "warning": 60,
+  //     "critical": 90
+  //   },
+  //   "on-click": "kitty -e 'btm'"
+  // },
+  "cpu": {
+    // "align": 0.5,
+    "min-length": 6,
+    "interval": 2,
+    "format-icons": " ",
+    "format": "{icon}{usage}%",
+    "states": {
+      "warning": 60,
+      "critical": 90
+    },
+    "on-click": "kitty -e 'btm'"
+  },
+  "memory#icon": {
+    "format-icons": " ",
+    "format": "{icon}",
+    "on-click": "kitty -e 'btm'",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "min-length": 6,
+    "interval": 5,
+    "format": "{percentage}%",
+    "on-click": "kitty -e 'btm'",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "temperature": {
+    // "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "align": 0.5,
+    "min-length": 4,
+    "states": {
+      "warning": 5,
+      "critical": 75
+    },
+    "critical-threshold": 80,
+    "interval": 5,
+    "format": "{icon}  <b>{temperatureC}°</b>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 6
+  },
+  "hyprland/language": {
+    "align": 0.5,
+    "min-length": 4,
+    "format": "  <b><span text-transform='uppercase'>{}</span></b>",
+    "format-en": "ENG",
+    "format-uk": "UKR"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
+  "pulseaudio#icon": {
+    "align": 0.5,
+    "min-length": 3,
+    "format-icons": {
+        "headphone": "󰋋 ",
+        "headset": "󰋎 ",
+        "phone": " ",
+        "portable": " ",
+        "car": "󰞩 ",
+        "default": ["", ""]
+    },
+    "format": "VOL",
+    "format-bluetooth": "VOLB",
+    "format-muted": "SOUND-OFF",
+    "scroll-step": 4,
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2"
+  },
+  "pulseaudio": {
+    "align": 0.5,
+    "min-length": 5,
+    "format": "{volume}%",
+    "format-bluetooth": "{volume}%",
+    "format-muted": "",
+    "scroll-step": 2,
+    "max-volume": 150,
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pamixer -ui 1",
+    "on-scroll-down": "pamixer -ud 1"
+  },
+  "disk#icon": {
+    "align": 0.5,
+    "min-length": 2,
+    "interval": 18000,
+    "format": " ",
+    "tooltip-format": "{used} used out of {total} on {path}"
+  },
+  "disk": {
+    "align": 0.5,
+    "min-length": 4,
+    "interval": 18000,
+    "format": "{percentage_used}%",
+    "tooltip-format": "{used} used out of {total} on {path}"
+  },
+  "network#icon": {
+    "interval": 2,
+    "min-length": 4,
+    "format-wifi": " ",
+    "format-ethernet": "󰈀 ",
+    "format-linked": "󰌘 ",
+    "format-disconnected": "󰶐 ",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "<b>{essid}</b>  |   : <b>{signalStrength}%</b>  |   {bandwidthDownBits}\t {bandwidthUpBits}",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}",
+    "tooltip-format-linked": "{ifname}: {ipaddr}",
+    "on-click": "wofi-wifi-menu"
+  },
+  "network": {
+    "interval": 2,
+    "format-wifi": "{essid}",
+    "format-ethernet": "{ifname}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "󰤨 {essid} : {signalStrength}% |  {bandwidthDownBits},  {bandwidthUpBits}",
+    "on-click": "wofi-wifi-menu"
+  },
+  "custom/power": {
+    "min-length": 3,
+    "format": " ",
+    "on-click": "exec ~/.config/scripts/logoutlaunch.sh",
+    "tooltip": false
+  }
+}

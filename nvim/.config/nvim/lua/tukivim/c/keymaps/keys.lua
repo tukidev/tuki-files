@@ -351,7 +351,10 @@ return {
     { "<leader>lo", "<cmd>TypescriptOrganizeImports<CR>",      desc = "Organize Imports" },
     { "<leader>lR", "<cmd>TypescriptRenameFile<CR>",           desc = "Rename File" },
     { "fd",         "<cmd>TypescriptGoToSourceDefinition<CR>", desc = "Go to Definition (TS)" },
-
+  },
+  ["lsp-clang"]      = {
+    { "<leader>lz", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+    { "<leader>lh", "<cmd>ClangdToggleInlayHints<cr>",   desc = "Toggle inlay [h]ints" }
   },
 
   ["lsp-python"]     = {
@@ -417,11 +420,11 @@ return {
     { "<leader>G", function() require("tukivim.plugins.utils.toggleterm").lazygit_toggle() end, desc = "LazyGit" },
   },
   ["iron"]               = {
-    { "<leader>ia", "<cmd>IronAttach<cr>", desc = "Iron [a]ttach" },
-    { "<leader>ir", "<cmd>IronRepl<cr>",   desc = "Iron [r]epl" },
-    { "<leader>iR", "<cmd>IronRestart<cr>",   desc = "Iron [R]estart" },
-    { "<leader>ih", "<cmd>IronHide<cr>",   desc = "Iron [h]ide" },
-    { "<leader>ii", "<cmd>IronSend<cr>",   desc = "Iron send" },
+    { "<leader>ia", "<cmd>IronAttach<cr>",  desc = "Iron [a]ttach" },
+    { "<leader>ir", "<cmd>IronRepl<cr>",    desc = "Iron [r]epl" },
+    { "<leader>iR", "<cmd>IronRestart<cr>", desc = "Iron [R]estart" },
+    { "<leader>ih", "<cmd>IronHide<cr>",    desc = "Iron [h]ide" },
+    { "<leader>ii", "<cmd>IronSend<cr>",    desc = "Iron send" },
   },
   ["zen-mode"]           = {
     { "<leader>uz", function() require("zen-mode").toggle() end, desc = "[Z]en Mode" }

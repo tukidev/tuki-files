@@ -1,0 +1,299 @@
+{
+  //  == GLOBAL ==
+  "layer": "top",
+  "mode": "dock", // Display mode (dock|hide|invisible|overlay)
+  "exclusive": true, // Request an exclusive zone from the compositor
+  "position": "top",
+  "output": "eDP-1",
+  "margin": 0,
+  "padding": 0,
+  // "height": 10,
+  "modules-left": [
+    "custom/power",
+    "sway/workspaces"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "sway/mode",
+    "tray",
+    "sway/language",
+    "bluetooth",
+    "network#icon",
+    // "network",
+    "pulseaudio#icon",
+    "pulseaudio",
+    "backlight#icon",
+    "backlight",
+    "cpu#icon",
+    "cpu",
+    "memory#icon",
+    "memory",
+    "disk#icon",
+    "disk",
+    "battery#icon",
+    "battery",
+    "clock"
+  ],
+  //
+  //  /===> MODULES   <===/
+  //
+  "sway/workspaces": {
+    "all-outputs": true,
+    "disable-click": false,
+    "disable-scroll": false,
+    "disable-scroll-wraparound": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1q": "q<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1w": "w<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1e": "e<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1a": "a<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1s": "s<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1d": "d<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1x": "x<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "1c": "c<i><sub><span font-size='10pt'>1</span></sub></i>",
+      "2q": "q<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2w": "w<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2e": "e<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2a": "a<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2s": "s<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2d": "d<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2x": "x<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "2c": "c<i><sub><span font-size='10pt'>2</span></sub></i>",
+      "3q": "q<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3w": "w<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3e": "e<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3a": "a<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3s": "s<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3d": "d<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3x": "x<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "3c": "c<i><sub><span font-size='10pt'>3</span></sub></i>",
+      "4q": "q<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4w": "w<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4e": "e<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4a": "a<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4s": "s<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4d": "d<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4x": "x<i><sub><span font-size='10pt'>4</span></sub></i>",
+      "4c": "c<i><sub><span font-size='10pt'>4</span></sub></i>"
+    }
+  },
+  "sway/mode": {
+    "format": "",
+    "align": 0.5,
+    "min-length": 1
+    // "max-length": 1
+  },
+  "clock": {
+    "align": 0.5,
+    "min-length": 5,
+    "interval": 60,
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:<b>%A %b %d</b>}",
+    "max-length": 25
+    //"format-alt": "{:<b>%a %b %d</b>}"
+  },
+  // #############
+  // ## BATTERY ##
+  // #############
+  "battery#icon": {
+    "align": 0.5,
+    "min-length": 3,
+    "bat": "BAT0",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "BAT",
+    "format-charging": "BAT"
+  },
+  "battery": {
+    "align": 0.5,
+    "min-length": 4,
+    "bat": "BAT0",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}%",
+    "format-charging": "{capacity}%"
+  },
+  // ###############
+  // ## BACKLIGHT ##
+  // ###############
+  "backlight#icon": {
+    "align": 0.5,
+    "min-length": 3,
+    "format": "LHT",
+    "states": {
+      "light": 70,
+      "medium": 50,
+      "dark": 30
+    },
+    "format-icons": [
+      ""
+    ],
+    "on-scroll-down": "brightnessctl -c backlight set 1%-",
+    "on-scroll-up": "brightnessctl -c backlight set +1%"
+  },
+  "backlight": {
+    "align": 0.5,
+    "min-length": 4,
+    "format": "{percent}%",
+    "states": {
+      "light": 70,
+      "medium": 50,
+      "dark": 30
+    },
+    "on-scroll-down": "brightnessctl -c backlight set 1%-",
+    "on-scroll-up": "brightnessctl -c backlight set +1%"
+  },
+  "bluetooth": {
+    "min-length": 4,
+    "align": 0.5,
+    "format": "BLUE",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager",
+    "on-click-right": "$HOME/.config/scripts/service-toggle.sh bluetooth",
+  },
+  "cpu#icon": {
+    "align": 0.5,
+    "min-length": 3,
+    "interval": 1,
+    "format": "CPU",
+    "states": {
+      "warning": 60,
+      "critical": 90
+    },
+    "on-click": "kitty -e 'btm'"
+  },
+  "cpu": {
+    "align": 0.5,
+    "min-length": 4,
+    "interval": 1,
+    "format": "{usage}%",
+    "states": {
+      "warning": 60,
+      "critical": 90
+    },
+    "on-click": "kitty -e 'btm'"
+  },
+  "memory#icon": {
+    "align": 0.5,
+    "min-length": 3,
+    "interval": 5,
+    "format": "RAM",
+    "on-click": "kitty -e 'htop'",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "align": 0.5,
+    "min-length": 4,
+    "interval": 5,
+    "format": "{}%",
+    "on-click": "kitty -e 'htop'",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "temperature": {
+    // "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "align": 0.5,
+    "min-length": 4,
+    "states": {
+      "warning": 5,
+      "critical": 75
+    },
+    "critical-threshold": 80,
+    "interval": 5,
+    "format": "{icon}  <b>{temperatureC}°</b>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 6
+  },
+  "sway/language": {
+    "align": 0.5,
+    "min-length": 3,
+    "format": "<b><span text-transform='uppercase'>{shortDescription}</span></b>"
+  },
+  "pulseaudio#icon": {
+    "align": 0.5,
+    "min-length": 3,
+    "format": "VOL",
+    "format-bluetooth": "VOLB",
+    "format-muted": "SOUND-OFF",
+    "scroll-step": 4,
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2"
+  },
+  "pulseaudio": {
+    "align": 0.5,
+    "min-length": 5,
+    "format": "{volume}%",
+    "format-bluetooth": "{volume}%",
+    "format-muted": "",
+    "scroll-step": 2,
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2"
+  },
+    "disk#icon": {
+    "align": 0.5,
+    "min-length": 1,
+    "interval": 18000,
+    "format": "/",
+    "tooltip-format": "{used} used out of {total} on {path}"
+  },
+  "disk": {
+    "align": 0.5,
+    "min-length": 4,
+    "interval": 18000,
+    "format": "{percentage_used}%",
+    "tooltip-format": "{used} used out of {total} on {path}"
+  },
+  "network#icon": {
+    "interval": 2,
+    "min-length": 4,
+    "format-wifi": "WIFI",
+    "format-ethernet": "ETH",
+    "format-linked": "LINKED",
+    "format-disconnected": "NETWORK",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "<b>{essid}</b>  |  Signal Strength: <b>{signalStrength}%</b>  |   {bandwidthDownBits}\t {bandwidthUpBits}",
+    "on-click": "wofi-wifi-menu"
+  },
+  "network": {
+    "interval": 2,
+    "format-wifi": "",
+    // "format-wifi": "{essid}",
+    // "format-ethernet": "{ifname}",
+    // "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "󰤨 {essid} : {signalStrength}% |  {bandwidthDownBits},  {bandwidthUpBits}",
+    "on-click": "wofi-wifi-menu"
+  },
+  "custom/power": {
+    "min-length": 3,
+    "format": "⏻",
+    "on-click": "exec ~/.config/scripts/wofi/power-menu.sh",
+    "tooltip": false
+  }
+}

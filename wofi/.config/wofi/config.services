@@ -1,0 +1,18 @@
+show=dmenu
+hide_scroll=true
+allow_images=false
+insensitive=true
+display_generic=true
+
+prompt=Service name ...
+
+width=40%
+height=30%
+columns=2
+
+content_halign=center
+
+key_up=Ctrl-k
+key_down=Ctrl-j
+key_left=Ctrl-h
+key_right=Ctrl-l

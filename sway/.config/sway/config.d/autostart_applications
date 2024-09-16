@@ -15,6 +15,9 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
+exec sudo systemctl start bluetooth.service
+# exec sudo systemctl start incrond.service
+
 # Welcome App
 exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
 

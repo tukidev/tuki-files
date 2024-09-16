@@ -1,0 +1,422 @@
+/*      /==========================/
+*       /==<    VARIABLES      >===/
+*       /==========================/
+**/
+
+/* Catppuccin Colorscheme */
+
+:root {
+  -color-rosewater: #F5E0DC;
+  -color-flamingo: #F2CDCD;
+  -color-pink: #F5C2E7;
+  -color-mauve: #CBA6F7;
+  -color-red: #F38BA8;
+  -color-maroon: #EBA0AC;
+  -color-peach: #FAB387;
+  -color-yellow: #F9E2AF;
+  -color-green: #A6E3A1;
+  -color-teal: #94E2D5;
+  -color-sky: #89DCEB;
+  -color-sapphire: #74C7EC;
+  -color-blue: #89B4FA;
+  -color-lavender: #B4BEFE;
+  -color-text: #CDD6F4;
+  -color-subtext1: #BAC2DE;
+  -color-subtext0: #A6ADC8;
+  -color-overlay2: #9399B2;
+  -color-overlay1: #7F849C;
+  -color-overlay0: #6C7086;
+  -color-surface2: #585B70;
+  -color-surface1: #45475A;
+  -color-surface0: #313244;
+  -color-base: #1E1E2E;
+  -color-mantle: #181825;
+  -color-crust: #11111B;
+}
+
+
+/*       ==================================
+*        =      GLOBAL WAYBAR STYLE       =
+*        ==================================
+**/
+
+#waybar {
+  background-color: @base;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Tooltips */
+tooltip {
+  background: @crust;
+  border-radius: 4px;
+  border: 0.5px solid @text;
+}
+
+tooltip label {
+  color: @subtext1;
+}
+
+#battery,
+#backlight,
+#cpu,
+#clock,
+#memory,
+#disk,
+#language,
+#bluetooth,
+#pulseaudio,
+#temperature,
+#network,
+#tray,
+#mode,
+#idle_inhibitor {
+  font-family: Barlow Semi Condensed Medium;
+  font-size: 9pt;
+  color: @subtext1;
+  padding: 0px 0.40rem;
+}
+
+#network,
+#pulseaudio,
+#backlight,
+#cpu,
+#memory,
+#disk,
+#battery {
+  background-color: @surface0;
+  border-radius: 0px 6px 6px 0px;
+  margin: 4px 4px 4px 0px;
+}
+
+#network.icon,
+#backlight.icon,
+#cpu.icon,
+#memory.icon,
+#disk.icon,
+#battery.icon,
+#pulseaudio.icon {
+  font-weight: bold;
+  border-radius: 6px 0px 0px 6px;
+  margin: 4px 0px 4px 4px;
+  color: @mantle;
+}
+
+button {
+  min-height: 18px;
+  min-width: 24px;
+}
+
+
+
+/*       ==============================
+*        ==     MODULES STYLES       ==
+*        ==============================
+**/
+
+
+/*      BATTERY     */
+
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.icon {
+  background-color: @green;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.icon.warning {
+  color: @mantle;
+  background-color: @peach;
+}
+
+#battery.icon.critical {
+  color: @mantle;
+  background-color: @red;
+}
+
+#battery.icon.charging {
+  color: @mantle;
+  background-color: @green;
+}
+
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+
+/*      WORKSPACES     */
+#workspaces {
+  font-weight: bold;
+  font-family: Inter;
+  font-size: 9pt;
+  padding: 0px;
+  margin: 4px;
+  background-color: @surface0;
+  border-radius: 6px;
+}
+
+#workspaces button {
+  font-weight: bold;
+  padding: 0px 4px;
+  margin: 0px;
+  border-radius: 6px;
+  color: @subtext1;
+}
+
+#workspaces button.focused {
+  background-color: @lavender;
+  color: @mantle;
+}
+
+#workspaces button.focused#sway-workspace-2q,
+#workspaces button.focused#sway-workspace-2w,
+#workspaces button.focused#sway-workspace-2e,
+#workspaces button.focused#sway-workspace-2a,
+#workspaces button.focused#sway-workspace-2s,
+#workspaces button.focused#sway-workspace-2d,
+#workspaces button.focused#sway-workspace-2x,
+#workspaces button.focused#sway-workspace-2c {
+  background-color: @green;
+}
+
+#workspaces button.focused#sway-workspace-3q,
+#workspaces button.focused#sway-workspace-3w,
+#workspaces button.focused#sway-workspace-3e,
+#workspaces button.focused#sway-workspace-3a,
+#workspaces button.focused#sway-workspace-3s,
+#workspaces button.focused#sway-workspace-3d,
+#workspaces button.focused#sway-workspace-3x,
+#workspaces button.focused#sway-workspace-3c {
+  background-color: @yellow;
+}
+
+#workspaces button.focused#sway-workspace-4q,
+#workspaces button.focused#sway-workspace-4w,
+#workspaces button.focused#sway-workspace-4e,
+#workspaces button.focused#sway-workspace-4a,
+#workspaces button.focused#sway-workspace-4s,
+#workspaces button.focused#sway-workspace-4d,
+#workspaces button.focused#sway-workspace-4x,
+#workspaces button.focused#sway-workspace-4c {
+  background-color: @pink;
+}
+
+#workspaces button.urgent {
+  font-weight: bold;
+  font-style: italic;
+  color: @red;
+}
+
+
+/*      BACKLIGHT     */
+#backlight {}
+
+#backlight.icon {
+  background-color: @yellow;
+}
+
+/*      BLUETOOTH     */
+#bluetooth {
+  font-weight: bold;
+  padding: 0px 0.40rem;
+  background-color: @pink;
+  color: @mantle;
+  border-radius: 6px 0px 0px 6px;
+  margin: 4px 1px 4px 4px;
+}
+
+#bluetooth.disabled {
+  background-color: @surface0;
+  color: @overlay2;
+}
+
+#bluetooth.off {
+  background-color: @surface0;
+  color: @overlay2;
+}
+
+#bluetooth.on {
+  background-color: @overlay2;
+  color: @surface0;
+}
+
+#bluetooth.connected {
+  background-color: @pink;
+  color: @mantle;
+}
+
+/*      CPU     */
+#cpu {}
+
+#cpu.icon {
+  background-color: @maroon;
+}
+
+#cpu.icon.warning {
+  color: @mantle;
+}
+
+#cpu.icon.critical {
+  color: @mantle;
+}
+
+
+#cpu.warning {
+  color: @peach;
+}
+
+#cpu.critical {
+  color: @red;
+}
+
+
+/*      MEMORY     */
+#memory {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#memory.icon {
+  background-color: @flamingo;
+}
+
+#memory.warning {
+  color: @peach;
+}
+
+#memory.critical {
+  color: @red;
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+#memory.icon.warning {
+  color: @mantle;
+}
+
+#memory.icon.critical {
+  color: @mantle;
+}
+
+
+/*      TEMPERATURE     */
+#temperature {
+  padding-right: 1rem;
+  margin-right: 2px;
+  border-bottom: 2px solid @white;
+  /* border-radius: 30px 15px 22px 19px; */
+}
+
+
+#language {
+  color: @subtext1;
+  border-radius: 0px;
+}
+
+
+
+/*      /==>    VOLUME     <==/    */
+#pulseaudio {
+  border-radius: 0px 6px 6px 0px;
+  background-color: @surface0;
+}
+
+#pulseaudio.icon {
+  color: @mantle;
+  background-color: @blue;
+}
+
+#pulseaudio.muted {
+  margin: 4px;
+  border-radius: 6px;
+  background-color: @peach;
+}
+
+#network {
+  border-radius: 6px;
+  margin: 4px;
+}
+
+#network.icon {
+  margin: 4px 4px 4px 0px;
+  border-radius: 0px 6px 6px 0px;
+  background-color: @mauve;
+}
+
+#network.icon.disconnected {
+  color: @overlay2;
+  background-color: @surface0;
+}
+
+
+#mode {
+  /* font-family: Hack; */
+  margin: 2px 0px;
+  font-size: 14px;
+  border: 0px;
+  border-radius: 6px;
+  background-color: @base;
+  color: @yellow;
+}
+
+#network.disconnected {
+  color: @peach;
+}
+
+
+#clock {
+  font-family: Roboto Condensed;
+  min-height: 12px;
+  min-width: 20px;
+  font-size: 14px;
+  /* font-weight: bold; */
+  color: @text;
+  margin-right: 0px;
+  border-right: 0px;
+}
+
+#disk {}
+
+#disk.icon {
+  background-color: @lavender;
+}
+
+#tray {
+  background-color: @base;
+  margin: 4px 0px;
+  padding: 0rem 0.4rem;
+}
+
+
+/*      CUSTOM     */
+#custom-power {
+  font-size: 9pt;
+  font-family: Liga SFMono Nerd Font;
+  color: @mantle;
+  background-color: @red;
+  margin: 4px 4px 4px 8px;
+  padding: 0rem .25rem 0rem 0rem;
+  border-radius: 6px;
+}

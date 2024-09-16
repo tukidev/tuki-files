@@ -1,14 +1,14 @@
 hide_search=true
 hide_scroll=true
 width=25%
+height=20%
 show=dmenu
-lines=3
 columns=2
 location=0
 
 content_halign=center
 
-key_up=Control_L-k
-key_down=Control_L-j
-key_left=Control_L-h
-key_right=Control_L-l
+key_up=Ctrl-k
+key_down=Ctrl-j
+key_left=Ctrl-h
+key_right=Ctrl-l

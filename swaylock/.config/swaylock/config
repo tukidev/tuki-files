@@ -1,53 +1,74 @@
-# indicator
 # no-unlock-indicator
-# daemonize
-show-keyboard-layout
-indicator-caps-lock
-# datestr=%A
-image=$HOME/.config/sway/wallpaper-lock.png
-scaling=fill
-font=Hack
-font-size=32
+# image=$HOME/.config/wallpaper.png
+# scaling=fill
 
-# Ring
-indicator-radius=100
+daemonize
+show-failed-attempts
+show-keyboard-layout
+ignore-empty-password
+
+font=Hack
+font-size=96
+
+screenshots
+
+clock
+timestr=%I:%M %p
+datestr=%a, %B %e
+
+grace=5
+grace-no-mouse
+grace-no-touch
+
+# Effects
+effect-blur=8x15
+effect-vignette=0.6:0.8
+# effect-greyscale
+
+# fade-in=0.15
+
+# Indicator
+indicator
+indicator-radius=130
+indicator-thickness=8
+indicator-caps-lock
 
 # line-uses-ring
-inside-color=#CBA6F7
+inside-color=#CBA6F760
 line-color=#CBA6F7
-ring-color=#CBA6F7
-text-color=#1E1E2E
+ring-color=#CBA6F760
+text-color=#CBA6F7
 
 separator-color=#CBA6F7
 layout-text-color=#F9E2AF
 
 # Caps Lock
-inside-caps-lock-color=#F5C2E7
+inside-caps-lock-color=#F5C2E760
 line-caps-lock-color=#F5C2E7
-ring-caps-lock-color=#F5C2E7
-text-caps-lock-color=#1E1E2E
+ring-caps-lock-color=#F5C2E760
+text-caps-lock-color=#F5C2E7
 
 # Wrong
-inside-wrong-color=#F38BA8
+inside-wrong-color=#F38BA860
 line-wrong-color=#F38BA8
 ring-wrong-color=#F38BA8
-text-wrong-color=#1E1E2E
+text-wrong-color=#F38BA8
 
 # Clear
-inside-clear-color=#F9E2AF
+inside-clear-color=#F9E2AF60
 line-clear-color=#F9E2AF
 ring-clear-color=#F9E2AF
-text-clear-color=#1E1E2E
+text-clear-color=#F9E2AF
 
 # Verification
-inside-ver-color=#94E2D5
+inside-ver-color=#94E2D560
 line-ver-color=#94E2D5
 ring-ver-color=#94E2D5
-text-ver-color=#1E1E2E
+text-ver-color=#94E2D5
 
 # Keys
-key-hl-color=#181825
-caps-lock-key-hl-color=#181825
+key-hl-color=#CBA6F7
+caps-lock-key-hl-color=#F5C2E7
 
 # Backspace
 bs-hl-color=#F9E2AF

@@ -1,3 +1,30 @@
+/* @define-color rosewaterTr   #F5E0DC; */
+/* @define-color flamingoTr    #F2CDCD; */
+/* @define-color pinkTr        #F5C2E7; */
+/* @define-color mauveTr       #CBA6F7; */
+/* @define-color redTr         #F38BA8; */
+/* @define-color maroonTr      #EBA0AC; */
+/* @define-color peachTr       #FAB387; */
+/* @define-color yellowTr      #F9E2AF; */
+/* @define-color greenTr       #A6E3A1; */
+/* @define-color tealTr        #94E2D5; */
+/* @define-color skyTr         #89DCEB; */
+/* @define-color sapphireTr    #74C7EC; */
+/* @define-color blueTr        #89B4FA; */
+/* @define-color lavenderTr    #B4BEFE; */
+/* @define-color textTr        #CDD6F4; */
+/* @define-color subtextTr1    #BAC2DE; */
+/* @define-color subtextTr0    #A6ADC8; */
+/* @define-color overlayTr2    #9399B2; */
+/* @define-color overlayTr1    #7F849C; */
+/* @define-color overlayTr0    #6C7086; */
+/* @define-color surfaceTr2    #585B70; */
+/* @define-color surfaceTr1    #45475A; */
+/* @define-color surfaceTr0    #313244; */
+/* @define-color baseTr        #1E1E2E; */
+/* @define-color mantleTr      #181825; */
+/* @define-color crustTr       #11111B; */
+
 @define-color rosewater   #F5E0DC;
 @define-color flamingo    #F2CDCD;
 @define-color pink        #F5C2E7;
@@ -25,25 +52,28 @@
 @define-color mantle      #181825;
 @define-color crust       #11111B;
 
-
-*{
+* {
   /* font-family: Space Grotesk Medium; */
   font-family: Barlow SemiBold;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 #window {
   background-color: @base;
-  border: 1px solid @surface0;
+  border: 2px solid @lavender;
+  opacity: 0.95;
+  border-radius: 4px;
 }
 
 #input {
   font-size: 16px;
-  padding: .8em;
-  margin: .5rem;
+  padding: 0.8em;
+  margin: 0.5rem;
   margin-bottom: 1.5rem;
-  border: 1px solid @base;
-  box-shadow: inset 0 -.2rem @mauve, 0px 0px 10px 1px rgba(0, 0, 0, 0.61);
+  border: 1px solid rgba(30, 30, 46, 0.9);
+  box-shadow:
+    inset 0 -0.2rem rgba(180, 190, 254, 0.9),
+    0px 0px 10px 1px rgba(0, 0, 0, 0.61);
   border-radius: 0px;
   color: @text;
   background-color: @base;
@@ -61,23 +91,23 @@
 }
 
 #text {
-  padding: 5px;
+  padding: 4px;
   color: @subtext1;
 }
 
-#entry{
-  padding: .5em;
-  margin: .25em 0.5em;
-  transition: box-shadow .30s ease-in-out, background-color .30s ease-in-out;
+#entry {
+  padding: 0.5em;
+  margin: 0.25em 0.5em;
+  transition:
+    box-shadow 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
 }
 
 #entry:selected {
-  background-color: @pink;
+  background-color: rgba(205, 214, 244, 0.9);
 }
 
 #text:selected {
   color: @mantle;
   font-weight: bold;
 }
-
-

@@ -1,15 +1,16 @@
 hide_scroll=true
 show=drun
 
-width=33%
-lines=6
-columns=
+width=50%
+height=35%
+columns=2
 
 allow_images=true
-image_size=24
+image_size=28
 prompt=Search ...
 
 term=kitty
+insensitive=true
 
 line_wrap=word
 allow_markup=true
@@ -18,10 +19,9 @@ show_all=true
 no_actions=true
 print_command=true
 layer=overlay
-insensitive=true
 display_generic=true
 
-key_up=Control_L-k
-key_down=Control_L-j
-key_left=Control_L-h
-key_right=Control_L-l
+key_up=Ctrl-k
+key_down=Ctrl-j
+key_left=Ctrl-h
+key_right=Ctrl-l

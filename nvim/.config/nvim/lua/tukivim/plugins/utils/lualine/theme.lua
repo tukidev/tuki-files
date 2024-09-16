@@ -104,14 +104,14 @@ M.components = {
         if #vim.diagnostic.get(0) > 0 then
           return ""
         end
-        return " "
+        return " "
       end,
     },
 
     diag = {
       "diagnostics",
       sources = { "nvim_diagnostic" },
-      symbols = { error = " ", warn = "󰔶 ", info = "● ", hint = "󰌵 " },
+      symbols = { error = " ", warning = " ", hint = " ", info = " " },
       diagnostics_color = THEME.winbar.diagnostic,
     },
   },
@@ -176,7 +176,7 @@ M.components = {
     name = {
       "filename",
       cond = function() return vim.fn.empty(vim.fn.expand("%:t")) ~= 1 end,
-      icon = "󰈔",
+      icon = "",
       path = 1,
       symbols = {
         modified = '[+]',      -- Text to show when the file is modified.
@@ -199,7 +199,7 @@ M.components = {
       function()
         local msg = ""
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-        local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
 
         -- defining plugin `nvim-jdtls`
         -- if buf_ft == "java" then
@@ -219,7 +219,7 @@ M.components = {
       end,
       icon = " ",
       cond = function()
-        local lsp = vim.lsp.get_active_clients({ bufnr = 0 })
+        local lsp = vim.lsp.get_clients({ bufnr = 0 })
         return next(lsp) ~= nil
       end,
       padding = { left = 2, right = 1 },
@@ -242,7 +242,7 @@ M.components = {
     },
     diff = {
       "diff",
-      symbols = { added = " ", modified = " ", removed = " " },
+      symbols = { added = " ", modified = " ", removed = " " },
       diff_color = THEME.git,
       padding = { left = 0 },
       cond = conditions.hide_in_width,

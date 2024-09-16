@@ -1,1 +1,1 @@
-eval "$(zoxide init zsh)"               # /==> init zoxide cli utility
+eval "$(zoxide init --cmd cd zsh)"

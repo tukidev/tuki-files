@@ -9,13 +9,12 @@ return {
     lazy = true,
     ft = "markdown",
     opts = {
+      ui = { enable = false },
       workspaces = {
         {
           name = "master",
           path = "~/Workspace/Obsidian/MasterVault",
-          overrides = {
-            notes_subdir = "0.Slip-Box",
-          },
+          overrides = { notes_subdir = "0.Slip-Box" },
         },
       },
       daily_notes = {
